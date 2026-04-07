@@ -23,12 +23,12 @@
 
   --gamabunta-red: #8B2015;   
   --gamabunta-tan: #C4915A;
-  --shima-teal: #2A6B5E;      
-  --shima-gold: #B8A830;
+  --shima-purple: #6B4F9A;      
+  --shima-lavander: #C4B0E8;
   --fukasaku-olive: #4A6225;  
   --fukasaku-cream: #D4BC7A;
-  --gama-blue: #1B3A6B;       
-  --gama-blue-light: #3A6DAA;
+  --gama-pink: #8B1A35;       
+  --gama-pink-light: #E8789A;
 }
 
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
@@ -208,10 +208,10 @@ body {
 .toad-pill.gamabunta .dot { background: #8B2015; }
 .toad-pill.fukasaku:hover { border-color: rgba(74,98,37,0.5); background: rgba(74,98,37,0.1); }
 .toad-pill.fukasaku .dot { background: #4A6225; }
-.toad-pill.shima:hover { border-color: rgba(42,107,94,0.5); background: rgba(42,107,94,0.1); }
-.toad-pill.shima .dot { background: #2A6B5E; }
-.toad-pill.gamaken:hover { border-color: rgba(27,58,107,0.5); background: rgba(27,58,107,0.1); }
-.toad-pill.gamaken .dot { background: #1B3A6B; }
+.toad-pill.shima:hover { border-color: rgba(123,94,167,0.6); background: rgba(42,107,94,0.1); }
+.toad-pill.shima .dot { background: #6B4F9A; }
+.toad-pill.gamaken:hover { border-color: rgba(184,48,85,0.6); background: rgba(27,58,107,0.1); }
+.toad-pill.gamaken .dot { background: #8B1A35; }
 
 header {
   position: fixed; top: 0; left: 0; right: 0;
