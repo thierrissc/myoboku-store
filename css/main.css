@@ -1112,3 +1112,336 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ============================================================
+   CHECKOUT MODAL
+   ============================================================ */
+#checkout-modal {
+  position: fixed; inset: 0;
+  z-index: 99000;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+#checkout-modal.active { opacity: 1; visibility: visible; }
+
+.checkout-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(0,0,0,0.82);
+  backdrop-filter: blur(4px);
+}
+
+.checkout-box {
+  position: relative; z-index: 1;
+  background: var(--near-black);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  width: min(680px, 96vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2.5rem 2.5rem 2rem;
+  animation: checkoutIn 0.38s cubic-bezier(0.33,1,0.68,1);
+}
+@keyframes checkoutIn {
+  from { transform: translateY(24px) scale(0.97); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.checkout-close {
+  position: absolute; top: 1.2rem; right: 1.2rem;
+  background: none; border: none;
+  color: var(--text-muted); cursor: pointer;
+  font-size: 1.1rem; transition: color 0.2s;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+}
+.checkout-close:hover { color: var(--text); background: var(--surface); }
+
+/* Steps bar */
+.checkout-steps {
+  display: flex; align-items: center; gap: 0;
+  margin-bottom: 2rem;
+}
+.checkout-step {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text-dim);
+  transition: color 0.3s;
+}
+.checkout-step.active { color: var(--text); }
+.checkout-step.done { color: var(--gold); }
+.step-num {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+  transition: background 0.3s, border-color 0.3s;
+}
+.checkout-step.active .step-num {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+.checkout-step.done .step-num {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+}
+.checkout-step-sep {
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  margin: 0 0.75rem;
+}
+
+/* Panels */
+.checkout-panel { display: none; }
+.checkout-panel.active { display: block; }
+
+.checkout-title {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.05em;
+}
+
+/* Form */
+.checkout-form { margin-bottom: 1.5rem; }
+
+.cf-row {
+  display: flex; gap: 1rem;
+  margin-bottom: 1rem;
+}
+.cf-field {
+  flex: 1;
+  display: flex; flex-direction: column; gap: 0.4rem;
+}
+.cf-field label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.cf-field input,
+.cf-field select {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-family: 'Crimson Pro', serif;
+  font-size: 0.95rem;
+  padding: 0.6rem 0.8rem;
+  transition: border-color 0.2s;
+  outline: none;
+  width: 100%;
+}
+.cf-field input:focus,
+.cf-field select:focus { border-color: var(--red); }
+.cf-field select option { background: var(--surface); }
+
+/* Shipping options */
+.shipping-options { margin-top: 1.2rem; }
+.shipping-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+.shipping-opt {
+  display: flex; align-items: center; gap: 0.8rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 0.6rem;
+  transition: border-color 0.2s, background 0.2s;
+}
+.shipping-opt:hover { border-color: rgba(192,57,43,0.5); background: var(--surface); }
+.shipping-opt input[type="radio"] { accent-color: var(--red); flex-shrink: 0; }
+.ship-info { flex: 1; display: flex; flex-direction: column; gap: 0.2rem; }
+.ship-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  color: var(--text);
+}
+.ship-desc { font-size: 0.78rem; color: var(--text-muted); }
+.ship-price {
+  font-family: 'Cinzel', serif;
+  font-size: 0.82rem;
+  color: var(--gold);
+  white-space: nowrap;
+}
+.ship-price.free { color: #7DB87A; }
+
+/* Navigation buttons */
+.checkout-nav-row {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 1rem;
+}
+.checkout-next-btn {
+  background: var(--red);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+  display: flex; align-items: center; gap: 0.5rem;
+  margin-left: auto;
+}
+.checkout-next-btn:hover { background: var(--red-dark); }
+.checkout-back-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.85rem 1.4rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: border-color 0.2s, color 0.2s;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.checkout-back-btn:hover { border-color: var(--text-muted); color: var(--text); }
+.checkout-confirm-btn {
+  background: var(--gold);
+  color: #000;
+  border: none;
+  padding: 0.85rem 2rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.checkout-confirm-btn:hover { background: var(--gold-light); }
+
+/* Payment tabs */
+.payment-tabs {
+  display: flex; gap: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+.pay-tab {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 0.7rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+}
+.pay-tab:hover { border-color: var(--red); color: var(--text); }
+.pay-tab.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+.pay-panel { display: none; }
+.pay-panel.active { display: block; }
+
+/* PIX / Boleto info */
+.pix-info {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+.pix-icon {
+  font-size: 2.5rem;
+  color: var(--red);
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+/* Order summary */
+.checkout-order-summary {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.summary-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+}
+.summary-rows { display: flex; flex-direction: column; gap: 0.5rem; }
+.summary-row {
+  display: flex; justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.summary-row.total-row {
+  color: var(--text);
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  border-bottom: none;
+  margin-top: 0.3rem;
+  padding-top: 0.4rem;
+  border-top: 1px solid var(--border);
+}
+.summary-row.total-row span:last-child { color: var(--gold); }
+
+/* Success screen */
+.checkout-success {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+.success-icon {
+  font-size: 4rem;
+  color: #7DB87A;
+  margin-bottom: 1.5rem;
+}
+.checkout-success h2 {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+.checkout-success p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.success-kanji {
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 4rem;
+  color: var(--red);
+  opacity: 0.15;
+  margin-top: 1.5rem;
+  line-height: 1;
+}

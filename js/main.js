@@ -199,12 +199,13 @@ function updateNavActive(pageId) {
 }
 
 let carouselAutoTimer = null;
+let carouselOffset = 0;      // current pixel offset
+let carouselAnimating = false;
 
 function initCarousel() {
   const track = document.getElementById('carousel-track');
   if (!track) return;
 
-  // Combine a few products from each collection for the highlight carousel
   const highlights = [
     ...PRODUCTS.home.slice(0, 3),
     ...PRODUCTS.gamabunta.slice(0, 2),
@@ -215,19 +216,25 @@ function initCarousel() {
   carouselItems = highlights;
   track.innerHTML = '';
 
-  // Clone items for infinite loop: original + clone at end
-  const allItems = [...highlights, ...highlights];
+  // Triple clone so we always have room in both directions
+  const allItems = [...highlights, ...highlights, ...highlights];
   allItems.forEach(product => {
     const card = createProductCard(product);
     track.appendChild(card);
   });
 
-  carouselIndex = 0;
+  // Start positioned at the middle set
+  requestAnimationFrame(() => {
+    const cards = track.querySelectorAll('.product-card');
+    if (!cards.length) return;
+    const cardWidth = cards[0].offsetWidth + 24;
+    carouselOffset = highlights.length * cardWidth;
+    track.style.transition = 'none';
+    track.style.transform = `translateX(-${carouselOffset}px)`;
+    carouselIndex = highlights.length;
+    startCarouselAuto();
+  });
 
-  // Start auto-scroll
-  startCarouselAuto();
-
-  // Pause on hover
   const wrapper = track.parentElement;
   wrapper.addEventListener('mouseenter', stopCarouselAuto);
   wrapper.addEventListener('mouseleave', startCarouselAuto);
@@ -235,41 +242,49 @@ function initCarousel() {
 
 function startCarouselAuto() {
   stopCarouselAuto();
-  carouselAutoTimer = setInterval(() => {
-    moveCarouselAuto();
-  }, 3200);
+  carouselAutoTimer = setInterval(moveCarouselAuto, 2800);
 }
 
 function stopCarouselAuto() {
-  if (carouselAutoTimer) {
-    clearInterval(carouselAutoTimer);
-    carouselAutoTimer = null;
-  }
+  if (carouselAutoTimer) { clearInterval(carouselAutoTimer); carouselAutoTimer = null; }
 }
 
 function moveCarouselAuto() {
   const track = document.getElementById('carousel-track');
-  if (!track) return;
+  if (!track || carouselAnimating) return;
   const cards = track.querySelectorAll('.product-card');
   if (!cards.length) return;
 
   const cardWidth = cards[0].offsetWidth + 24;
-  const half = cards.length / 2;
+  const totalItems = cards.length;           // 3x
+  const setSize = totalItems / 3;            // original set size
 
   carouselIndex++;
+  carouselOffset = carouselIndex * cardWidth;
 
-  // Smooth scroll
-  track.style.transition = 'transform 0.9s cubic-bezier(0.4,0,0.2,1)';
-  track.style.transform = `translateX(-${carouselIndex * cardWidth}px)`;
+  carouselAnimating = true;
+  track.style.transition = 'transform 0.72s cubic-bezier(0.33, 1, 0.68, 1)';
+  track.style.transform = `translateX(-${carouselOffset}px)`;
 
-  // When we reach the cloned set, silently reset
-  if (carouselIndex >= half) {
-    setTimeout(() => {
+  track.addEventListener('transitionend', function onEnd() {
+    track.removeEventListener('transitionend', onEnd);
+    carouselAnimating = false;
+
+    // Silently loop: if we've gone past 2nd set, jump back to 1st set
+    if (carouselIndex >= setSize * 2) {
+      carouselIndex = setSize;
+      carouselOffset = carouselIndex * cardWidth;
       track.style.transition = 'none';
-      carouselIndex = 0;
-      track.style.transform = `translateX(0)`;
-    }, 950);
-  }
+      track.style.transform = `translateX(-${carouselOffset}px)`;
+    }
+    // If somehow gone before 1st set, jump to 2nd set
+    if (carouselIndex < setSize) {
+      carouselIndex = setSize * 2 - 1;
+      carouselOffset = carouselIndex * cardWidth;
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${carouselOffset}px)`;
+    }
+  }, { once: true });
 }
 
 function createProductCard(product) {
@@ -306,18 +321,41 @@ function createDefaultSVG(category) {
 
 function moveCarousel(dir) {
   const track = document.getElementById('carousel-track');
+  if (!track || carouselAnimating) return;
   const cards = track.querySelectorAll('.product-card');
   if (!cards.length) return;
 
+  stopCarouselAuto();
+
   const cardWidth = cards[0].offsetWidth + 24;
-  const half = cards.length / 2;
+  const totalItems = cards.length;
+  const setSize = totalItems / 3;
 
-  carouselIndex = Math.max(0, Math.min(half - 1, carouselIndex + dir));
-  track.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1)';
-  track.style.transform = `translateX(-${carouselIndex * cardWidth}px)`;
+  carouselIndex += dir;
+  carouselOffset = carouselIndex * cardWidth;
 
-  // Reset auto timer on manual nav
-  startCarouselAuto();
+  carouselAnimating = true;
+  track.style.transition = 'transform 0.52s cubic-bezier(0.33, 1, 0.68, 1)';
+  track.style.transform = `translateX(-${carouselOffset}px)`;
+
+  track.addEventListener('transitionend', function onEnd() {
+    track.removeEventListener('transitionend', onEnd);
+    carouselAnimating = false;
+
+    if (carouselIndex >= setSize * 2) {
+      carouselIndex = setSize;
+      carouselOffset = carouselIndex * cardWidth;
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${carouselOffset}px)`;
+    }
+    if (carouselIndex < setSize) {
+      carouselIndex = setSize * 2 - 1;
+      carouselOffset = carouselIndex * cardWidth;
+      track.style.transition = 'none';
+      track.style.transform = `translateX(-${carouselOffset}px)`;
+    }
+    startCarouselAuto();
+  }, { once: true });
 }
 
 function renderToadPage(pageId) {
@@ -527,8 +565,99 @@ function updateCartBadge() {
 
 function checkout() {
   if (!cart.length) { showToast('Adicione itens ao carrinho primeiro'); return; }
-  showToast('Redirecionando para o checkout...');
-  setTimeout(() => { cart = []; renderCartItems(); updateCartBadge(); closeCart(); }, 1500);
+  closeCart();
+  openCheckout();
+}
+
+let checkoutCurrentStep = 1;
+
+function openCheckout() {
+  checkoutCurrentStep = 1;
+  const modal = document.getElementById('checkout-modal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+
+  const cartTotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const freeShip = document.getElementById('ship-free');
+  const stdShip = document.getElementById('ship-standard');
+  if (freeShip) {
+    if (cartTotal >= 199) {
+      freeShip.style.display = 'flex';
+      freeShip.querySelector('input').checked = true;
+    } else {
+      freeShip.style.display = 'none';
+      if (stdShip) stdShip.checked = true;
+    }
+  }
+  showCheckoutPanel(1);
+}
+
+function closeCheckout() {
+  document.getElementById('checkout-modal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function checkoutNextStep(step) {
+  checkoutCurrentStep = step;
+  showCheckoutPanel(step);
+  if (step === 3) buildCheckoutSummary();
+}
+
+function showCheckoutPanel(step) {
+  document.querySelectorAll('.checkout-panel').forEach(p => p.classList.remove('active'));
+  const panel = document.getElementById('cpanel-' + step);
+  if (panel) panel.classList.add('active');
+
+  document.querySelectorAll('.checkout-step').forEach((s, i) => {
+    s.classList.toggle('active', i + 1 === step);
+    s.classList.toggle('done', i + 1 < step);
+  });
+}
+
+function buildCheckoutSummary() {
+  const el = document.getElementById('checkout-summary');
+  if (!el) return;
+  const shippingInput = document.querySelector('input[name="shipping"]:checked');
+  const shippingVal = shippingInput ? parseFloat(shippingInput.value) : 19.90;
+  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const total = subtotal + shippingVal;
+
+  el.innerHTML = `
+    <div class="summary-title">Resumo do Pedido</div>
+    <div class="summary-rows">
+      ${cart.map(i => `
+        <div class="summary-row">
+          <span>${i.name} (${i.size || 'U'}) x${i.qty}</span>
+          <span>R$ ${(i.price * i.qty).toFixed(2).replace('.',',')}</span>
+        </div>`).join('')}
+      <div class="summary-row">
+        <span>Frete</span>
+        <span>${shippingVal === 0 ? '<strong style="color:#7DB87A">GRÁTIS</strong>' : 'R$ ' + shippingVal.toFixed(2).replace('.',',')}</span>
+      </div>
+      <div class="summary-row total-row">
+        <span>Total</span>
+        <span>R$ ${total.toFixed(2).replace('.',',')}</span>
+      </div>
+    </div>
+  `;
+}
+
+function selectPayTab(btn, type) {
+  document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
+  const panel = document.getElementById('ppanel-' + type);
+  if (panel) panel.classList.add('active');
+}
+
+function confirmCheckout() {
+  showCheckoutPanel('success');
+  document.querySelectorAll('.checkout-step').forEach(s => { s.classList.add('done'); s.classList.remove('active'); });
+  setTimeout(() => {
+    cart = [];
+    renderCartItems();
+    updateCartBadge();
+  }, 500);
 }
 
 function showToast(msg) {

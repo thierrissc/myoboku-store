@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monte Myoboku</title>
 
-  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+  <link rel="shortcut icon" href="assets/favicon.png">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
@@ -190,10 +191,11 @@
         <div style="font-size:8rem; line-height:1; color:rgba(202, 39, 21, 0.637); font-family:'Cinzel Decorative',serif">油</div>
         <div style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.4em; color:var(--text-dim); text-transform:uppercase; margin-top:1rem">Kanji do Óleo — Símbolo de Jiraiya</div>
         <div style="display:flex; gap:1rem; justify-content:center; margin-top:2rem; flex-wrap:wrap">
+          <div onclick="navigateTo('jiraiya')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(192,57,43,0.4); border-radius:4px; font-size:0.78rem; color:rgba(231,76,60,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(192,57,43,0.8)'" onmouseout="this.style.borderColor='rgba(192,57,43,0.4)'">Jiraiya</div>
           <div onclick="navigateTo('gamabunta')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(139,32,21,0.4); border-radius:4px; font-size:0.78rem; color:rgba(196,145,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(139,32,21,0.8)'" onmouseout="this.style.borderColor='rgba(139,32,21,0.4)'">Gamabunta</div>
           <div onclick="navigateTo('fukasaku')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(74,98,37,0.4); border-radius:4px; font-size:0.78rem; color:rgba(212,188,122,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(74,98,37,0.8)'" onmouseout="this.style.borderColor='rgba(74,98,37,0.4)'">Fukasaku</div>
-          <div onclick="navigateTo('shima')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(42,107,94,0.4); border-radius:4px; font-size:0.78rem; color:rgba(184,168,48,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(42,107,94,0.8)'" onmouseout="this.style.borderColor='rgba(42,107,94,0.4)'">Shima</div>
-          <div onclick="navigateTo('gamaken')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(27,58,107,0.4); border-radius:4px; font-size:0.78rem; color:rgba(58,109,170,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(27,58,107,0.8)'" onmouseout="this.style.borderColor='rgba(27,58,107,0.4)'">Gamaken</div>
+          <div onclick="navigateTo('shima')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(123,94,167,0.4); border-radius:4px; font-size:0.78rem; color:rgba(123,94,167,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(123,94,167,0.8)'" onmouseout="this.style.borderColor='rgba(123,94,167,0.4)'">Shima</div>
+          <div onclick="navigateTo('gamaken')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(184,54,90,0.4); border-radius:4px; font-size:0.78rem; color:rgba(184,54,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(184,54,90,0.8)'" onmouseout="this.style.borderColor='rgba(184,54,90,0.4)'">Gamaken</div>
         </div>
       </div>
     </div>
@@ -375,10 +377,10 @@
 
 <div class="page page-shima" id="page-shima">
   <div class="toad-hero">
-    <div class="toad-hero-bg"></div>
+    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #0D0A14 0%, #2A1F3D 50%, #0D0A14 100%);"></div>
     <div class="toad-hero-content">
-      <div class="toad-hero-label">Coleção Exclusiva</div>
-      <h1 class="toad-hero-title">Shima<br>A Anciã Sábia</h1>
+      <div class="toad-hero-label" style="color:#C4B0E8">Coleção Exclusiva</div>
+      <h1 class="toad-hero-title" style="color:#C4B0E8">Shima<br><em style="color:#7B5EA7;font-style:normal">A Anciã Sábia</em></h1>
       <p class="toad-hero-desc">Peças inspiradas na Grande Sapo Shima. Roxo profundo de sua cabeleira ancestral, tons suaves da sabedoria milenar do Monte Myoboku.</p>
     </div>
   </div>
@@ -438,10 +440,10 @@
 
 <div class="page page-gamaken" id="page-gamaken">
   <div class="toad-hero">
-    <div class="toad-hero-bg"></div>
+    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #150508 0%, #4A0F1F 50%, #150508 100%);"></div>
     <div class="toad-hero-content">
-      <div class="toad-hero-label">Coleção Exclusiva</div>
-      <h1 class="toad-hero-title">Gamaken<br>O Guerreiro das Águas</h1>
+      <div class="toad-hero-label" style="color:#E8789A">Coleção Exclusiva</div>
+      <h1 class="toad-hero-title" style="color:#E8789A">Gamaken<br><em style="color:#B83055;font-style:normal">O Guerreiro das Águas</em></h1>
       <p class="toad-hero-desc">Peças inspiradas em Gamaken. Carmesim profundo de sua pele guerreira, força e resiliência do mais habilidoso dos sapos de batalha.</p>
     </div>
   </div>
@@ -669,6 +671,130 @@
         <i class="fas fa-shopping-bag" style="margin-right:0.5rem"></i>
         Adicionar ao Carrinho
       </button>
+    </div>
+  </div>
+</div>
+
+<div id="checkout-modal">
+  <div class="checkout-backdrop" onclick="closeCheckout()"></div>
+  <div class="checkout-box">
+    <button class="checkout-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+
+    <div class="checkout-steps">
+      <div class="checkout-step active" id="cstep-1"><span class="step-num">1</span> Dados</div>
+      <div class="checkout-step-sep"></div>
+      <div class="checkout-step" id="cstep-2"><span class="step-num">2</span> Entrega</div>
+      <div class="checkout-step-sep"></div>
+      <div class="checkout-step" id="cstep-3"><span class="step-num">3</span> Pagamento</div>
+    </div>
+
+    <div class="checkout-panel active" id="cpanel-1">
+      <h2 class="checkout-title">Seus Dados</h2>
+      <div class="checkout-form">
+        <div class="cf-row">
+          <div class="cf-field"><label>Nome completo</label><input type="text" id="cf-nome" placeholder="Jiraiya Sennin" /></div>
+        </div>
+        <div class="cf-row">
+          <div class="cf-field"><label>E-mail</label><input type="email" id="cf-email" placeholder="jiraiya@myoboku.com" /></div>
+          <div class="cf-field"><label>CPF</label><input type="text" id="cf-cpf" placeholder="000.000.000-00" maxlength="14" /></div>
+        </div>
+        <div class="cf-row">
+          <div class="cf-field"><label>Telefone</label><input type="text" id="cf-tel" placeholder="(00) 00000-0000" maxlength="15" /></div>
+        </div>
+      </div>
+      <button class="checkout-next-btn" onclick="checkoutNextStep(2)">Continuar <i class="fas fa-arrow-right"></i></button>
+    </div>
+
+    <div class="checkout-panel" id="cpanel-2">
+      <h2 class="checkout-title">Endereço de Entrega</h2>
+      <div class="checkout-form">
+        <div class="cf-row">
+          <div class="cf-field" style="max-width:160px"><label>CEP</label><input type="text" id="cf-cep" placeholder="00000-000" maxlength="9" /></div>
+        </div>
+        <div class="cf-row">
+          <div class="cf-field" style="flex:2"><label>Rua / Logradouro</label><input type="text" id="cf-rua" placeholder="Rua dos Sapos Sábios" /></div>
+          <div class="cf-field" style="max-width:100px"><label>Número</label><input type="text" id="cf-num" placeholder="42" /></div>
+        </div>
+        <div class="cf-row">
+          <div class="cf-field"><label>Complemento (opcional)</label><input type="text" id="cf-comp" placeholder="Apto, bloco..." /></div>
+        </div>
+        <div class="cf-row">
+          <div class="cf-field"><label>Bairro</label><input type="text" id="cf-bairro" placeholder="Monte Myoboku" /></div>
+          <div class="cf-field"><label>Cidade</label><input type="text" id="cf-cidade" placeholder="Konoha" /></div>
+          <div class="cf-field" style="max-width:80px"><label>UF</label><input type="text" id="cf-uf" placeholder="BA" maxlength="2" /></div>
+        </div>
+        <div class="shipping-options">
+          <div class="shipping-title">Opções de Envio</div>
+          <label class="shipping-opt" id="ship-free" style="display:none">
+            <input type="radio" name="shipping" value="0" />
+            <div class="ship-info"><span class="ship-name"><i class="fas fa-gift"></i> Frete Grátis</span><span class="ship-desc">Compras acima de R$ 199,00 — Entrega em 5 a 10 dias úteis</span></div>
+            <span class="ship-price free">GRÁTIS</span>
+          </label>
+          <label class="shipping-opt">
+            <input type="radio" name="shipping" value="19.90" id="ship-standard" checked />
+            <div class="ship-info"><span class="ship-name"><i class="fas fa-truck"></i> PAC — Padrão</span><span class="ship-desc">Entrega em 7 a 12 dias úteis</span></div>
+            <span class="ship-price">R$ 19,90</span>
+          </label>
+          <label class="shipping-opt">
+            <input type="radio" name="shipping" value="34.90" />
+            <div class="ship-info"><span class="ship-name"><i class="fas fa-bolt"></i> SEDEX — Expresso</span><span class="ship-desc">Entrega em 2 a 4 dias úteis</span></div>
+            <span class="ship-price">R$ 34,90</span>
+          </label>
+        </div>
+      </div>
+      <div class="checkout-nav-row">
+        <button class="checkout-back-btn" onclick="checkoutNextStep(1)"><i class="fas fa-arrow-left"></i> Voltar</button>
+        <button class="checkout-next-btn" onclick="checkoutNextStep(3)">Continuar <i class="fas fa-arrow-right"></i></button>
+      </div>
+    </div>
+
+    <div class="checkout-panel" id="cpanel-3">
+      <h2 class="checkout-title">Pagamento</h2>
+      <div class="checkout-order-summary" id="checkout-summary"></div>
+      <div class="checkout-form">
+        <div class="payment-tabs">
+          <button class="pay-tab active" onclick="selectPayTab(this,'pix')"><i class="fas fa-qrcode"></i> PIX</button>
+          <button class="pay-tab" onclick="selectPayTab(this,'cartao')"><i class="fas fa-credit-card"></i> Cartão</button>
+          <button class="pay-tab" onclick="selectPayTab(this,'boleto')"><i class="fas fa-barcode"></i> Boleto</button>
+        </div>
+        <div class="pay-panel active" id="ppanel-pix">
+          <div class="pix-info">
+            <div class="pix-icon"><i class="fas fa-qrcode"></i></div>
+            <p>Você receberá uma chave PIX por e-mail após confirmar. Prazo de pagamento: <strong>30 minutos</strong>.</p>
+            <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--gold)">✓ Aprovação instantânea</p>
+          </div>
+        </div>
+        <div class="pay-panel" id="ppanel-cartao">
+          <div class="cf-row"><div class="cf-field"><label>Número do Cartão</label><input type="text" placeholder="0000 0000 0000 0000" maxlength="19" /></div></div>
+          <div class="cf-row"><div class="cf-field"><label>Nome no Cartão</label><input type="text" placeholder="JIRAIYA SENNIN" /></div></div>
+          <div class="cf-row">
+            <div class="cf-field" style="max-width:130px"><label>Validade</label><input type="text" placeholder="MM/AA" maxlength="5" /></div>
+            <div class="cf-field" style="max-width:100px"><label>CVV</label><input type="text" placeholder="000" maxlength="3" /></div>
+            <div class="cf-field"><label>Parcelas</label><select id="cf-parcelas"><option>1x sem juros</option><option>2x sem juros</option><option>3x sem juros</option><option>6x sem juros</option><option>12x com juros</option></select></div>
+          </div>
+        </div>
+        <div class="pay-panel" id="ppanel-boleto">
+          <div class="pix-info">
+            <div class="pix-icon"><i class="fas fa-barcode"></i></div>
+            <p>O boleto será gerado após confirmar o pedido. Vencimento em <strong>3 dias úteis</strong>.</p>
+            <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--text-muted)">Após o pagamento, aprovação em até 2 dias úteis.</p>
+          </div>
+        </div>
+      </div>
+      <div class="checkout-nav-row">
+        <button class="checkout-back-btn" onclick="checkoutNextStep(2)"><i class="fas fa-arrow-left"></i> Voltar</button>
+        <button class="checkout-confirm-btn" onclick="confirmCheckout()"><i class="fas fa-lock"></i> Confirmar Pedido</button>
+      </div>
+    </div>
+
+    <div class="checkout-panel" id="cpanel-success">
+      <div class="checkout-success">
+        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+        <h2>Pedido Confirmado!</h2>
+        <p>Obrigado pela sua compra, shinobi! Você receberá um e-mail com detalhes e instruções de pagamento.</p>
+        <div class="success-kanji">油</div>
+        <button class="checkout-next-btn" onclick="closeCheckout()" style="margin-top:1.5rem">Voltar à loja</button>
+      </div>
     </div>
   </div>
 </div>
