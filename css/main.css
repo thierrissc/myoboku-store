@@ -1124,9 +1124,6 @@ footer {
   transform: translateY(0);
 }
 
-/* ============================================================
-   CHECKOUT MODAL
-   ============================================================ */
 #checkout-modal {
   position: fixed; inset: 0;
   z-index: 99000;
@@ -1169,7 +1166,6 @@ footer {
 }
 .checkout-close:hover { color: var(--text); background: var(--surface); }
 
-/* Steps bar */
 .checkout-steps {
   display: flex; align-items: center; gap: 0;
   margin-bottom: 2rem;
@@ -1222,7 +1218,6 @@ footer {
   letter-spacing: 0.05em;
 }
 
-/* Form */
 .checkout-form { margin-bottom: 1.5rem; }
 
 .cf-row {
@@ -1257,7 +1252,6 @@ footer {
 .cf-field select:focus { border-color: var(--red); }
 .cf-field select option { background: var(--surface); }
 
-/* Shipping options */
 .shipping-options { margin-top: 1.2rem; }
 .shipping-title {
   font-family: 'Cinzel', serif;
@@ -1293,7 +1287,6 @@ footer {
 }
 .ship-price.free { color: #7DB87A; }
 
-/* Navigation buttons */
 .checkout-nav-row {
   display: flex; justify-content: space-between; align-items: center;
   margin-top: 1rem;
@@ -1344,7 +1337,6 @@ footer {
 }
 .checkout-confirm-btn:hover { background: var(--gold-light); }
 
-/* Payment tabs */
 .payment-tabs {
   display: flex; gap: 0.6rem;
   margin-bottom: 1.2rem;
@@ -1372,7 +1364,6 @@ footer {
 .pay-panel { display: none; }
 .pay-panel.active { display: block; }
 
-/* PIX / Boleto info */
 .pix-info {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1390,7 +1381,6 @@ footer {
   opacity: 0.8;
 }
 
-/* Order summary */
 .checkout-order-summary {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -1425,7 +1415,6 @@ footer {
 }
 .summary-row.total-row span:last-child { color: var(--gold); }
 
-/* Success screen */
 .checkout-success {
   text-align: center;
   padding: 2rem 1rem;
