@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Monte Myoboku</title>
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='12' fill='%230C0C0C'/%3E%3Ctext y='.9em' font-size='78' fill='%23C0392B' font-family='serif'%3E油%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
@@ -30,11 +30,14 @@
     <a class="sidebar-link active" data-page="home" onclick="navigateTo('home')">
       <i class="fas fa-home"></i> Início
     </a>
-    <a class="sidebar-link" data-page="home" onclick="navigateTo('home');document.getElementById('carousel-section').scrollIntoView({behavior:'smooth'})">
-      <i class="fas fa-store"></i> Produtos
+    <a class="sidebar-link" data-page="produtos" onclick="navigateTo('produtos')">
+      <i class="fas fa-store"></i> Todos os Produtos
     </a>
 
     <div class="sidebar-section-label">Coleções Temáticas</div>
+    <a class="sidebar-link" data-page="jiraiya" onclick="navigateTo('jiraiya')">
+      <span class="sidebar-toad-dot" style="background:#C0392B"></span> Jiraiya — O Sennin
+    </a>
     <a class="sidebar-link" data-page="gamabunta" onclick="navigateTo('gamabunta')">
       <span class="sidebar-toad-dot" style="background:#8B2015"></span> Gamabunta — O Chefe
     </a>
@@ -42,10 +45,10 @@
       <span class="sidebar-toad-dot" style="background:#4A6225"></span> Fukasaku — O Sábio
     </a>
     <a class="sidebar-link" data-page="shima" onclick="navigateTo('shima')">
-      <span class="sidebar-toad-dot" style="background:#2A6B5E"></span> Shima — A Anciã
+      <span class="sidebar-toad-dot" style="background:#7B5EA7"></span> Shima — A Anciã
     </a>
     <a class="sidebar-link" data-page="gamaken" onclick="navigateTo('gamaken')">
-      <span class="sidebar-toad-dot" style="background:#1B3A6B"></span> Gamaken — O Guerreiro
+      <span class="sidebar-toad-dot" style="background:#B8365A"></span> Gamaken — O Guerreiro
     </a>
 
     <div class="sidebar-section-label">Informações</div>
@@ -74,6 +77,8 @@
 
   <ul class="header-nav">
     <li><a data-page="home" onclick="navigateTo('home')" class="active" style="cursor:pointer">Início</a></li>
+    <li><a data-page="produtos" onclick="navigateTo('produtos')" style="cursor:pointer">Produtos</a></li>
+    <li><a data-page="jiraiya" onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a></li>
     <li><a data-page="gamabunta" onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a></li>
     <li><a data-page="fukasaku" onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a></li>
     <li><a data-page="shima" onclick="navigateTo('shima')" style="cursor:pointer">Shima</a></li>
@@ -121,8 +126,9 @@
     <div class="section-inner">
       <div class="section-header reveal">
         <span class="section-label">Em Destaque</span>
-        <h2 class="section-title">Coleção <em>Jiraiya</em></h2>
+        <h2 class="section-title">Produtos em <em>Destaque</em></h2>
         <div class="divider"></div>
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-top:0.5rem">Seleção dos principais itens de todas as coleções. <a onclick="navigateTo('produtos')" style="color:var(--red);cursor:pointer;text-decoration:underline">Ver todos os produtos →</a></p>
       </div>
 
       <div class="carousel-wrapper reveal">
@@ -373,7 +379,7 @@
     <div class="toad-hero-content">
       <div class="toad-hero-label">Coleção Exclusiva</div>
       <h1 class="toad-hero-title">Shima<br>A Anciã Sábia</h1>
-      <p class="toad-hero-desc">Peças inspiradas na Grande Sapo Shima. Verde esmeralda das águas sagradas, dourado de sua sabedoria ancestral.</p>
+      <p class="toad-hero-desc">Peças inspiradas na Grande Sapo Shima. Roxo profundo de sua cabeleira ancestral, tons suaves da sabedoria milenar do Monte Myoboku.</p>
     </div>
   </div>
 
@@ -381,7 +387,7 @@
     <div class="section-inner">
       <div class="section-header reveal">
         <span class="section-label">Coleção Shima</span>
-        <h2 class="section-title"><em>Esmeralda</em> e Ancestral</h2>
+        <h2 class="section-title"><em>Roxo</em> e Ancestral</h2>
         <div class="divider"></div>
       </div>
       <div class="products-grid reveal" id="grid-shima"></div>
@@ -436,7 +442,7 @@
     <div class="toad-hero-content">
       <div class="toad-hero-label">Coleção Exclusiva</div>
       <h1 class="toad-hero-title">Gamaken<br>O Guerreiro das Águas</h1>
-      <p class="toad-hero-desc">Peças inspiradas em Gamaken. Azul profundo do oceano, força e resiliência do mais habilidoso dos sapos guerreiros.</p>
+      <p class="toad-hero-desc">Peças inspiradas em Gamaken. Carmesim profundo de sua pele guerreira, força e resiliência do mais habilidoso dos sapos de batalha.</p>
     </div>
   </div>
 
@@ -444,7 +450,7 @@
     <div class="section-inner">
       <div class="section-header reveal">
         <span class="section-label">Coleção Gamaken</span>
-        <h2 class="section-title"><em>Azul Oceano</em> e Força</h2>
+        <h2 class="section-title"><em>Carmesim</em> e Força</h2>
         <div class="divider"></div>
       </div>
       <div class="products-grid reveal" id="grid-gamaken"></div>
@@ -457,7 +463,7 @@
         <span class="section-label">Sobre Gamaken</span>
         <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Sapo Guerreiro</em> de Myoboku</h2>
         <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
-          Gamaken é um dos maiores sapos invocados por Jiraiya. Azul profundo como as águas dos oceanos, ele carrega um tridente e um escudo em batalha. Apesar de ter uma autoestima baixa, Gamaken é um dos guerreiros mais poderosos do clã, sua coleção reflete força e elegância sombria.
+          Gamaken é um dos maiores sapos invocados por Jiraiya. Sua pele carmesim profunda e sua presença imponente o tornam único entre os guerreiros do clã. Carregando um tridente e um escudo em batalha, é um dos guerreiros mais poderosos de Myoboku. Sua coleção reflete a intensidade e a força bruta de um guerreiro lendário.
         </p>
       </div>
     </div>
@@ -475,6 +481,129 @@
         <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
         <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
         <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+      </div>
+      <div class="footer-col">
+        <h4>Ajuda</h4>
+        <a href="#">Rastrear Pedido</a>
+        <a href="#">Trocas e Devoluções</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="#">contato@montmyoboku.com.br</a>
+        <a href="#">(75) 9999-9999</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Monte Myoboku. Todos os direitos reservados.</span>
+    </div>
+  </footer>
+</div>
+
+<!-- PAGE: JIRAIYA -->
+<div class="page page-jiraiya" id="page-jiraiya">
+  <div class="toad-hero">
+    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #1A0505 0%, #4A0C0C 40%, #2A1500 100%);">
+      <img src="assets/jiraiya-hero.jpg" alt="Jiraiya Sennin" style="width:100%;height:100%;object-fit:cover;object-position:center top;opacity:0.35;position:absolute;inset:0;" draggable="false"/>
+    </div>
+    <div class="toad-hero-content">
+      <div class="toad-hero-label" style="color:var(--gold)">Coleção Exclusiva</div>
+      <h1 class="toad-hero-title" style="color:var(--cream)">Jiraiya<br><em style="color:var(--red);font-style:normal">O Sennin Shinobi</em></h1>
+      <p class="toad-hero-desc">Vestimentas e acessórios inspirados no lendário Jiraiya. Vermelho do colete, branco das chamas, dourado do Modo Sábio.</p>
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--ink-black)">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-label">Coleção Jiraiya</span>
+        <h2 class="section-title"><em>Vermelho</em> e Lenda</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="products-grid reveal" id="grid-jiraiya"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
+    <div class="section-inner" style="max-width:700px; text-align:center">
+      <div class="reveal">
+        <span class="section-label">Sobre Jiraiya</span>
+        <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Grande Sennin</em> de Konoha</h2>
+        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
+          Jiraiya foi um dos maiores ninjas de Konoha. Discípulo do Terceiro Hokage, mestre do Quarto, pai espiritual do Sétimo. Sua vestimenta vermelha e branca, seu cabelo prateado e sua energia inconfundível tornaram-se símbolos de força e sabedoria. O kanji 油, gravado em sua testa, representa seu vínculo eterno com o Monte Myoboku.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-name">MONTE <span>MY</span>OBOKU</div>
+        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Coleções</h4>
+        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+      </div>
+      <div class="footer-col">
+        <h4>Ajuda</h4>
+        <a href="#">Rastrear Pedido</a>
+        <a href="#">Trocas e Devoluções</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="#">contato@montmyoboku.com.br</a>
+        <a href="#">(75) 9999-9999</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Monte Myoboku. Todos os direitos reservados.</span>
+    </div>
+  </footer>
+</div>
+
+<!-- PAGE: TODOS OS PRODUTOS -->
+<div class="page page-produtos" id="page-produtos">
+  <div class="toad-hero" style="min-height:35vh">
+    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #0C0C0C 0%, #1A1A1A 50%, #0C0C0C 100%);"></div>
+    <div class="toad-hero-content">
+      <div class="toad-hero-label" style="color:var(--gold)">Loja Completa</div>
+      <h1 class="toad-hero-title" style="color:var(--cream)">Todos os <em style="color:var(--red);font-style:normal">Produtos</em></h1>
+      <p class="toad-hero-desc">Explore toda a coleção Monte Myoboku — do kimono ao colecionável.</p>
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--ink-black)">
+    <div class="section-inner">
+      <!-- Filter tabs -->
+      <div class="produtos-filter reveal" id="produtos-filter">
+        <button class="filter-tab active" onclick="filterProdutos('all')">Todos</button>
+        <button class="filter-tab" onclick="filterProdutos('home')">Jiraiya</button>
+        <button class="filter-tab" onclick="filterProdutos('gamabunta')">Gamabunta</button>
+        <button class="filter-tab" onclick="filterProdutos('fukasaku')">Fukasaku</button>
+        <button class="filter-tab" onclick="filterProdutos('shima')">Shima</button>
+        <button class="filter-tab" onclick="filterProdutos('gamaken')">Gamaken</button>
+      </div>
+      <div class="products-grid reveal" id="grid-produtos" style="margin-top:2rem"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-name">MONTE <span>MY</span>OBOKU</div>
+        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Coleções</h4>
+        <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
       </div>
       <div class="footer-col">
         <h4>Ajuda</h4>

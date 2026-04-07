@@ -176,6 +176,12 @@ function navigateTo(pageId) {
     if (['gamabunta','fukasaku','shima','gamaken'].includes(pageId)) {
       renderToadPage(pageId);
     }
+    if (pageId === 'jiraiya') {
+      renderToadPage('jiraiya');
+    }
+    if (pageId === 'produtos') {
+      renderProdutosPage('all');
+    }
   }
 }
 
@@ -192,17 +198,78 @@ function updateNavActive(pageId) {
   if (exactMatch) exactMatch.classList.add('active');
 }
 
+let carouselAutoTimer = null;
+
 function initCarousel() {
   const track = document.getElementById('carousel-track');
   if (!track) return;
 
-  carouselItems = PRODUCTS.home;
+  // Combine a few products from each collection for the highlight carousel
+  const highlights = [
+    ...PRODUCTS.home.slice(0, 3),
+    ...PRODUCTS.gamabunta.slice(0, 2),
+    ...PRODUCTS.fukasaku.slice(0, 1),
+    ...PRODUCTS.shima.slice(0, 1),
+    ...PRODUCTS.gamaken.slice(0, 2),
+  ];
+  carouselItems = highlights;
   track.innerHTML = '';
 
-  carouselItems.forEach(product => {
+  // Clone items for infinite loop: original + clone at end
+  const allItems = [...highlights, ...highlights];
+  allItems.forEach(product => {
     const card = createProductCard(product);
     track.appendChild(card);
   });
+
+  carouselIndex = 0;
+
+  // Start auto-scroll
+  startCarouselAuto();
+
+  // Pause on hover
+  const wrapper = track.parentElement;
+  wrapper.addEventListener('mouseenter', stopCarouselAuto);
+  wrapper.addEventListener('mouseleave', startCarouselAuto);
+}
+
+function startCarouselAuto() {
+  stopCarouselAuto();
+  carouselAutoTimer = setInterval(() => {
+    moveCarouselAuto();
+  }, 3200);
+}
+
+function stopCarouselAuto() {
+  if (carouselAutoTimer) {
+    clearInterval(carouselAutoTimer);
+    carouselAutoTimer = null;
+  }
+}
+
+function moveCarouselAuto() {
+  const track = document.getElementById('carousel-track');
+  if (!track) return;
+  const cards = track.querySelectorAll('.product-card');
+  if (!cards.length) return;
+
+  const cardWidth = cards[0].offsetWidth + 24;
+  const half = cards.length / 2;
+
+  carouselIndex++;
+
+  // Smooth scroll
+  track.style.transition = 'transform 0.9s cubic-bezier(0.4,0,0.2,1)';
+  track.style.transform = `translateX(-${carouselIndex * cardWidth}px)`;
+
+  // When we reach the cloned set, silently reset
+  if (carouselIndex >= half) {
+    setTimeout(() => {
+      track.style.transition = 'none';
+      carouselIndex = 0;
+      track.style.transform = `translateX(0)`;
+    }, 950);
+  }
 }
 
 function createProductCard(product) {
@@ -242,26 +309,59 @@ function moveCarousel(dir) {
   const cards = track.querySelectorAll('.product-card');
   if (!cards.length) return;
 
-  const wrapper = track.parentElement;
-  const wrapperWidth = wrapper.offsetWidth;
-  const cardWidth = cards[0].offsetWidth + 24; // gap
-  const visible = Math.floor(wrapperWidth / cardWidth);
-  const max = cards.length - visible;
+  const cardWidth = cards[0].offsetWidth + 24;
+  const half = cards.length / 2;
 
-  carouselIndex = Math.max(0, Math.min(max, carouselIndex + dir));
+  carouselIndex = Math.max(0, Math.min(half - 1, carouselIndex + dir));
+  track.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1)';
   track.style.transform = `translateX(-${carouselIndex * cardWidth}px)`;
+
+  // Reset auto timer on manual nav
+  startCarouselAuto();
 }
 
 function renderToadPage(pageId) {
-  const grid = document.getElementById(`grid-${pageId}`);
+  const gridId = pageId === 'jiraiya' ? 'grid-jiraiya' : `grid-${pageId}`;
+  const productKey = pageId === 'jiraiya' ? 'home' : pageId;
+  const grid = document.getElementById(gridId);
   if (!grid) return;
 
-  const products = PRODUCTS[pageId] || [];
+  const products = PRODUCTS[productKey] || [];
   grid.innerHTML = '';
   products.forEach(product => {
     const card = createProductCard(product);
     grid.appendChild(card);
   });
+}
+
+let currentProdutosFilter = 'all';
+
+function renderProdutosPage(filter) {
+  currentProdutosFilter = filter;
+  const grid = document.getElementById('grid-produtos');
+  if (!grid) return;
+
+  let products = [];
+  if (filter === 'all') {
+    Object.values(PRODUCTS).forEach(arr => products.push(...arr));
+  } else {
+    products = PRODUCTS[filter] || [];
+  }
+
+  grid.innerHTML = '';
+  products.forEach(product => {
+    const card = createProductCard(product);
+    grid.appendChild(card);
+  });
+}
+
+function filterProdutos(filter) {
+  // Update active tab
+  document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+  const tabs = document.querySelectorAll('.filter-tab');
+  const map = { all: 0, home: 1, gamabunta: 2, fukasaku: 3, shima: 4, gamaken: 5 };
+  if (tabs[map[filter]]) tabs[map[filter]].classList.add('active');
+  renderProdutosPage(filter);
 }
 
 function initModal() {
