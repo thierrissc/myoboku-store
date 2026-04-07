@@ -51,6 +51,9 @@
     <a class="sidebar-link" data-page="gamaken" onclick="navigateTo('gamaken')">
       <span class="sidebar-toad-dot" style="background:#B8365A"></span> Gamaken - O Guerreiro
     </a>
+    <a class="sidebar-link" data-page="gamahiro" onclick="navigateTo('gamahiro')">
+      <span class="sidebar-toad-dot" style="background:#2E7DAF"></span> Gamahiro - O Espadachim
+    </a>
 
     <div class="sidebar-section-label">Informações</div>
     <a class="sidebar-link" onclick="closeSidebar()">
@@ -84,6 +87,7 @@
     <li><a data-page="fukasaku" onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a></li>
     <li><a data-page="shima" onclick="navigateTo('shima')" style="cursor:pointer">Shima</a></li>
     <li><a data-page="gamaken" onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a></li>
+    <li><a data-page="gamahiro" onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a></li>
   </ul>
 
   <div class="header-actions">
@@ -196,6 +200,7 @@
           <div onclick="navigateTo('fukasaku')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(74,98,37,0.4); border-radius:4px; font-size:0.78rem; color:rgba(212,188,122,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(74,98,37,0.8)'" onmouseout="this.style.borderColor='rgba(74,98,37,0.4)'">Fukasaku</div>
           <div onclick="navigateTo('shima')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(123,94,167,0.4); border-radius:4px; font-size:0.78rem; color:rgba(123,94,167,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(123,94,167,0.8)'" onmouseout="this.style.borderColor='rgba(123,94,167,0.4)'">Shima</div>
           <div onclick="navigateTo('gamaken')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(184,54,90,0.4); border-radius:4px; font-size:0.78rem; color:rgba(184,54,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(184,54,90,0.8)'" onmouseout="this.style.borderColor='rgba(184,54,90,0.4)'">Gamaken</div>
+          <div onclick="navigateTo('gamahiro')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(46,125,175,0.4); border-radius:4px; font-size:0.78rem; color:rgba(126,200,227,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(46,125,175,0.8)'" onmouseout="this.style.borderColor='rgba(46,125,175,0.4)'">Gamahiro</div>
         </div>
       </div>
     </div>
@@ -214,6 +219,7 @@
         <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
         <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
         <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
       </div>
       <div class="footer-col">
         <h4>Ajuda</h4>
@@ -241,7 +247,9 @@
 
 <div class="page page-gamabunta" id="page-gamabunta">
   <div class="toad-hero">
-    <div class="toad-hero-bg"></div>
+    <div class="toad-hero-bg">
+      <img src="assets/Gamabunta.png" alt="Gamabunta" style="position:absolute;right:1%;top:70%;transform:translateY(-46%);height:115%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
+    </div>
     <div class="toad-hero-content">
       <div class="toad-hero-label">Coleção Exclusiva</div>
       <h1 class="toad-hero-title">Gamabunta<br>O Chefe dos Sapos</h1>
@@ -284,6 +292,7 @@
         <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
         <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
         <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
       </div>
       <div class="footer-col">
         <h4>Ajuda</h4>
@@ -309,7 +318,9 @@
 
 <div class="page page-fukasaku" id="page-fukasaku">
   <div class="toad-hero">
-    <div class="toad-hero-bg"></div>
+    <div class="toad-hero-bg">
+      <img src="assets/fukasaku.png" alt="Fukasaku" style="position:absolute;right:5%;top:70%;transform:translateY(-46%);height:130%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
+    </div>
     <div class="toad-hero-content">
       <div class="toad-hero-label">Coleção Exclusiva</div>
       <h1 class="toad-hero-title">Fukasaku<br>O Grande Sábio</h1>
@@ -352,6 +363,7 @@
         <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
         <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
         <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
       </div>
       <div class="footer-col">
         <h4>Ajuda</h4>
@@ -377,7 +389,9 @@
 
 <div class="page page-shima" id="page-shima">
   <div class="toad-hero">
-    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #0D0A14 0%, #2A1F3D 50%, #0D0A14 100%);"></div>
+    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #0D0A14 0%, #2A1F3D 50%, #0D0A14 100%);">
+      <img src="assets/shima.png" alt="Shima" style="position:absolute;right:5%;top:70%;transform:translateY(-44%);height:130%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
+    </div>
     <div class="toad-hero-content">
       <div class="toad-hero-label" style="color:#C4B0E8">Coleção Exclusiva</div>
       <h1 class="toad-hero-title" style="color:#C4B0E8">Shima<br><em style="color:#7B5EA7;font-style:normal">A Anciã Sábia</em></h1>
@@ -420,6 +434,7 @@
         <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
         <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
         <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
       </div>
       <div class="footer-col">
         <h4>Ajuda</h4>
@@ -440,7 +455,9 @@
 
 <div class="page page-gamaken" id="page-gamaken">
   <div class="toad-hero">
-    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #150508 0%, #4A0F1F 50%, #150508 100%);"></div>
+    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #150508 0%, #4A0F1F 50%, #150508 100%);">
+      <img src="assets/Gamaken.png" alt="Gamaken" style="position:absolute;right:3%;top:70%;transform:translateY(-50%);height:118%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
+    </div>
     <div class="toad-hero-content">
       <div class="toad-hero-label" style="color:#E8789A">Coleção Exclusiva</div>
       <h1 class="toad-hero-title" style="color:#E8789A">Gamaken<br><em style="color:#B83055;font-style:normal">O Guerreiro das Águas</em></h1>
@@ -548,6 +565,74 @@
         <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
         <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
         <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
+      </div>
+      <div class="footer-col">
+        <h4>Ajuda</h4>
+        <a href="#">Rastrear Pedido</a>
+        <a href="#">Trocas e Devoluções</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <a href="#">contato@montmyoboku.com.br</a>
+        <a href="#">(75) 9999-9999</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Monte Myoboku. Todos os direitos reservados.</span>
+    </div>
+  </footer>
+</div>
+
+<div class="page page-gamahiro" id="page-gamahiro">
+  <div class="toad-hero">
+    <div class="toad-hero-bg">
+      <img src="assets/Gamahiro.png" alt="Gamahiro" style="position:absolute;right:3%;top:70%;transform:translateY(-42%);height:210%;width:auto;max-width:120%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
+    </div>
+    <div class="toad-hero-content">
+      <div class="toad-hero-label" style="color:#7EC8E3">Coleção Exclusiva</div>
+      <h1 class="toad-hero-title" style="color:#7EC8E3">Gamahiro<br><em style="color:#2E7DAF;font-style:normal">O Espadachim Celeste</em></h1>
+      <p class="toad-hero-desc">Peças inspiradas no ágil Gamahiro. Azul celeste vibrante de sua pele guerreira, a precisão e elegância do mais veloz espadachim do Monte Myoboku.</p>
+    </div>
+  </div>
+
+  <section class="section" style="background:var(--ink-black)">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <span class="section-label">Coleção Gamahiro</span>
+        <h2 class="section-title"><em>Celeste</em> e Precisão</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="products-grid reveal" id="grid-gamahiro"></div>
+    </div>
+  </section>
+
+  <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
+    <div class="section-inner" style="max-width:700px; text-align:center">
+      <div class="reveal">
+        <span class="section-label">Sobre Gamahiro</span>
+        <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Espadachim</em> de Myoboku</h2>
+        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
+          Gamahiro é um dos sapos de batalha do Monte Myoboku, temido por sua habilidade excepcional com duas katanas. Sua pele azul celeste e seus movimentos ágeis o tornam um dos guerreiros mais formidáveis do clã. Invocado por Jiraiya durante os momentos de maior perigo, Gamahiro jamais recua diante de um desafio.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-name">MONTE <span>MY</span>OBOKU</div>
+        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Coleções</h4>
+        <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
       </div>
       <div class="footer-col">
         <h4>Ajuda</h4>
@@ -585,6 +670,7 @@
         <button class="filter-tab" onclick="filterProdutos('fukasaku')">Fukasaku</button>
         <button class="filter-tab" onclick="filterProdutos('shima')">Shima</button>
         <button class="filter-tab" onclick="filterProdutos('gamaken')">Gamaken</button>
+        <button class="filter-tab" onclick="filterProdutos('gamahiro')">Gamahiro</button>
       </div>
       <div class="products-grid reveal" id="grid-produtos" style="margin-top:2rem"></div>
     </div>
@@ -603,6 +689,7 @@
         <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
         <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
         <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
       </div>
       <div class="footer-col">
         <h4>Ajuda</h4>

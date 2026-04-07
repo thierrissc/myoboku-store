@@ -1072,6 +1072,17 @@ footer {
 .page-jiraiya .divider { background: linear-gradient(90deg, var(--red), transparent); }
 .page-jiraiya .product-card:hover { border-color: var(--border-hover); }
 
+.page-gamahiro .toad-hero-bg {
+  background: linear-gradient(135deg, #060E14 0%, #0D2A3D 50%, #060E14 100%);
+}
+.page-gamahiro .toad-hero-label,
+.page-gamahiro .toad-hero-title { color: #7EC8E3; }
+.page-gamahiro .product-tag { background: #1A5E80; }
+.page-gamahiro .product-price { color: #7EC8E3; }
+.page-gamahiro .section-title em, .page-gamahiro .section-label { color: #2E7DAF; }
+.page-gamahiro .divider { background: linear-gradient(90deg, #2E7DAF, transparent); }
+.page-gamahiro .product-card:hover { border-color: rgba(46,125,175,0.6); }
+
 /* Filter tabs */
 .produtos-filter {
   display: flex;

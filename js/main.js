@@ -22,6 +22,12 @@ const PRODUCTS = {
     { id: 14, name: "Elixir Óleo do Sábio", price: 139.90, oldPrice: 180.00, category: "Colecionáveis", tag: "DESTAQUE", description: "Frasco colecionável com óleo essencial de bambu e menta, inspirado no óleo sagrado de Myoboku. Frasco em vidro esmeralda com rótulo artesanal e cera lacre.", svg: "oil_sage_potion", sizes: ["U"], page: "shima" },
     { id: 15, name: "Bracelete Shima Sábia", price: 169.90, oldPrice: null, category: "Joias", tag: "NOVO", description: "Bracelete em couro esmeralda com fecho dourado, inspirado na Grande Sapo Shima. Gravação do clã dos sapos. Diâmetro ajustável. Inclui caixinha de presente.", svg: "toad_necklace", sizes: ["P/M","G/GG"], page: "shima" },
   ],
+  gamahiro: [
+    { id: 21, name: "Armadura Ninja Azul Celeste", price: 349.90, oldPrice: 430.00, category: "Vestimentas", tag: "NOVO", description: "Armadura leve inspirada nas escamas de Gamahiro. Azul celeste intenso com detalhes em prata. Tecido reforçado com bordados do símbolo do clã dos sapos. Ideal para cosplay e colecionadores.", svg: "vest_red", sizes: ["P","M","G","GG"], page: "gamahiro" },
+    { id: 22, name: "Katana Dupla Gamahiro", price: 289.90, oldPrice: null, category: "Colecionáveis", tag: "LIMITADO", description: "Réplica em resina das duas katanas carregadas por Gamahiro. Acabamento cromado com detalhes em azul. Suporte de parede incluso. 70cm cada lâmina. Edição numerada.", svg: "scroll_summoning", sizes: ["U"], page: "gamahiro" },
+    { id: 23, name: "Estatueta Gamahiro Guerreiro", price: 319.90, oldPrice: 390.00, category: "Colecionáveis", tag: "RARO", description: "Estatueta de resina pintada à mão de Gamahiro em posição de ataque com suas duas katanas. 20cm de altura, base em pedra preta. Olhos dourados detalhados e pele azul texturizada.", svg: "toad_figurine_gamabunta", sizes: ["U"], page: "gamahiro" },
+    { id: 24, name: "Máscara Azul do Guerreiro", price: 199.90, oldPrice: null, category: "Acessórios", tag: null, description: "Máscara de resina pintada em azul celeste inspirada em Gamahiro. Olhos dourados com expressão determinada. Perfeita para cosplay e decoração. Elástico ajustável.", svg: "sage_mode_mask", sizes: ["U"], page: "gamahiro" },
+  ],
   gamaken: [
     { id: 16, name: "Máscara Modo Sábio", price: 289.90, oldPrice: 360.00, category: "Acessórios", tag: "RARO", description: "Máscara de resina pintada simulando os olhos do Modo Sábio de Jiraiya. Olhos dourados com pupila vertical, marcações roxas e kanji 油 na testa. Perfeita para cosplay.", svg: "sage_mode_mask", sizes: ["U"], page: "gamaken" },
     { id: 17, name: "Livro A Gesta do Shinobi Corajoso", price: 79.90, oldPrice: null, category: "Livros", tag: "BEST-SELLER", description: "Edição comemorativa ilustrada do livro fictício escrito por Jiraiya. Capa dura em vermelho com detalhes dourados. Arte conceitual exclusiva no estilo mangá. 240 páginas.", svg: "senin_book", sizes: ["U"], page: "gamaken" },
@@ -173,7 +179,7 @@ function navigateTo(pageId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     closeSidebar();
     updateNavActive(pageId);
-    if (['gamabunta','fukasaku','shima','gamaken'].includes(pageId)) {
+    if (['gamabunta','fukasaku','shima','gamaken','gamahiro'].includes(pageId)) {
       renderToadPage(pageId);
     }
     if (pageId === 'jiraiya') {
@@ -212,6 +218,7 @@ function initCarousel() {
     ...PRODUCTS.fukasaku.slice(0, 1),
     ...PRODUCTS.shima.slice(0, 1),
     ...PRODUCTS.gamaken.slice(0, 2),
+    ...PRODUCTS.gamahiro.slice(0, 2),
   ];
   carouselItems = highlights;
   track.innerHTML = '';
@@ -397,7 +404,7 @@ function filterProdutos(filter) {
   // Update active tab
   document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
   const tabs = document.querySelectorAll('.filter-tab');
-  const map = { all: 0, home: 1, gamabunta: 2, fukasaku: 3, shima: 4, gamaken: 5 };
+  const map = { all: 0, home: 1, gamabunta: 2, fukasaku: 3, shima: 4, gamaken: 5, gamahiro: 6 };
   if (tabs[map[filter]]) tabs[map[filter]].classList.add('active');
   renderProdutosPage(filter);
 }
