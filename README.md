@@ -1,111 +1,98 @@
-# 🐸 Monte Myoboku — A Loja do Grande Sábio
-
-> Loja virtual temática inspirada no universo de **Jiraiya** e o **Monte Myoboku** do anime *Naruto Shippuden*.  
-> Desenvolvida com HTML, CSS e JavaScript puros — sem frameworks, sem dependências de build.
-
----
-
-## ✨ Funcionalidades
-
-- 🏠 **Página inicial** com hero animado (canvas com gotas e kanjis flutuantes)
-- 🎠 **Carrossel infinito** com auto-scroll fluido e navegação manual
-- 🗂️ **5 Coleções temáticas** — Jiraiya, Gamabunta, Fukasaku, Shima e Gamaken
-- 🛒 **Carrinho lateral** com gerenciamento de itens e quantidades
-- 🛍️ **Modal de produto** com seleção de tamanho e quantidade
-- 💳 **Checkout completo** em 3 etapas: Dados → Entrega → Pagamento
-  - Frete grátis automático em compras acima de R$ 199,00
-  - Opções PAC, SEDEX e Frete Grátis
-  - Formas de pagamento: PIX, Cartão de crédito (até 12x) e Boleto
-- 🔍 **Filtro de produtos** na página de catálogo completo
-- 📱 **Responsivo** — adaptado para mobile e desktop
-- 🌙 **Tema escuro** fiel à estética sombria e mística de Myoboku
-
----
-
-## 🛠️ Tecnologias
-
 <div align="center">
 
-| Tecnologia | Uso |
-|---|---|
-| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) | Estrutura e marcação semântica |
-| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) | Estilização, animações e layout responsivo |
-| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) | Interatividade, carrossel, carrinho e checkout |
-| ![Font Awesome](https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=font-awesome&logoColor=white) | Ícones |
-| ![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?style=for-the-badge&logo=google&logoColor=white) | Tipografia (Cinzel, Cinzel Decorative, Crimson Pro) |
+# Loja Myoboku - A Loja do Grande Sábio
+
+**Loja virtual temática inspirada no universo de Jiraiya e o Monte Myoboku de Naruto Shippuden.**
+
+<br>
+
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Font Awesome](https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=font-awesome&logoColor=white)
+![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?style=for-the-badge&logo=google&logoColor=white)
+
+<br>
+
+Projeto de portfólio desenvolvido com HTML, CSS e JavaScript puros, sem frameworks, sem dependências de build.
 
 </div>
 
----
 
-## 📁 Estrutura do Projeto
+## Sobre
+
+Monte Myoboku é uma loja virtual fictícia e temática com foco em imersão visual. O projeto simula uma SPA (Single Page Application) construída inteiramente com HTML, CSS e JavaScript nativos, sem nenhuma biblioteca ou bundler externo. Toda a navegação, gerenciamento de estado do carrinho, animações e fluxo de checkout são controlados por JavaScript vanilla.
+
+O design é fiel à estética sombria e mística do universo de Naruto, com paleta de cores baseada nos personagens de cada coleção e tipografia refinada em fontes serifadas.
+
+
+
+
+## Paleta de Cores
+
+| Variável | Hex | Uso |
+|---|---|---|
+| `--red` | `#C0392B` | Cor primária — Jiraiya |
+| `--gold` | `#C9A84C` | Destaques e ícones |
+| `--olive` | `#5D6B2E` | Acentos secundários |
+| `--cream` | `#F0E6D3` | Texto principal |
+| `--ink-black` | `#0C0C0C` | Fundo base |
+| `--surface` | `#1A1A1A` | Cards e painéis |
+| `--gamabunta-red` | `#8B2015` | Coleção Gamabunta |
+| `--shima-purple` | `#6B4F9A` | Coleção Shima |
+| `--fukasaku-olive` | `#4A6225` | Coleção Fukasaku |
+
+
+
+## Estrutura do Projeto
 
 ```
 myoboku-store/
-├── index.html          # Estrutura principal e todas as páginas (SPA)
+├── index.html        # Toda a estrutura da SPA — marcação de todas as páginas
 ├── assets/
-│   ├── favicon.png     # Ícone da aba do navegador
-│   └── jiraiya-hero.jpg # Imagem do hero da home
+│   ├── favicon.png
+│   ├── jiraiya-hero.jpg
+│   ├── jiraya.png
+│   ├── Gamabunta.png
+│   ├── Fukasaku.png
+│   ├── Shima.png
+│   └── Gamaken.png
 ├── css/
-│   └── main.css        # Todo o estilo da aplicação
+│   └── main.css      # Estilização completa com variáveis CSS, animações e responsividade
 └── js/
-    ├── main.js         # Lógica principal (carrossel, carrinho, checkout...)
-    └── svgs.js         # SVGs vetoriais de todos os produtos
+    ├── main.js       # Lógica da SPA: navegação, carrossel, carrinho, modal e checkout
+    └── svgs.js       # Biblioteca de SVGs vetoriais de todos os produtos
 ```
 
 ---
 
-## 🚀 Como Usar
+## Como Executar
 
-Nenhuma instalação necessária. Basta abrir o `index.html` no navegador:
+Nenhuma instalação necessária. O projeto roda diretamente no navegador.
 
 ```bash
 # Clone o repositório
 git clone https://github.com/seu-usuario/myoboku-store.git
 
-# Abra no navegador
+# Entre na pasta
 cd myoboku-store
-open index.html   # macOS
-# ou arraste o arquivo para o navegador
+
+# Abra no navegador
+open index.html        # macOS
+start index.html       # Windows
+xdg-open index.html    # Linux
 ```
 
-> **Nota:** Para carregamento correto das fontes do Google, é necessária conexão com a internet.
+Ou simplesmente arraste o arquivo `index.html` para qualquer navegador moderno.
 
----
 
-## 🎨 Paleta de Cores
 
-| Coleção | Cor Principal | Hex |
-|---|---|---|
-| Jiraiya | Vermelho Sennin | `#C0392B` |
-| Gamabunta | Escarlate | `#8B2015` |
-| Fukasaku | Verde Oliva | `#4A6225` |
-| Shima | Roxo Ancestral | `#7B5EA7` |
-| Gamaken | Carmesim | `#B83055` |
 
----
+## Aviso Legal
 
-## 📦 Produtos Disponíveis
+Projeto fictício sem fins comerciais, desenvolvido para fins educacionais e de portfólio. Todos os personagens, nomes e referências pertencem aos seus respectivos detentores de direitos — Masashi Kishimoto / Shueisha / Studio Pierrot.
 
-São **20 produtos** distribuídos nas 5 coleções:
-
-- **Jiraiya (6)** — Kimono, colete, capa, calça, sandálias, bandana
-- **Gamabunta (4)** — Kimono, haori, estatueta, caneca
-- **Fukasaku (3)** — Colar, estatueta, kit meditação
-- **Shima (2)** — Elixir colecionável, bracelete
-- **Gamaken (5)** — Máscara, livro, pergaminho, peruca, conjunto completo
-
----
-
-## 🐸 Sobre o Projeto
-
-Este projeto é uma homenagem ao personagem **Jiraiya** e ao universo de **Naruto Shippuden**.  
-Todo o conteúdo é **fictício** e **sem fins comerciais** — desenvolvido para fins educacionais e de portfólio.
-
-> *"O único remédio para a tristeza é o trabalho duro."* — Jiraiya
-
----
 
 <div align="center">
-  <sub>Desenvolvido com 🔴 e ☕ | © 2026 Monte Myoboku</sub>
+  <sub>Desenvolvido com nostalgia - © 2026 Monte Myoboku</sub>
 </div>
