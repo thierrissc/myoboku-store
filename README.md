@@ -9,8 +9,6 @@
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-![Font Awesome](https://img.shields.io/badge/Font_Awesome-528DD7?style=for-the-badge&logo=font-awesome&logoColor=white)
-![Google Fonts](https://img.shields.io/badge/Google_Fonts-4285F4?style=for-the-badge&logo=google&logoColor=white)
 
 <br>
 
@@ -21,7 +19,7 @@ Projeto de portfólio desenvolvido com HTML, CSS e JavaScript puros, sem framewo
 
 ## Sobre
 
-Monte Myoboku é uma loja virtual fictícia e temática com foco em imersão visual. O projeto simula uma SPA (Single Page Application) construída inteiramente com HTML, CSS e JavaScript nativos, sem nenhuma biblioteca ou bundler externo. Toda a navegação, gerenciamento de estado do carrinho, animações e fluxo de checkout são controlados por JavaScript vanilla.
+Loja Myoboku é uma loja virtual fictícia e temática com foco em imersão visual. O projeto simula uma SPA (Single Page Application) construída inteiramente com HTML, CSS e JavaScript nativos, sem nenhuma biblioteca ou bundler externo. Toda a navegação, gerenciamento de estado do carrinho, animações e fluxo de checkout são controlados por JavaScript vanilla.
 
 O design é fiel à estética sombria e mística do universo de Naruto, com paleta de cores baseada nos personagens de cada coleção e tipografia refinada em fontes serifadas.
 
@@ -94,5 +92,5 @@ Projeto fictício sem fins comerciais, desenvolvido para fins educacionais e de 
 
 
 <div align="center">
-  <sub>Desenvolvido com nostalgia - © 2026 Monte Myoboku</sub>
+  <sub>Desenvolvido com muita nostalgia - © 2026 Monte Myoboku</sub>
 </div>
