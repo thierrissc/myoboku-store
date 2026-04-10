@@ -8,12 +8,21 @@ function openInfoModal(page) {
     closeSidebar && closeSidebar();
     navigateTo('jiraiya');
     setTimeout(() => {
-      const sec = document.querySelector('#page-jiraiya .section-label');
-      if (sec) {
-        const parent = sec.closest('section');
-        if (parent) parent.scrollIntoView({ behavior: 'smooth' });
+      const jiraiyaPage = document.getElementById('page-jiraiya');
+      if (!jiraiyaPage) return;
+      const sections = jiraiyaPage.querySelectorAll('section');
+      let aboutSection = null;
+      sections.forEach(s => {
+        if (s.querySelector('.section-label') && s.querySelector('.section-label').textContent.includes('Sobre Jiraiya')) {
+          aboutSection = s;
+        }
+      });
+      if (!aboutSection) {
+        const footer = jiraiyaPage.querySelector('footer');
+        if (footer) aboutSection = footer;
       }
-    }, 120);
+      if (aboutSection) aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 180);
     return;
   }
   content.innerHTML = getPageContent(page);
@@ -224,55 +233,134 @@ function guiaContent() {
   <div class="ipage-header">
     <div class="ipage-icon"><i class="fas fa-ruler-combined"></i></div>
     <h2 class="ipage-title">Guia de Tamanhos</h2>
-    <p class="ipage-subtitle">Encontre o tamanho perfeito para cada produto</p>
+    <p class="ipage-subtitle">Medidas de referência para cada categoria de produto da Loja Myoboku</p>
   </div>
 
   <div class="ipage-section">
-    <h3 class="ipage-sec-title"><i class="fas fa-tshirt"></i> Camisetas e Regatas</h3>
+    <h3 class="ipage-sec-title"><i class="fas fa-scroll"></i> Kimonos e Haori</h3>
+    <p class="ipage-text">Kimono Vermelho do Sábio · Kimono Gamabunta Escarlate · Haori Vermelho Daimyo</p>
     <div class="size-table-wrap">
       <table class="size-table">
-        <thead><tr><th>Tamanho</th><th>Comprimento (cm)</th><th>Largura (cm)</th><th>Medida Corpo (cm)</th></tr></thead>
+        <thead><tr><th>Tamanho</th><th>Comprimento (cm)</th><th>Largura (cm)</th><th>Manga (cm)</th><th>Tórax (cm)</th></tr></thead>
         <tbody>
-          <tr><td><span class="size-badge">PP</span></td><td>65</td><td>45</td><td>80–85</td></tr>
-          <tr><td><span class="size-badge">P</span></td><td>67</td><td>48</td><td>86–91</td></tr>
-          <tr><td><span class="size-badge">M</span></td><td>69</td><td>51</td><td>92–97</td></tr>
-          <tr><td><span class="size-badge">G</span></td><td>72</td><td>54</td><td>98–104</td></tr>
-          <tr><td><span class="size-badge">GG</span></td><td>74</td><td>57</td><td>105–112</td></tr>
-          <tr><td><span class="size-badge">XGG</span></td><td>76</td><td>61</td><td>113–120</td></tr>
+          <tr><td><span class="size-badge">P</span></td><td>120</td><td>58</td><td>80</td><td>92–98</td></tr>
+          <tr><td><span class="size-badge">M</span></td><td>124</td><td>62</td><td>82</td><td>99–106</td></tr>
+          <tr><td><span class="size-badge">G</span></td><td>128</td><td>66</td><td>84</td><td>107–114</td></tr>
+          <tr><td><span class="size-badge">GG</span></td><td>132</td><td>70</td><td>86</td><td>115–122</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
   <div class="ipage-section">
-    <h3 class="ipage-sec-title"><i class="fas fa-user-tie"></i> Moletons e Jaquetas</h3>
+    <h3 class="ipage-sec-title"><i class="fas fa-vest"></i> Coletes e Armaduras</h3>
+    <p class="ipage-text">Colete Vermelho Sennin · Armadura Ninja Azul Celeste</p>
     <div class="size-table-wrap">
       <table class="size-table">
-        <thead><tr><th>Tamanho</th><th>Comprimento (cm)</th><th>Largura (cm)</th><th>Manga (cm)</th></tr></thead>
+        <thead><tr><th>Tamanho</th><th>Comprimento (cm)</th><th>Largura (cm)</th><th>Tórax (cm)</th></tr></thead>
         <tbody>
-          <tr><td><span class="size-badge">PP</span></td><td>64</td><td>50</td><td>62</td></tr>
-          <tr><td><span class="size-badge">P</span></td><td>66</td><td>53</td><td>63</td></tr>
-          <tr><td><span class="size-badge">M</span></td><td>68</td><td>56</td><td>64</td></tr>
-          <tr><td><span class="size-badge">G</span></td><td>70</td><td>59</td><td>65</td></tr>
-          <tr><td><span class="size-badge">GG</span></td><td>72</td><td>62</td><td>66</td></tr>
-          <tr><td><span class="size-badge">XGG</span></td><td>74</td><td>66</td><td>67</td></tr>
+          <tr><td><span class="size-badge">P</span></td><td>68</td><td>50</td><td>88–94</td></tr>
+          <tr><td><span class="size-badge">M</span></td><td>71</td><td>54</td><td>95–102</td></tr>
+          <tr><td><span class="size-badge">G</span></td><td>74</td><td>58</td><td>103–110</td></tr>
+          <tr><td><span class="size-badge">GG</span></td><td>77</td><td>62</td><td>111–118</td></tr>
         </tbody>
       </table>
     </div>
   </div>
 
   <div class="ipage-section">
-    <h3 class="ipage-sec-title"><i class="fas fa-socks"></i> Calças e Shorts</h3>
+    <h3 class="ipage-sec-title"><i class="fas fa-theater-masks"></i> Capas</h3>
+    <p class="ipage-text">Capa do Sábio Branca</p>
+    <div class="size-table-wrap">
+      <table class="size-table">
+        <thead><tr><th>Tamanho</th><th>Comprimento (cm)</th><th>Largura (cm)</th><th>Indicação</th></tr></thead>
+        <tbody>
+          <tr><td><span class="size-badge">U</span></td><td>140</td><td>180</td><td>Tamanho único — ajustável</td></tr>
+          <tr><td><span class="size-badge">P</span></td><td>130</td><td>160</td><td>Altura até 170 cm</td></tr>
+          <tr><td><span class="size-badge">M</span></td><td>140</td><td>175</td><td>Altura 170–180 cm</td></tr>
+          <tr><td><span class="size-badge">G</span></td><td>148</td><td>190</td><td>Altura acima de 180 cm</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="ipage-section">
+    <h3 class="ipage-sec-title"><i class="fas fa-walking"></i> Calça Ninja</h3>
+    <p class="ipage-text">Calça Ninja Verde Oliva</p>
     <div class="size-table-wrap">
       <table class="size-table">
         <thead><tr><th>Tamanho</th><th>Cintura (cm)</th><th>Quadril (cm)</th><th>Comprimento (cm)</th></tr></thead>
         <tbody>
-          <tr><td><span class="size-badge">PP</span></td><td>72–76</td><td>88–92</td><td>96</td></tr>
-          <tr><td><span class="size-badge">P</span></td><td>77–82</td><td>93–97</td><td>98</td></tr>
-          <tr><td><span class="size-badge">M</span></td><td>83–88</td><td>98–102</td><td>100</td></tr>
-          <tr><td><span class="size-badge">G</span></td><td>89–95</td><td>103–108</td><td>102</td></tr>
-          <tr><td><span class="size-badge">GG</span></td><td>96–103</td><td>109–114</td><td>104</td></tr>
-          <tr><td><span class="size-badge">XGG</span></td><td>104–112</td><td>115–122</td><td>106</td></tr>
+          <tr><td><span class="size-badge">36</span></td><td>72–76</td><td>90–94</td><td>98</td></tr>
+          <tr><td><span class="size-badge">38</span></td><td>77–82</td><td>95–100</td><td>100</td></tr>
+          <tr><td><span class="size-badge">40</span></td><td>83–88</td><td>101–106</td><td>102</td></tr>
+          <tr><td><span class="size-badge">42</span></td><td>89–95</td><td>107–112</td><td>104</td></tr>
+          <tr><td><span class="size-badge">44</span></td><td>96–103</td><td>113–119</td><td>106</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="ipage-section">
+    <h3 class="ipage-sec-title"><i class="fas fa-shoe-prints"></i> Sandálias de Madeira Ninja</h3>
+    <p class="ipage-text">Numeração especial sob encomenda disponível</p>
+    <div class="size-table-wrap">
+      <table class="size-table">
+        <thead><tr><th>Número BR</th><th>Comprimento (cm)</th><th>Largura (cm)</th></tr></thead>
+        <tbody>
+          <tr><td><span class="size-badge">38</span></td><td>25.0</td><td>9.0</td></tr>
+          <tr><td><span class="size-badge">39</span></td><td>25.8</td><td>9.2</td></tr>
+          <tr><td><span class="size-badge">40</span></td><td>26.5</td><td>9.5</td></tr>
+          <tr><td><span class="size-badge">41</span></td><td>27.3</td><td>9.7</td></tr>
+          <tr><td><span class="size-badge">42</span></td><td>28.0</td><td>10.0</td></tr>
+          <tr><td><span class="size-badge">43</span></td><td>28.8</td><td>10.2</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="ipage-section">
+    <h3 class="ipage-sec-title"><i class="fas fa-ring"></i> Joias e Braceletes</h3>
+    <p class="ipage-text">Colar dos Sapos Sábios · Bracelete Shima Sábia</p>
+    <div class="size-table-wrap">
+      <table class="size-table">
+        <thead><tr><th>Produto</th><th>Tamanho</th><th>Circunferência do pulso</th><th>Detalhe</th></tr></thead>
+        <tbody>
+          <tr><td>Bracelete Shima Sábia</td><td><span class="size-badge">P/M</span></td><td>14–17 cm</td><td>Pulsos pequenos a médios</td></tr>
+          <tr><td>Bracelete Shima Sábia</td><td><span class="size-badge">G/GG</span></td><td>17–21 cm</td><td>Pulsos médios a grandes</td></tr>
+          <tr><td>Colar dos Sapos Sábios</td><td><span class="size-badge">U</span></td><td>—</td><td>Corrente 60 cm ajustável</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="ipage-section">
+    <h3 class="ipage-sec-title"><i class="fas fa-mask"></i> Máscaras e Acessórios de Cabeça</h3>
+    <p class="ipage-text">Máscara Modo Sábio · Máscara Azul do Guerreiro · Bandana de Konoha · Peruca Branca do Sennin</p>
+    <div class="size-table-wrap">
+      <table class="size-table">
+        <thead><tr><th>Produto</th><th>Tamanho</th><th>Ajuste</th></tr></thead>
+        <tbody>
+          <tr><td>Máscara Modo Sábio</td><td><span class="size-badge">U</span></td><td>Elástico ajustável — circunf. até 60 cm</td></tr>
+          <tr><td>Máscara Azul do Guerreiro</td><td><span class="size-badge">U</span></td><td>Elástico ajustável — circunf. até 60 cm</td></tr>
+          <tr><td>Bandana de Konoha</td><td><span class="size-badge">U</span></td><td>Tira universal com velcro</td></tr>
+          <tr><td>Peruca Branca do Sennin</td><td><span class="size-badge">U</span></td><td>Touca interna — circunf. cabeça até 62 cm</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="ipage-section">
+    <h3 class="ipage-sec-title"><i class="fas fa-box-open"></i> Conjunto Completo Sábio</h3>
+    <p class="ipage-text">Inclui: kimono, calça ninja, sandálias, bandana e peruca — tamanho sob consulta disponível</p>
+    <div class="size-table-wrap">
+      <table class="size-table">
+        <thead><tr><th>Tamanho</th><th>Altura indicada (cm)</th><th>Tórax (cm)</th><th>Cintura (cm)</th></tr></thead>
+        <tbody>
+          <tr><td><span class="size-badge">P</span></td><td>158–166</td><td>88–96</td><td>74–82</td></tr>
+          <tr><td><span class="size-badge">M</span></td><td>167–174</td><td>97–104</td><td>83–90</td></tr>
+          <tr><td><span class="size-badge">G</span></td><td>175–182</td><td>105–113</td><td>91–99</td></tr>
+          <tr><td><span class="size-badge">GG</span></td><td>183–190</td><td>114–122</td><td>100–109</td></tr>
         </tbody>
       </table>
     </div>
@@ -288,7 +376,7 @@ function guiaContent() {
       </div>
       <div class="medida-item">
         <div class="medida-icon"><i class="fas fa-arrows-alt-h"></i></div>
-        <strong>Largura / Tórax</strong>
+        <strong>Tórax / Largura</strong>
         <p>Meça de uma axila à outra com a peça aberta e plana</p>
       </div>
       <div class="medida-item">
@@ -298,17 +386,16 @@ function guiaContent() {
       </div>
       <div class="medida-item">
         <div class="medida-icon"><i class="fas fa-ruler"></i></div>
-        <strong>Manga</strong>
-        <p>Do ombro até o punho com o braço levemente dobrado</p>
+        <strong>Pulso</strong>
+        <p>Meça ao redor do pulso onde você usaria a pulseira</p>
       </div>
     </div>
     <div class="size-tip">
       <i class="fas fa-lightbulb"></i>
-      <span>Dica: Em caso de dúvida entre dois tamanhos, opte pelo maior. Todas as peças têm folga confortável.</span>
+      <span>Em caso de dúvida entre dois tamanhos, opte pelo maior. Colecionáveis, estatuetas, livros e itens tamanho único não requerem medição.</span>
     </div>
   </div>`;
 }
-
 function formatCEP(input) {
   let v = input.value.replace(/\D/g, '');
   if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5, 8);

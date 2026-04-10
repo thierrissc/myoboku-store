@@ -44,7 +44,10 @@ let currentSize = null;
 let carouselIndex = 0;
 let carouselItems = [];
 
+if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
 document.addEventListener('DOMContentLoaded', () => {
+  window.scrollTo(0, 0);
   initLoading();
   initHeroCanvas();
   initCarousel();
@@ -605,9 +608,54 @@ function closeCheckout() {
 }
 
 function checkoutNextStep(step) {
+  if (step > checkoutCurrentStep) {
+    if (checkoutCurrentStep === 1) {
+      const nome = document.getElementById('cf-nome').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const cpf = document.getElementById('cf-cpf').value.trim();
+      const tel = document.getElementById('cf-tel').value.trim();
+      const errors = [];
+      if (!nome) errors.push('cf-nome');
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.push('cf-email');
+      if (!cpf || cpf.replace(/\D/g, '').length < 11) errors.push('cf-cpf');
+      if (!tel || tel.replace(/\D/g, '').length < 10) errors.push('cf-tel');
+      if (errors.length) { highlightCheckoutErrors(errors); showToast('Preencha todos os campos corretamente.'); return; }
+    }
+    if (checkoutCurrentStep === 2) {
+      const cep = document.getElementById('cf-cep').value.trim();
+      const rua = document.getElementById('cf-rua').value.trim();
+      const num = document.getElementById('cf-num').value.trim();
+      const bairro = document.getElementById('cf-bairro').value.trim();
+      const cidade = document.getElementById('cf-cidade').value.trim();
+      const uf = document.getElementById('cf-uf').value.trim();
+      const errors = [];
+      if (!cep || cep.replace(/\D/g, '').length < 8) errors.push('cf-cep');
+      if (!rua) errors.push('cf-rua');
+      if (!num) errors.push('cf-num');
+      if (!bairro) errors.push('cf-bairro');
+      if (!cidade) errors.push('cf-cidade');
+      if (!uf || uf.length < 2) errors.push('cf-uf');
+      if (errors.length) { highlightCheckoutErrors(errors); showToast('Preencha todos os campos de entrega.'); return; }
+    }
+  }
   checkoutCurrentStep = step;
   showCheckoutPanel(step);
   if (step === 3) buildCheckoutSummary();
+}
+
+function highlightCheckoutErrors(ids) {
+  ids.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.borderColor = 'var(--red)';
+    el.style.boxShadow = '0 0 0 2px rgba(192,57,43,0.25)';
+    el.addEventListener('input', function clear() {
+      el.style.borderColor = '';
+      el.style.boxShadow = '';
+    }, { once: true });
+  });
+  const first = document.getElementById(ids[0]);
+  if (first) first.focus();
 }
 
 function showCheckoutPanel(step) {

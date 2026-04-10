@@ -2353,8 +2353,7 @@ footer {
 }
 
 .ipage-title {
-  font-family: 'Cinzel',
-    serif;
+  font-family: 'Cinzel', serif;
   font-size: 1.8rem;
   color: var(--cream);
   margin: 0 0 0.5rem;
@@ -2371,8 +2370,7 @@ footer {
 }
 
 .ipage-sec-title {
-  font-family: 'Cinzel',
-    serif;
+  font-family: 'Cinzel', serif;
   font-size: 1rem;
   color: var(--gold);
   letter-spacing: 0.05em;
