@@ -1,15 +1,15 @@
 const PRODUCTS = {
   home: [
-    { id: 1, name: "Kimono Vermelho do Sábio", price: 389.90, oldPrice: 499.90, category: "Kimonos", tag: "DESTAQUE", description: "Réplica premium do icônico kimono vermelho de Jiraiya. Tecido de algodão japonês de alta qualidade com o kanji 油 bordado nas costas. Perfeito para colecionadores e cosplay de alto nível.", svg: "kimono_red", sizes: ["P","M","G","GG"], page: "home" },
-    { id: 2, name: "Colete Vermelho Sennin", price: 249.90, oldPrice: null, category: "Vestimentas", tag: "NOVO", description: "Colete estilo Jiraiya em tecido resistente com detalhes em dourado. O kanji do óleo está bordado ao centro, símbolo do Modo Sábio. Lavagem a mão recomendada.", svg: "vest_red", sizes: ["P","M","G","GG"], page: "home" },
-    { id: 3, name: "Capa do Sábio Branca", price: 459.90, oldPrice: 580.00, category: "Capas", tag: null, description: "Capa branca de grande sábio com chamas vermelhas na borda inferior. Feita em tule reforçado, com o kanji 仙 bordado. Ideal para cosplays épicos e eventos.", svg: "cape_white", sizes: ["U","P","M","G"], page: "home" },
-    { id: 4, name: "Calça Ninja Verde Oliva", price: 189.90, oldPrice: null, category: "Calças", tag: null, description: "Calça em tecido reforçado na cor verde oliva, fiel ao estilo das vestimentas ninjas de Konoha. Cinto dourado incluso. Conforto e movimento livre para suas batalhas diárias.", svg: "pants_olive", sizes: ["36","38","40","42","44"], page: "home" },
-    { id: 5, name: "Sandálias de Madeira Ninja", price: 179.90, oldPrice: null, category: "Calçados", tag: "LIMITADO", description: "Sandálias tradicionais japonesas de madeira (geta) no estilo ninja. Tiras em couro vermelho, solado elevado para movimentos ágeis. Numeração especial sob encomenda.", svg: "sandals_wood", sizes: ["38","39","40","41","42","43"], page: "home" },
+    { id: 1, name: "Kimono Vermelho do Sábio", price: 389.90, oldPrice: 499.90, category: "Kimonos", tag: "DESTAQUE", description: "Réplica premium do icônico kimono vermelho de Jiraiya. Tecido de algodão japonês de alta qualidade com o kanji 油 bordado nas costas. Perfeito para colecionadores e cosplay de alto nível.", svg: "kimono_red", sizes: ["P", "M", "G", "GG"], page: "home" },
+    { id: 2, name: "Colete Vermelho Sennin", price: 249.90, oldPrice: null, category: "Vestimentas", tag: "NOVO", description: "Colete estilo Jiraiya em tecido resistente com detalhes em dourado. O kanji do óleo está bordado ao centro, símbolo do Modo Sábio. Lavagem a mão recomendada.", svg: "vest_red", sizes: ["P", "M", "G", "GG"], page: "home" },
+    { id: 3, name: "Capa do Sábio Branca", price: 459.90, oldPrice: 580.00, category: "Capas", tag: null, description: "Capa branca de grande sábio com chamas vermelhas na borda inferior. Feita em tule reforçado, com o kanji 仙 bordado. Ideal para cosplays épicos e eventos.", svg: "cape_white", sizes: ["U", "P", "M", "G"], page: "home" },
+    { id: 4, name: "Calça Ninja Verde Oliva", price: 189.90, oldPrice: null, category: "Calças", tag: null, description: "Calça em tecido reforçado na cor verde oliva, fiel ao estilo das vestimentas ninjas de Konoha. Cinto dourado incluso. Conforto e movimento livre para suas batalhas diárias.", svg: "pants_olive", sizes: ["36", "38", "40", "42", "44"], page: "home" },
+    { id: 5, name: "Sandálias de Madeira Ninja", price: 179.90, oldPrice: null, category: "Calçados", tag: "LIMITADO", description: "Sandálias tradicionais japonesas de madeira (geta) no estilo ninja. Tiras em couro vermelho, solado elevado para movimentos ágeis. Numeração especial sob encomenda.", svg: "sandals_wood", sizes: ["38", "39", "40", "41", "42", "43"], page: "home" },
     { id: 6, name: "Bandana de Konoha", price: 129.90, oldPrice: 159.90, category: "Acessórios", tag: "MAIS VENDIDO", description: "Réplica em metal fundido da bandana de Konoha com tarja de renegado. Tecido vermelho incluso. Material: liga de zinco e alumínio. Peso: 180g.", svg: "headband", sizes: ["U"], page: "home" },
   ],
   gamabunta: [
-    { id: 7, name: "Kimono Gamabunta Escarlate", price: 420.00, oldPrice: 550.00, category: "Kimonos", tag: "DESTAQUE", description: "Kimono inspirado nas cores do Grande Sapo Gamabunta. Tom escarlate profundo com detalhes em cobre e bronze. O símbolo do clã dos sapos bordado no peito.", svg: "red_haori", sizes: ["P","M","G","GG"], page: "gamabunta" },
-    { id: 8, name: "Haori Vermelho Daimyo", price: 499.90, oldPrice: null, category: "Capas", tag: "NOVO", description: "Haori no estilo japonês clássico, cor vermelha profunda como as escamas de Gamabunta. Bordas douradas e kanji de invocação nas costas. Edição limitada.", svg: "red_haori", sizes: ["P","M","G","GG"], page: "gamabunta" },
+    { id: 7, name: "Kimono Gamabunta Escarlate", price: 420.00, oldPrice: 550.00, category: "Kimonos", tag: "DESTAQUE", description: "Kimono inspirado nas cores do Grande Sapo Gamabunta. Tom escarlate profundo com detalhes em cobre e bronze. O símbolo do clã dos sapos bordado no peito.", svg: "red_haori", sizes: ["P", "M", "G", "GG"], page: "gamabunta" },
+    { id: 8, name: "Haori Vermelho Daimyo", price: 499.90, oldPrice: null, category: "Capas", tag: "NOVO", description: "Haori no estilo japonês clássico, cor vermelha profunda como as escamas de Gamabunta. Bordas douradas e kanji de invocação nas costas. Edição limitada.", svg: "red_haori", sizes: ["P", "M", "G", "GG"], page: "gamabunta" },
     { id: 9, name: "Estatueta Gamabunta Premium", price: 349.90, oldPrice: 420.00, category: "Colecionáveis", tag: "RARO", description: "Estatueta de resina pintada à mão de Gamabunta com seu tonel de saquê. 18cm de altura, base em madeira. Pintura detalhada com olhos dourados e pele texturizada.", svg: "toad_figurine_gamabunta", sizes: ["U"], page: "gamabunta" },
     { id: 10, name: "Caneca Sake do Chefe", price: 89.90, oldPrice: null, category: "Casa", tag: null, description: "Caneca de cerâmica japonesa no estilo do tonel de saquê de Gamabunta. Capacidade 350ml. Ilustração do grande sapo na lateral. Ideal para uso diário ou coleção.", svg: "toad_figurine_gamabunta", sizes: ["U"], page: "gamabunta" },
   ],
@@ -20,10 +20,10 @@ const PRODUCTS = {
   ],
   shima: [
     { id: 14, name: "Elixir Óleo do Sábio", price: 139.90, oldPrice: 180.00, category: "Colecionáveis", tag: "DESTAQUE", description: "Frasco colecionável com óleo essencial de bambu e menta, inspirado no óleo sagrado de Myoboku. Frasco em vidro esmeralda com rótulo artesanal e cera lacre.", svg: "oil_sage_potion", sizes: ["U"], page: "shima" },
-    { id: 15, name: "Bracelete Shima Sábia", price: 169.90, oldPrice: null, category: "Joias", tag: "NOVO", description: "Bracelete em couro esmeralda com fecho dourado, inspirado na Grande Sapo Shima. Gravação do clã dos sapos. Diâmetro ajustável. Inclui caixinha de presente.", svg: "toad_necklace", sizes: ["P/M","G/GG"], page: "shima" },
+    { id: 15, name: "Bracelete Shima Sábia", price: 169.90, oldPrice: null, category: "Joias", tag: "NOVO", description: "Bracelete em couro esmeralda com fecho dourado, inspirado na Grande Sapo Shima. Gravação do clã dos sapos. Diâmetro ajustável. Inclui caixinha de presente.", svg: "toad_necklace", sizes: ["P/M", "G/GG"], page: "shima" },
   ],
   gamahiro: [
-    { id: 21, name: "Armadura Ninja Azul Celeste", price: 349.90, oldPrice: 430.00, category: "Vestimentas", tag: "NOVO", description: "Armadura leve inspirada nas escamas de Gamahiro. Azul celeste intenso com detalhes em prata. Tecido reforçado com bordados do símbolo do clã dos sapos. Ideal para cosplay e colecionadores.", svg: "vest_red", sizes: ["P","M","G","GG"], page: "gamahiro" },
+    { id: 21, name: "Armadura Ninja Azul Celeste", price: 349.90, oldPrice: 430.00, category: "Vestimentas", tag: "NOVO", description: "Armadura leve inspirada nas escamas de Gamahiro. Azul celeste intenso com detalhes em prata. Tecido reforçado com bordados do símbolo do clã dos sapos. Ideal para cosplay e colecionadores.", svg: "vest_red", sizes: ["P", "M", "G", "GG"], page: "gamahiro" },
     { id: 22, name: "Katana Dupla Gamahiro", price: 289.90, oldPrice: null, category: "Colecionáveis", tag: "LIMITADO", description: "Réplica em resina das duas katanas carregadas por Gamahiro. Acabamento cromado com detalhes em azul. Suporte de parede incluso. 70cm cada lâmina. Edição numerada.", svg: "scroll_summoning", sizes: ["U"], page: "gamahiro" },
     { id: 23, name: "Estatueta Gamahiro Guerreiro", price: 319.90, oldPrice: 390.00, category: "Colecionáveis", tag: "RARO", description: "Estatueta de resina pintada à mão de Gamahiro em posição de ataque com suas duas katanas. 20cm de altura, base em pedra preta. Olhos dourados detalhados e pele azul texturizada.", svg: "toad_figurine_gamabunta", sizes: ["U"], page: "gamahiro" },
     { id: 24, name: "Máscara Azul do Guerreiro", price: 199.90, oldPrice: null, category: "Acessórios", tag: null, description: "Máscara de resina pintada em azul celeste inspirada em Gamahiro. Olhos dourados com expressão determinada. Perfeita para cosplay e decoração. Elástico ajustável.", svg: "sage_mode_mask", sizes: ["U"], page: "gamahiro" },
@@ -33,7 +33,7 @@ const PRODUCTS = {
     { id: 17, name: "Livro A Gesta do Shinobi Corajoso", price: 79.90, oldPrice: null, category: "Livros", tag: "BEST-SELLER", description: "Edição comemorativa ilustrada do livro fictício escrito por Jiraiya. Capa dura em vermelho com detalhes dourados. Arte conceitual exclusiva no estilo mangá. 240 páginas.", svg: "senin_book", sizes: ["U"], page: "gamaken" },
     { id: 18, name: "Pergaminho de Invocação", price: 119.90, oldPrice: 150.00, category: "Colecionáveis", tag: "LIMITADO", description: "Réplica do pergaminho de invocação dos sapos de Myoboku. Papel de arroz envelhecido com caligrafia japonesa em nanquim. Enrolado em caixinha de bambu.", svg: "scroll_summoning", sizes: ["U"], page: "gamaken" },
     { id: 19, name: "Peruca Branca do Sennin", price: 149.90, oldPrice: null, category: "Cosplay", tag: null, description: "Peruca de cabelo longo branco de altíssima qualidade sintética, fiel ao estilo de Jiraiya. Inclui bandana vermelha e suporte para bandana de Konoha. Lavável.", svg: "white_hair_wig", sizes: ["U"], page: "gamaken" },
-    { id: 20, name: "Conjunto Completo Sábio", price: 899.90, oldPrice: 1200.00, category: "Conjuntos", tag: "OFERTA", description: "Conjunto completo para cosplay de Jiraiya: kimono vermelho, calça verde oliva, sandálias de madeira, bandana de Konoha e peruca branca. Tamanho sob consulta.", svg: "kimono_red", sizes: ["P","M","G","GG"], page: "gamaken" },
+    { id: 20, name: "Conjunto Completo Sábio", price: 899.90, oldPrice: 1200.00, category: "Conjuntos", tag: "OFERTA", description: "Conjunto completo para cosplay de Jiraiya: kimono vermelho, calça verde oliva, sandálias de madeira, bandana de Konoha e peruca branca. Tamanho sob consulta.", svg: "kimono_red", sizes: ["P", "M", "G", "GG"], page: "gamaken" },
   ]
 };
 
@@ -107,7 +107,7 @@ function initHeroCanvas() {
   }
 
   const kanjis = ['油', '仙', '召', '忍', '蝦', '蟇'];
-  const floaters = Array.from({length: 8}, () => ({
+  const floaters = Array.from({ length: 8 }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
     kanji: kanjis[Math.floor(Math.random() * kanjis.length)],
@@ -179,7 +179,7 @@ function navigateTo(pageId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     closeSidebar();
     updateNavActive(pageId);
-    if (['gamabunta','fukasaku','shima','gamaken','gamahiro'].includes(pageId)) {
+    if (['gamabunta', 'fukasaku', 'shima', 'gamaken', 'gamahiro'].includes(pageId)) {
       renderToadPage(pageId);
     }
     if (pageId === 'jiraiya') {
@@ -310,8 +310,8 @@ function createProductCard(product) {
       <div class="product-category">${product.category}</div>
       <div class="product-name">${product.name}</div>
       <div>
-        <span class="product-price">R$ ${product.price.toFixed(2).replace('.',',')}</span>
-        ${product.oldPrice ? `<span class="product-price-old">R$ ${product.oldPrice.toFixed(2).replace('.',',')}</span>` : ''}
+        <span class="product-price">R$ ${product.price.toFixed(2).replace('.', ',')}</span>
+        ${product.oldPrice ? `<span class="product-price-old">R$ ${product.oldPrice.toFixed(2).replace('.', ',')}</span>` : ''}
       </div>
       <button class="product-add-btn">Ver Produto</button>
     </div>
@@ -436,8 +436,8 @@ function openModal(productId) {
   document.getElementById('modal-img').innerHTML = svgContent;
   document.getElementById('modal-category').textContent = product.category;
   document.getElementById('modal-name').textContent = product.name;
-  document.getElementById('modal-price').textContent = `R$ ${product.price.toFixed(2).replace('.',',')}`;
-  document.getElementById('modal-price-old').textContent = product.oldPrice ? `R$ ${product.oldPrice.toFixed(2).replace('.',',')}` : '';
+  document.getElementById('modal-price').textContent = `R$ ${product.price.toFixed(2).replace('.', ',')}`;
+  document.getElementById('modal-price-old').textContent = product.oldPrice ? `R$ ${product.oldPrice.toFixed(2).replace('.', ',')}` : '';
   document.getElementById('modal-desc').textContent = product.description;
   document.getElementById('modal-qty-display').textContent = currentQty;
 
@@ -544,7 +544,7 @@ function renderCartItems() {
       <div class="cart-item-img">${svgSmall}</div>
       <div class="cart-item-info">
         <div class="cart-item-name">${item.name}</div>
-        <div class="cart-item-price">R$ ${(item.price * item.qty).toFixed(2).replace('.',',')}</div>
+        <div class="cart-item-price">R$ ${(item.price * item.qty).toFixed(2).replace('.', ',')}</div>
         <div class="cart-item-qty">Tam: ${item.size || '—'} | Qtd: ${item.qty}</div>
       </div>
       <button class="cart-remove" onclick="removeFromCart(${index})"><i class="fas fa-times"></i></button>
@@ -552,7 +552,7 @@ function renderCartItems() {
     container.appendChild(el);
   });
 
-  if (totalEl) totalEl.textContent = `R$ ${total.toFixed(2).replace('.',',')}`;
+  if (totalEl) totalEl.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
 }
 
 function removeFromCart(index) {
@@ -635,15 +635,15 @@ function buildCheckoutSummary() {
       ${cart.map(i => `
         <div class="summary-row">
           <span>${i.name} (${i.size || 'U'}) x${i.qty}</span>
-          <span>R$ ${(i.price * i.qty).toFixed(2).replace('.',',')}</span>
+          <span>R$ ${(i.price * i.qty).toFixed(2).replace('.', ',')}</span>
         </div>`).join('')}
       <div class="summary-row">
         <span>Frete</span>
-        <span>${shippingVal === 0 ? '<strong style="color:#7DB87A">GRÁTIS</strong>' : 'R$ ' + shippingVal.toFixed(2).replace('.',',')}</span>
+        <span>${shippingVal === 0 ? '<strong style="color:#7DB87A">GRÁTIS</strong>' : 'R$ ' + shippingVal.toFixed(2).replace('.', ',')}</span>
       </div>
       <div class="summary-row total-row">
         <span>Total</span>
-        <span>R$ ${total.toFixed(2).replace('.',',')}</span>
+        <span>R$ ${total.toFixed(2).replace('.', ',')}</span>
       </div>
     </div>
   `;
@@ -660,6 +660,21 @@ function selectPayTab(btn, type) {
 function confirmCheckout() {
   showCheckoutPanel('success');
   document.querySelectorAll('.checkout-step').forEach(s => { s.classList.add('done'); s.classList.remove('active'); });
+  const orderId = 'MY-' + Date.now().toString().slice(-6);
+  const now = new Date();
+  const trackCodes = ['BR' + Math.random().toString(36).slice(2, 10).toUpperCase() + 'BR'];
+  const orderData = {
+    id: orderId,
+    date: now.toLocaleDateString('pt-BR'),
+    dateRaw: now.toISOString(),
+    statusCode: 0,
+    statusLabel: 'Confirmado',
+    trackCode: trackCodes[0],
+    items: cart.map(item => ({ name: item.name, size: item.size, qty: item.qty, price: item.price }))
+  };
+  if (typeof saveOrderToTracking === 'function') saveOrderToTracking(orderData);
+  const successEl = document.querySelector('#cpanel-success p');
+  if (successEl) successEl.innerHTML = `Obrigado pela sua compra, shinobi! Pedido <strong>${orderId}</strong> confirmado. Acompanhe pelo <a onclick="closeCheckout();openInfoModal('rastrear')" style="color:var(--red);cursor:pointer;text-decoration:underline">Rastrear Pedido</a>.`;
   setTimeout(() => {
     cart = [];
     renderCartItems();

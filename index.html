@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,901 +12,1022 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="css/main.css">
 </head>
+
 <body>
 
-<div id="loading">
-  <div class="loading-kanji">油</div>
-  <div class="loading-sub">Monte Myoboku - Modo Sábio Ativado</div>
-  <div class="loading-bar"><div class="loading-bar-fill"></div></div>
-</div>
+  <div id="loading">
+    <div class="loading-kanji">油</div>
+    <div class="loading-sub">Monte Myoboku - Modo Sábio Ativado</div>
+    <div class="loading-bar">
+      <div class="loading-bar-fill"></div>
+    </div>
+  </div>
 
-<div id="sidebar-overlay"></div>
+  <div id="sidebar-overlay"></div>
   <aside id="sidebar">
     <div class="sidebar-top">
       <div class="sidebar-logo-mark">LOJA MYOBOKU</div>
       <div class="sidebar-tagline">A Loja do Grande Sábio</div>
     </div>
 
-  <nav class="sidebar-nav">
-    <div class="sidebar-section-label">Navegação</div>
-    <a class="sidebar-link active" data-page="home" onclick="navigateTo('home')">
-      <i class="fas fa-home"></i> Início
-    </a>
-    <a class="sidebar-link" data-page="produtos" onclick="navigateTo('produtos')">
-      <i class="fas fa-store"></i> Todos os Produtos
-    </a>
+    <nav class="sidebar-nav">
+      <div class="sidebar-section-label">Navegação</div>
+      <a class="sidebar-link active" data-page="home" onclick="navigateTo('home')">
+        <i class="fas fa-home"></i> Início
+      </a>
+      <a class="sidebar-link" data-page="produtos" onclick="navigateTo('produtos')">
+        <i class="fas fa-store"></i> Todos os Produtos
+      </a>
 
-    <div class="sidebar-section-label">Coleções Temáticas</div>
-    <a class="sidebar-link" data-page="jiraiya" onclick="navigateTo('jiraiya')">
-      <span class="sidebar-toad-dot" style="background:#C0392B"></span> Jiraiya - O Sennin
-    </a>
-    <a class="sidebar-link" data-page="gamabunta" onclick="navigateTo('gamabunta')">
-      <span class="sidebar-toad-dot" style="background:#8B2015"></span> Gamabunta - O Chefe
-    </a>
-    <a class="sidebar-link" data-page="fukasaku" onclick="navigateTo('fukasaku')">
-      <span class="sidebar-toad-dot" style="background:#4A6225"></span> Fukasaku - O Sábio
-    </a>
-    <a class="sidebar-link" data-page="shima" onclick="navigateTo('shima')">
-      <span class="sidebar-toad-dot" style="background:#7B5EA7"></span> Shima - A Anciã
-    </a>
-    <a class="sidebar-link" data-page="gamaken" onclick="navigateTo('gamaken')">
-      <span class="sidebar-toad-dot" style="background:#B8365A"></span> Gamaken - O Guerreiro
-    </a>
-    <a class="sidebar-link" data-page="gamahiro" onclick="navigateTo('gamahiro')">
-      <span class="sidebar-toad-dot" style="background:#2E7DAF"></span> Gamahiro - O Espadachim
-    </a>
+      <div class="sidebar-section-label">Coleções Temáticas</div>
+      <a class="sidebar-link" data-page="jiraiya" onclick="navigateTo('jiraiya')">
+        <span class="sidebar-toad-dot" style="background:#C0392B"></span> Jiraiya - O Sennin
+      </a>
+      <a class="sidebar-link" data-page="gamabunta" onclick="navigateTo('gamabunta')">
+        <span class="sidebar-toad-dot" style="background:#8B2015"></span> Gamabunta - O Chefe
+      </a>
+      <a class="sidebar-link" data-page="fukasaku" onclick="navigateTo('fukasaku')">
+        <span class="sidebar-toad-dot" style="background:#4A6225"></span> Fukasaku - O Sábio
+      </a>
+      <a class="sidebar-link" data-page="shima" onclick="navigateTo('shima')">
+        <span class="sidebar-toad-dot" style="background:#7B5EA7"></span> Shima - A Anciã
+      </a>
+      <a class="sidebar-link" data-page="gamaken" onclick="navigateTo('gamaken')">
+        <span class="sidebar-toad-dot" style="background:#B8365A"></span> Gamaken - O Guerreiro
+      </a>
+      <a class="sidebar-link" data-page="gamahiro" onclick="navigateTo('gamahiro')">
+        <span class="sidebar-toad-dot" style="background:#2E7DAF"></span> Gamahiro - O Espadachim
+      </a>
 
-    <div class="sidebar-section-label">Informações</div>
-    <a class="sidebar-link" onclick="closeSidebar()">
-      <i class="fas fa-scroll"></i> Sobre Jiraiya
-    </a>
-    <a class="sidebar-link" onclick="closeSidebar()">
-      <i class="fas fa-truck"></i> Envio e Prazo
-    </a>
-    <a class="sidebar-link" onclick="closeSidebar()">
-      <i class="fas fa-undo"></i> Trocas e Devoluções
-    </a>
-  </nav>
+      <div class="sidebar-section-label">Informações</div>
+      <a class="sidebar-link" onclick="openInfoModal('sobre');closeSidebar()">
+        <i class="fas fa-scroll"></i> Sobre Jiraiya
+      </a>
+      <a class="sidebar-link" onclick="openInfoModal('envio');closeSidebar()">
+        <i class="fas fa-truck"></i> Envio e Prazo
+      </a>
+      <a class="sidebar-link" onclick="openInfoModal('trocas');closeSidebar()">
+        <i class="fas fa-undo"></i> Trocas e Devoluções
+      </a>
+      <a class="sidebar-link" onclick="openInfoModal('rastrear');closeSidebar()">
+        <i class="fas fa-map-marker-alt"></i> Rastrear Pedido
+      </a>
+    </nav>
 
 
-</aside>
+  </aside>
 
-<header>
-  <button class="menu-btn" onclick="toggleSidebar()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-
-  <a class="header-logo" onclick="navigateTo('home')" style="cursor:pointer">
-    LOJA <span>MY</span>OBOKU
-  </a>
-
-  <ul class="header-nav">
-    <li><a data-page="home" onclick="navigateTo('home')" class="active" style="cursor:pointer">Início</a></li>
-    <li><a data-page="produtos" onclick="navigateTo('produtos')" style="cursor:pointer">Produtos</a></li>
-    <li><a data-page="jiraiya" onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a></li>
-    <li><a data-page="gamabunta" onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a></li>
-    <li><a data-page="fukasaku" onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a></li>
-    <li><a data-page="shima" onclick="navigateTo('shima')" style="cursor:pointer">Shima</a></li>
-    <li><a data-page="gamaken" onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a></li>
-    <li><a data-page="gamahiro" onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a></li>
-  </ul>
-
-  <div class="header-actions">
-    <button class="header-btn" onclick="toggleCart()" aria-label="Carrinho">
-      <i class="fas fa-shopping-bag"></i>
-      <span class="cart-badge" id="cart-badge" style="display:none">0</span>
+  <header>
+    <button class="menu-btn" onclick="toggleSidebar()" aria-label="Menu">
+      <span></span><span></span><span></span>
     </button>
-  </div>
-</header>
 
-<div class="page active" id="page-home">
-  <section class="hero">
-    <canvas id="hero-canvas"></canvas>
+    <a class="header-logo" onclick="navigateTo('home')" style="cursor:pointer">
+      LOJA <span>MY</span>OBOKU
+    </a>
 
-    <div class="hero-3d-bg">
-      <img src="assets/jiraiya-hero.jpg" alt="Jiraiya Sennin" draggable="false" />
-    </div>
+    <ul class="header-nav">
+      <li><a data-page="home" onclick="navigateTo('home')" class="active" style="cursor:pointer">Início</a></li>
+      <li><a data-page="produtos" onclick="navigateTo('produtos')" style="cursor:pointer">Produtos</a></li>
+      <li><a data-page="jiraiya" onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a></li>
+      <li><a data-page="gamabunta" onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a></li>
+      <li><a data-page="fukasaku" onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a></li>
+      <li><a data-page="shima" onclick="navigateTo('shima')" style="cursor:pointer">Shima</a></li>
+      <li><a data-page="gamaken" onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a></li>
+      <li><a data-page="gamahiro" onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a></li>
+    </ul>
 
-    <div class="hero-bg-gradient"></div>
-    <div class="hero-content">
-      <div class="hero-eyebrow">Monte Myoboku - A Montanha dos Sapos Sábios</div>
-      <h1 class="hero-title">
-        A Loja do<br><em>Grande Sábio</em>
-      </h1>
-      <p class="hero-subtitle">
-        Vestimentas, acessórios e colecionáveis inspirados em Jiraiya Sennin.<br>
-        Do vermelho do colete ao verde do Monte Myoboku.
-      </p>
-      <div class="hero-cta">
-        <button class="btn btn-primary" onclick="document.getElementById('carousel-section').scrollIntoView({behavior:'smooth'})">
-          <i class="fas fa-scroll"></i> Explorar Coleção
-        </button>
-        <button class="btn btn-outline" onclick="navigateTo('gamabunta')">
-          Sapos do Clã
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <section class="section carousel-section" id="carousel-section">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <span class="section-label">Em Destaque</span>
-        <h2 class="section-title">Produtos em <em>Destaque</em></h2>
-        <div class="divider"></div>
-        <p style="color:var(--text-muted);font-size:1.0rem;margin-top:0.6rem">Seleção dos principais itens de todas as coleções. <a onclick="navigateTo('produtos')" style="color:var(--red);cursor:pointer;text-decoration:underline">Ver todos os produtos</a></p>
-      </div>
-
-      <div class="carousel-wrapper reveal">
-        <button class="carousel-btn prev" onclick="moveCarousel(-1)">
-          <i class="fas fa-chevron-left"></i>
-        </button>
-        <div id="carousel-track" class="carousel-track"></div>
-        <button class="carousel-btn next" onclick="moveCarousel(1)">
-          <i class="fas fa-chevron-right"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background:var(--ink-black)">
-    <div class="section-inner">
-      <div class="benefits-grid reveal">
-        <div class="benefit-item">
-          <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
-          <div class="benefit-title">Qualidade Premium</div>
-          <div class="benefit-text">Materiais selecionados para colecionadores exigentes. Cada peça é inspecionada antes do envio.</div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon"><i class="fas fa-truck"></i></div>
-          <div class="benefit-title">Frete para todo Brasil</div>
-          <div class="benefit-text">Enviamos para qualquer região. Frete grátis em compras acima de R$ 199,00.</div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon"><i class="fas fa-undo"></i></div>
-          <div class="benefit-title">30 Dias para Trocar</div>
-          <div class="benefit-text">Não gostou? Devolvemos sem perguntas dentro de 30 dias após o recebimento.</div>
-        </div>
-        <div class="benefit-item">
-          <div class="benefit-icon"><i class="fas fa-lock"></i></div>
-          <div class="benefit-title">Pagamento Seguro</div>
-          <div class="benefit-text">Pix, cartão de crédito em até 12x e boleto. Ambiente 100% seguro.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
-    <div class="section-inner" style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center">
-      <div class="reveal">
-        <span class="section-label">Sobre a Coleção</span>
-        <h2 class="section-title" style="margin-bottom:1rem">O Lendário<br><em>Sennin Shinobi</em></h2>
-        <div class="divider"></div>
-        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem; margin-top:1rem">
-          Jiraiya, o Sapo Sennin, foi um dos maiores ninjas de Konoha. Discípulo do Terceiro Hokage, mestre do Quarto, pai espiritual do Sétimo. Sua vestimenta vermelha e branca, seu cabelo prateado e sua energia inconfundível tornaram-se símbolos de força e sabedoria.
-        </p>
-        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem; margin-top:1rem">
-          Nossa coleção captura a essência desse lendário personagem: as cores exatas do seu colete, o verde das montanhas de Myoboku, o dourado do modo sábio.
-        </p>
-        <button class="btn btn-outline" style="margin-top:2rem" onclick="navigateTo('produtos')">
-          Ver Coleção Completa
-        </button>
-      </div>
-      <div class="reveal" style="text-align:center; padding:2rem">
-        <div style="font-size:8rem; line-height:1; color:rgba(202, 39, 21, 0.637); font-family:'Cinzel Decorative',serif">油</div>
-        <div style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.4em; color:var(--text-dim); text-transform:uppercase; margin-top:1rem">Kanji do Óleo — Símbolo de Jiraiya</div>
-        <div style="display:flex; gap:1rem; justify-content:center; margin-top:2rem; flex-wrap:wrap">
-          <div onclick="navigateTo('jiraiya')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(192,57,43,0.4); border-radius:4px; font-size:0.78rem; color:rgba(231,76,60,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(192,57,43,0.8)'" onmouseout="this.style.borderColor='rgba(192,57,43,0.4)'">Jiraiya</div>
-          <div onclick="navigateTo('gamabunta')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(139,32,21,0.4); border-radius:4px; font-size:0.78rem; color:rgba(196,145,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(139,32,21,0.8)'" onmouseout="this.style.borderColor='rgba(139,32,21,0.4)'">Gamabunta</div>
-          <div onclick="navigateTo('fukasaku')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(74,98,37,0.4); border-radius:4px; font-size:0.78rem; color:rgba(212,188,122,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(74,98,37,0.8)'" onmouseout="this.style.borderColor='rgba(74,98,37,0.4)'">Fukasaku</div>
-          <div onclick="navigateTo('shima')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(123,94,167,0.4); border-radius:4px; font-size:0.78rem; color:rgba(123,94,167,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(123,94,167,0.8)'" onmouseout="this.style.borderColor='rgba(123,94,167,0.4)'">Shima</div>
-          <div onclick="navigateTo('gamaken')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(184,54,90,0.4); border-radius:4px; font-size:0.78rem; color:rgba(184,54,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(184,54,90,0.8)'" onmouseout="this.style.borderColor='rgba(184,54,90,0.4)'">Gamaken</div>
-          <div onclick="navigateTo('gamahiro')" style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(46,125,175,0.4); border-radius:4px; font-size:0.78rem; color:rgba(126,200,227,0.8); font-family:'Cinzel',serif; transition:all 0.2s" onmouseover="this.style.borderColor='rgba(46,125,175,0.8)'" onmouseout="this.style.borderColor='rgba(46,125,175,0.4)'">Gamahiro</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
-        <p class="footer-desc">A loja oficial do clã dos sapos sábios. Produtos inspirados no universo de Jiraiya Sennin, o maior nômade de Konoha.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Loja</h4>
-        <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
-        <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
-        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
-        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
-        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
-        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
-        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
-      </div>
-      <div class="footer-col">
-        <h4>Ajuda</h4>
-        <a href="#">Rastrear Pedido</a>
-        <a href="#">Trocas e Devoluções</a>
-        <a href="#">Guia de Tamanhos</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <a href="#">contato@montmyoboku.com</a>
-        <a href="#">(75) 9999-9999</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
-      <div class="footer-pay">
-        <i class="fab fa-cc-visa"></i>
-        <i class="fab fa-cc-mastercard"></i>
-        <i class="fab fa-pix" title="Pix"></i>
-        <i class="fas fa-barcode"></i>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<div class="page page-gamabunta" id="page-gamabunta">
-  <div class="toad-hero">
-    <div class="toad-hero-bg">
-      <img src="assets/Gamabunta.png" alt="Gamabunta" style="position:absolute;right:1%;top:70%;transform:translateY(-46%);height:115%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
-    </div>
-    <div class="toad-hero-content">
-      <div class="toad-hero-label">Coleção Exclusiva</div>
-      <h1 class="toad-hero-title">Gamabunta<br>O Chefe dos Sapos</h1>
-      <p class="toad-hero-desc">Peças inspiradas no poderoso e orgulhoso Gamabunta. Tons escarlate profundo, cobre e bronze como sua pele lendária.</p>
-    </div>
-  </div>
-
-  <section class="section" style="background:var(--ink-black)">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <span class="section-label">Coleção Gamabunta</span>
-        <h2 class="section-title"><em>Escarlate</em> e Bronze</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="products-grid reveal" id="grid-gamabunta"></div>
-    </div>
-  </section>
-
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
-    <div class="section-inner" style="max-width:700px; text-align:center">
-      <div class="reveal">
-        <span class="section-label">Sobre Gamabunta</span>
-        <h2 class="section-title" style="margin-bottom:1.5rem">O Chefe dos <em>Sapos de Myoboku</em></h2>
-        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
-          Gamabunta é o poderoso Chefe Sapo do Monte Myoboku. Orgulhoso e temperamental, ele só aceita ser invocado por quem ele considera digno. Jiraiya foi o primeiro a conquistar esse respeito. Suas cores, o vermelho profundo de sua pele e o dourado de seus olhos inspiram a coleção mais ousada de nossa loja.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
-        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Coleções</h4>
-        <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
-        <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
-        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
-        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
-        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
-        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
-      </div>
-      <div class="footer-col">
-        <h4>Ajuda</h4>
-        <a href="#">Rastrear Pedido</a>
-        <a href="#">Trocas e Devoluções</a>
-        <a href="#">Guia de Tamanhos</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <a href="#">contato@montmyoboku.com</a>
-        <a href="#">(75) 9999-9999</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
-      <div class="footer-pay">
-        <i class="fab fa-cc-visa"></i>
-        <i class="fab fa-cc-mastercard"></i>
-        <i class="fas fa-barcode"></i>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<div class="page page-fukasaku" id="page-fukasaku">
-  <div class="toad-hero">
-    <div class="toad-hero-bg">
-      <img src="assets/Fukasaku.png" alt="Fukasaku" style="position:absolute;right:5%;top:70%;transform:translateY(-46%);height:135%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
-    </div>
-    <div class="toad-hero-content">
-      <div class="toad-hero-label">Coleção Exclusiva</div>
-      <h1 class="toad-hero-title">Fukasaku<br>O Grande Sábio</h1>
-      <p class="toad-hero-desc">Peças inspiradas no ancião Fukasaku. Verde profundo das florestas sagradas, dourado da sabedoria milenar.</p>
-    </div>
-  </div>
-
-  <section class="section" style="background:var(--ink-black)">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <span class="section-label">Coleção Fukasaku</span>
-        <h2 class="section-title"><em>Verde</em> e Sabedoria</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="products-grid reveal" id="grid-fukasaku"></div>
-    </div>
-  </section>
-
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
-    <div class="section-inner" style="max-width:700px; text-align:center">
-      <div class="reveal">
-        <span class="section-label">Sobre Fukasaku</span>
-        <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Sábio Ancião</em> de Myoboku</h2>
-        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
-          Fukasaku é o Grande Sábio do Monte Myoboku e co-líder do clã dos sapos junto com sua esposa Shima. Apesar de seu tamanho, sua sabedoria e poder de chakra natureza são imensuráveis. Foi ele quem treinou Jiraiya no Modo Sábio, e quem tentou treinar Naruto em seu lugar.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
-        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Coleções</h4>
-        <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
-        <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
-        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
-        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
-        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
-        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
-      </div>
-      <div class="footer-col">
-        <h4>Ajuda</h4>
-        <a href="#">Rastrear Pedido</a>
-        <a href="#">Trocas e Devoluções</a>
-        <a href="#">Guia de Tamanhos</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <a href="#">contato@montmyoboku.com.br</a>
-        <a href="#">(75) 9999-9999</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
-      <div class="footer-pay">
-        <i class="fab fa-cc-visa"></i>
-        <i class="fab fa-cc-mastercard"></i>
-        <i class="fas fa-barcode"></i>
-      </div>
-    </div>
-  </footer>
-</div>
-
-<div class="page page-shima" id="page-shima">
-  <div class="toad-hero">
-    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #0D0A14 0%, #2A1F3D 50%, #0D0A14 100%);">
-      <img src="assets/Shima.png" alt="Shima" style="position:absolute;right:5%;top:70%;transform:translateY(-42%);height:135%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
-    </div>
-    <div class="toad-hero-content">
-      <div class="toad-hero-label" style="color:#C4B0E8">Coleção Exclusiva</div>
-      <h1 class="toad-hero-title" style="color:#C4B0E8">Shima<br><em style="color:#7B5EA7;font-style:normal">A Anciã Sábia</em></h1>
-      <p class="toad-hero-desc">Peças inspiradas na Grande Sapo Shima. Roxo profundo de sua cabeleira ancestral, tons suaves da sabedoria milenar do Monte Myoboku.</p>
-    </div>
-  </div>
-
-  <section class="section" style="background:var(--ink-black)">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <span class="section-label">Coleção Shima</span>
-        <h2 class="section-title"><em>Roxo</em> e Ancestral</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="products-grid reveal" id="grid-shima"></div>
-    </div>
-  </section>
-
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
-    <div class="section-inner" style="max-width:700px; text-align:center">
-      <div class="reveal">
-        <span class="section-label">Sobre Shima</span>
-        <h2 class="section-title" style="margin-bottom:1.5rem">A <em>Grande Anciã</em> do Clã</h2>
-        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
-          Shima é a co-líder do Monte Myoboku ao lado de seu marido Fukasaku. Juntos, eles são os guardiões da sabedoria milenar do clã dos sapos. Sua aparência e sua serenidade inspiram os produtos mais refinados de nossa coleção.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
-        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Coleções</h4>
-        <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
-        <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
-        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
-        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
-        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
-        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
-      </div>
-      <div class="footer-col">
-        <h4>Ajuda</h4>
-        <a href="#">Rastrear Pedido</a>
-        <a href="#">Trocas e Devoluções</a>
-        <a href="#">Guia de Tamanhos</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <a href="#">contato@montmyoboku.com.br</a>
-        <a href="#">(75) 9999-9999</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
-    </div>
-  </footer>
-</div>
-
-<div class="page page-gamaken" id="page-gamaken">
-  <div class="toad-hero">
-    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #150508 0%, #4A0F1F 50%, #150508 100%);">
-      <img src="assets/Gamaken.png" alt="Gamaken" style="position:absolute;right:3%;top:70%;transform:translateY(-50%);height:115%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
-    </div>
-    <div class="toad-hero-content">
-      <div class="toad-hero-label" style="color:#E8789A">Coleção Exclusiva</div>
-      <h1 class="toad-hero-title" style="color:#E8789A">Gamaken<br><em style="color:#B83055;font-style:normal">O Guerreiro das Águas</em></h1>
-      <p class="toad-hero-desc">Peças inspiradas em Gamaken. Carmesim profundo de sua pele guerreira, força e resiliência do mais habilidoso dos sapos de batalha.</p>
-    </div>
-  </div>
-
-  <section class="section" style="background:var(--ink-black)">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <span class="section-label">Coleção Gamaken</span>
-        <h2 class="section-title"><em>Carmesim</em> e Força</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="products-grid reveal" id="grid-gamaken"></div>
-    </div>
-  </section>
-
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
-    <div class="section-inner" style="max-width:700px; text-align:center">
-      <div class="reveal">
-        <span class="section-label">Sobre Gamaken</span>
-        <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Sapo Guerreiro</em> de Myoboku</h2>
-        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
-          Gamaken é um dos maiores sapos invocados por Jiraiya. Sua pele carmesim profunda e sua presença imponente o tornam único entre os guerreiros do clã. Carregando um tridente e um escudo em batalha, é um dos guerreiros mais poderosos de Myoboku. Sua coleção reflete a intensidade e a força bruta de um guerreiro lendário.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
-        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Coleções</h4>
-        <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
-        <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
-        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
-        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
-        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
-        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
-      </div>
-      <div class="footer-col">
-        <h4>Ajuda</h4>
-        <a href="#">Rastrear Pedido</a>
-        <a href="#">Trocas e Devoluções</a>
-        <a href="#">Guia de Tamanhos</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <a href="#">contato@montmyoboku.com.br</a>
-        <a href="#">(75) 9999-9999</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
-    </div>
-  </footer>
-</div>
-
-<div class="page page-jiraiya" id="page-jiraiya">
-  <div class="toad-hero">
-    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #1A0505 0%, #4A0C0C 40%, #2A1500 100%);">
-      <img src="assets/jiraiya-hero.jpg" alt="Jiraiya Sennin" style="width:100%;height:200%;object-fit:cover;object-position:left;opacity:0.35;position:relative;inset:0;" draggable="false"/>
-    </div>
-    <div class="toad-hero-content">
-      <div class="toad-hero-label" style="color:var(--gold)">Coleção Exclusiva</div>
-      <h1 class="toad-hero-title" style="color:var(--cream)">Jiraiya<br><em style="color:var(--red);font-style:normal">O Sennin Shinobi</em></h1>
-      <p class="toad-hero-desc">Vestimentas e acessórios inspirados no lendário Jiraiya. Vermelho do colete, branco das chamas, dourado do Modo Sábio.</p>
-    </div>
-  </div>
-
-  <section class="section" style="background:var(--ink-black)">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <span class="section-label">Coleção Jiraiya</span>
-        <h2 class="section-title"><em>Vermelho</em> e Lenda</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="products-grid reveal" id="grid-jiraiya"></div>
-    </div>
-  </section>
-
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
-    <div class="section-inner" style="max-width:700px; text-align:center">
-      <div class="reveal">
-        <span class="section-label">Sobre Jiraiya</span>
-        <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Grande Sennin</em> de Konoha</h2>
-        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
-          Jiraiya foi um dos maiores ninjas de Konoha. Discípulo do Terceiro Hokage, mestre do Quarto, pai espiritual do Sétimo. Sua vestimenta vermelha e branca, seu cabelo prateado e sua energia inconfundível tornaram-se símbolos de força e sabedoria. O kanji 油, gravado em sua testa, representa seu vínculo eterno com o Monte Myoboku.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
-        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Coleções</h4>
-        <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
-        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
-        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
-        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
-        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
-        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
-      </div>
-      <div class="footer-col">
-        <h4>Ajuda</h4>
-        <a href="#">Rastrear Pedido</a>
-        <a href="#">Trocas e Devoluções</a>
-        <a href="#">Guia de Tamanhos</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <a href="#">contato@montmyoboku.com.br</a>
-        <a href="#">(75) 9999-9999</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
-    </div>
-  </footer>
-</div>
-
-<div class="page page-gamahiro" id="page-gamahiro">
-  <div class="toad-hero">
-    <div class="toad-hero-bg">
-      <img src="assets/Gamahiro.png" alt="Gamahiro" style="position:absolute;right:3%;top:70%;transform:translateY(-42%);height:210%;width:auto;max-width:120%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
-    </div>
-    <div class="toad-hero-content">
-      <div class="toad-hero-label" style="color:#7EC8E3">Coleção Exclusiva</div>
-      <h1 class="toad-hero-title" style="color:#7EC8E3">Gamahiro<br><em style="color:#2E7DAF;font-style:normal">O Espadachim Celeste</em></h1>
-      <p class="toad-hero-desc">Peças inspiradas no ágil Gamahiro. Azul celeste vibrante de sua pele guerreira, a precisão e elegância do mais veloz espadachim do Monte Myoboku.</p>
-    </div>
-  </div>
-
-  <section class="section" style="background:var(--ink-black)">
-    <div class="section-inner">
-      <div class="section-header reveal">
-        <span class="section-label">Coleção Gamahiro</span>
-        <h2 class="section-title"><em>Celeste</em> e Precisão</h2>
-        <div class="divider"></div>
-      </div>
-      <div class="products-grid reveal" id="grid-gamahiro"></div>
-    </div>
-  </section>
-
-  <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
-    <div class="section-inner" style="max-width:700px; text-align:center">
-      <div class="reveal">
-        <span class="section-label">Sobre Gamahiro</span>
-        <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Espadachim</em> de Myoboku</h2>
-        <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
-          Gamahiro é um dos sapos de batalha do Monte Myoboku, temido por sua habilidade excepcional com duas katanas. Sua pele azul celeste e seus movimentos ágeis o tornam um dos guerreiros mais formidáveis do clã. Invocado por Jiraiya durante os momentos de maior perigo, Gamahiro jamais recua diante de um desafio.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
-        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Coleções</h4>
-        <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
-        <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
-        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
-        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
-        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
-        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
-      </div>
-      <div class="footer-col">
-        <h4>Ajuda</h4>
-        <a href="#">Rastrear Pedido</a>
-        <a href="#">Trocas e Devoluções</a>
-        <a href="#">Guia de Tamanhos</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <a href="#">contato@montmyoboku.com.br</a>
-        <a href="#">(75) 9999-9999</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
-    </div>
-  </footer>
-</div>
-
-<div class="page page-produtos" id="page-produtos">
-  <div class="toad-hero" style="min-height:35vh">
-    <div class="toad-hero-bg" style="background: linear-gradient(135deg, #0C0C0C 0%, #1A1A1A 50%, #0C0C0C 100%);">
-      <img src="assets/jiraiya.png" alt="Jiraiya" style="position:absolute;right:5%;top:70%;transform:translateY(-41%);height:130%;width:auto;max-width:120%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;" draggable="false"/>
-    </div>
-    <div class="toad-hero-content">
-      <div class="toad-hero-label" style="color:var(--gold)">Loja Completa</div>
-      <h1 class="toad-hero-title" style="color:var(--cream)">Todos os <em style="color:var(--red);font-style:normal">Produtos</em></h1>
-      <p class="toad-hero-desc">Explore toda a coleção Monte Myoboku, do kimono ao colecionável.</p>
-    </div>
-  </div>
-
-  <section class="section" style="background:var(--ink-black)">
-    <div class="section-inner">
-      <div class="produtos-filter reveal" id="produtos-filter">
-        <button class="filter-tab active" onclick="filterProdutos('all')">Todos</button>
-        <button class="filter-tab" onclick="filterProdutos('home')">Jiraiya</button>
-        <button class="filter-tab" onclick="filterProdutos('gamabunta')">Gamabunta</button>
-        <button class="filter-tab" onclick="filterProdutos('fukasaku')">Fukasaku</button>
-        <button class="filter-tab" onclick="filterProdutos('shima')">Shima</button>
-        <button class="filter-tab" onclick="filterProdutos('gamaken')">Gamaken</button>
-        <button class="filter-tab" onclick="filterProdutos('gamahiro')">Gamahiro</button>
-      </div>
-      <div class="products-grid reveal" id="grid-produtos" style="margin-top:2rem"></div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-brand">
-        <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
-        <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Coleções</h4>
-        <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
-        <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
-        <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
-        <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
-        <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
-        <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
-        <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
-      </div>
-      <div class="footer-col">
-        <h4>Ajuda</h4>
-        <a href="#">Rastrear Pedido</a>
-        <a href="#">Trocas e Devoluções</a>
-        <a href="#">Guia de Tamanhos</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contato</h4>
-        <a href="#">contato@montmyoboku.com.br</a>
-        <a href="#">(75) 9999-9999</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
-    </div>
-  </footer>
-</div>
-
-<aside id="cart-panel">
-  <div class="cart-header">
-    <h2>Carrinho</h2>
-    <button class="cart-close-btn" onclick="closeCart()"><i class="fas fa-times"></i></button>
-  </div>
-  <div class="cart-items" id="cart-items">
-    <div class="cart-empty"><i class="fas fa-shopping-cart"></i>Seu carrinho está vazio</div>
-  </div>
-  <div class="cart-footer">
-    <div class="cart-total-row">
-      <span class="cart-total-label">Total</span>
-      <span class="cart-total-amount" id="cart-total">R$ 0,00</span>
-    </div>
-    <button class="cart-checkout-btn" onclick="checkout()">Finalizar Compra</button>
-  </div>
-</aside>
-
-<div id="product-modal">
-  <div class="modal-backdrop"></div>
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-    <div class="modal-img-side">
-      <div id="modal-img" style="width:80%;height:80%"></div>
-    </div>
-    <div class="modal-info-side">
-      <div class="modal-category" id="modal-category">Categoria</div>
-      <div class="modal-name" id="modal-name">Nome do Produto</div>
-      <div>
-        <span class="modal-price" id="modal-price">R$ 0,00</span>
-        <span class="modal-price-old" id="modal-price-old"></span>
-      </div>
-      <div class="modal-divider"></div>
-      <p class="modal-desc" id="modal-desc">Descrição do produto.</p>
-
-      <div class="modal-size-label">Tamanho</div>
-      <div class="size-pills" id="modal-sizes"></div>
-
-      <div class="qty-row">
-        <span class="qty-label">Quantidade</span>
-        <div class="qty-controls">
-          <button class="qty-btn" onclick="changeQty(-1)"><i class="fas fa-minus"></i></button>
-          <div class="qty-display" id="modal-qty-display">1</div>
-          <button class="qty-btn" onclick="changeQty(1)"><i class="fas fa-plus"></i></button>
-        </div>
-      </div>
-
-      <button class="modal-add-btn" onclick="addToCart()">
-        <i class="fas fa-shopping-bag" style="margin-right:0.5rem"></i>
-        Adicionar ao Carrinho
+    <div class="header-actions">
+      <button class="header-btn" onclick="toggleCart()" aria-label="Carrinho">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-badge" id="cart-badge" style="display:none">0</span>
       </button>
     </div>
-  </div>
-</div>
+  </header>
 
-<div id="checkout-modal">
-  <div class="checkout-backdrop" onclick="closeCheckout()"></div>
-  <div class="checkout-box">
-    <button class="checkout-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+  <div class="page active" id="page-home">
+    <section class="hero">
+      <canvas id="hero-canvas"></canvas>
 
-    <div class="checkout-steps">
-      <div class="checkout-step active" id="cstep-1"><span class="step-num">1</span> Dados</div>
-      <div class="checkout-step-sep"></div>
-      <div class="checkout-step" id="cstep-2"><span class="step-num">2</span> Entrega</div>
-      <div class="checkout-step-sep"></div>
-      <div class="checkout-step" id="cstep-3"><span class="step-num">3</span> Pagamento</div>
-    </div>
+      <div class="hero-3d-bg">
+        <img src="assets/jiraiya-hero.jpg" alt="Jiraiya Sennin" draggable="false" />
+      </div>
 
-    <div class="checkout-panel active" id="cpanel-1">
-      <h2 class="checkout-title">Seus Dados</h2>
-      <div class="checkout-form">
-        <div class="cf-row">
-          <div class="cf-field"><label>Nome completo</label><input type="text" id="cf-nome" placeholder="Jiraiya Sennin" /></div>
-        </div>
-        <div class="cf-row">
-          <div class="cf-field"><label>E-mail</label><input type="email" id="cf-email" placeholder="jiraiya@myoboku.com" /></div>
-          <div class="cf-field"><label>CPF</label><input type="text" id="cf-cpf" placeholder="000.000.000-00" maxlength="14" /></div>
-        </div>
-        <div class="cf-row">
-          <div class="cf-field"><label>Telefone</label><input type="text" id="cf-tel" placeholder="(00) 00000-0000" maxlength="15" /></div>
+      <div class="hero-bg-gradient"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Monte Myoboku - A Montanha dos Sapos Sábios</div>
+        <h1 class="hero-title">
+          A Loja do<br><em>Grande Sábio</em>
+        </h1>
+        <p class="hero-subtitle">
+          Vestimentas, acessórios e colecionáveis inspirados em Jiraiya Sennin.<br>
+          Do vermelho do colete ao verde do Monte Myoboku.
+        </p>
+        <div class="hero-cta">
+          <button class="btn btn-primary"
+            onclick="document.getElementById('carousel-section').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-scroll"></i> Explorar Coleção
+          </button>
+          <button class="btn btn-outline" onclick="navigateTo('gamabunta')">
+            Sapos do Clã
+          </button>
         </div>
       </div>
-      <button class="checkout-next-btn" onclick="checkoutNextStep(2)">Continuar <i class="fas fa-arrow-right"></i></button>
-    </div>
+    </section>
 
-    <div class="checkout-panel" id="cpanel-2">
-      <h2 class="checkout-title">Endereço de Entrega</h2>
-      <div class="checkout-form">
-        <div class="cf-row">
-          <div class="cf-field" style="max-width:160px"><label>CEP</label><input type="text" id="cf-cep" placeholder="00000-000" maxlength="9" /></div>
+    <section class="section carousel-section" id="carousel-section">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Em Destaque</span>
+          <h2 class="section-title">Produtos em <em>Destaque</em></h2>
+          <div class="divider"></div>
+          <p style="color:var(--text-muted);font-size:1.0rem;margin-top:0.6rem">Seleção dos principais itens de todas as
+            coleções. <a onclick="navigateTo('produtos')"
+              style="color:var(--red);cursor:pointer;text-decoration:underline">Ver todos os produtos</a></p>
         </div>
-        <div class="cf-row">
-          <div class="cf-field" style="flex:2"><label>Rua / Logradouro</label><input type="text" id="cf-rua" placeholder="Rua dos Sapos Sábios" /></div>
-          <div class="cf-field" style="max-width:100px"><label>Número</label><input type="text" id="cf-num" placeholder="42" /></div>
-        </div>
-        <div class="cf-row">
-          <div class="cf-field"><label>Complemento (opcional)</label><input type="text" id="cf-comp" placeholder="Apto, bloco..." /></div>
-        </div>
-        <div class="cf-row">
-          <div class="cf-field"><label>Bairro</label><input type="text" id="cf-bairro" placeholder="Monte Myoboku" /></div>
-          <div class="cf-field"><label>Cidade</label><input type="text" id="cf-cidade" placeholder="Konoha" /></div>
-          <div class="cf-field" style="max-width:80px"><label>UF</label><input type="text" id="cf-uf" placeholder="BA" maxlength="2" /></div>
-        </div>
-        <div class="shipping-options">
-          <div class="shipping-title">Opções de Envio</div>
-          <label class="shipping-opt" id="ship-free" style="display:none">
-            <input type="radio" name="shipping" value="0" />
-            <div class="ship-info"><span class="ship-name"><i class="fas fa-gift"></i> Frete Grátis</span><span class="ship-desc">Compras acima de R$ 199,00 — Entrega em 5 a 10 dias úteis</span></div>
-            <span class="ship-price free">GRÁTIS</span>
-          </label>
-          <label class="shipping-opt">
-            <input type="radio" name="shipping" value="19.90" id="ship-standard" checked />
-            <div class="ship-info"><span class="ship-name"><i class="fas fa-truck"></i> PAC — Padrão</span><span class="ship-desc">Entrega em 7 a 12 dias úteis</span></div>
-            <span class="ship-price">R$ 19,90</span>
-          </label>
-          <label class="shipping-opt">
-            <input type="radio" name="shipping" value="34.90" />
-            <div class="ship-info"><span class="ship-name"><i class="fas fa-bolt"></i> SEDEX — Expresso</span><span class="ship-desc">Entrega em 2 a 4 dias úteis</span></div>
-            <span class="ship-price">R$ 34,90</span>
-          </label>
+
+        <div class="carousel-wrapper reveal">
+          <button class="carousel-btn prev" onclick="moveCarousel(-1)">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div id="carousel-track" class="carousel-track"></div>
+          <button class="carousel-btn next" onclick="moveCarousel(1)">
+            <i class="fas fa-chevron-right"></i>
+          </button>
         </div>
       </div>
-      <div class="checkout-nav-row">
-        <button class="checkout-back-btn" onclick="checkoutNextStep(1)"><i class="fas fa-arrow-left"></i> Voltar</button>
-        <button class="checkout-next-btn" onclick="checkoutNextStep(3)">Continuar <i class="fas fa-arrow-right"></i></button>
-      </div>
-    </div>
+    </section>
 
-    <div class="checkout-panel" id="cpanel-3">
-      <h2 class="checkout-title">Pagamento</h2>
-      <div class="checkout-order-summary" id="checkout-summary"></div>
-      <div class="checkout-form">
-        <div class="payment-tabs">
-          <button class="pay-tab active" onclick="selectPayTab(this,'pix')"><i class="fas fa-qrcode"></i> PIX</button>
-          <button class="pay-tab" onclick="selectPayTab(this,'cartao')"><i class="fas fa-credit-card"></i> Cartão</button>
-          <button class="pay-tab" onclick="selectPayTab(this,'boleto')"><i class="fas fa-barcode"></i> Boleto</button>
-        </div>
-        <div class="pay-panel active" id="ppanel-pix">
-          <div class="pix-info">
-            <div class="pix-icon"><i class="fas fa-qrcode"></i></div>
-            <p>Você receberá uma chave PIX por e-mail após confirmar. Prazo de pagamento: <strong>30 minutos</strong>.</p>
-            <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--gold)">✓ Aprovação instantânea</p>
+    <section class="section" style="background:var(--ink-black)">
+      <div class="section-inner">
+        <div class="benefits-grid reveal">
+          <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="benefit-title">Qualidade Premium</div>
+            <div class="benefit-text">Materiais selecionados para colecionadores exigentes. Cada peça é inspecionada
+              antes do envio.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-truck"></i></div>
+            <div class="benefit-title">Frete para todo Brasil</div>
+            <div class="benefit-text">Enviamos para qualquer região. Frete grátis em compras acima de R$ 199,00.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-undo"></i></div>
+            <div class="benefit-title">30 Dias para Trocar</div>
+            <div class="benefit-text">Não gostou? Devolvemos sem perguntas dentro de 30 dias após o recebimento.</div>
+          </div>
+          <div class="benefit-item">
+            <div class="benefit-icon"><i class="fas fa-lock"></i></div>
+            <div class="benefit-title">Pagamento Seguro</div>
+            <div class="benefit-text">Pix, cartão de crédito em até 12x e boleto. Ambiente 100% seguro.</div>
           </div>
         </div>
-        <div class="pay-panel" id="ppanel-cartao">
-          <div class="cf-row"><div class="cf-field"><label>Número do Cartão</label><input type="text" placeholder="0000 0000 0000 0000" maxlength="19" /></div></div>
-          <div class="cf-row"><div class="cf-field"><label>Nome no Cartão</label><input type="text" placeholder="JIRAIYA SENNIN" /></div></div>
+      </div>
+    </section>
+
+    <section class="section"
+      style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
+      <div class="section-inner" style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center">
+        <div class="reveal">
+          <span class="section-label">Sobre a Coleção</span>
+          <h2 class="section-title" style="margin-bottom:1rem">O Lendário<br><em>Sennin Shinobi</em></h2>
+          <div class="divider"></div>
+          <p style="color:var(--text-muted); line-height:1.9; font-size:1rem; margin-top:1rem">
+            Jiraiya, o Sapo Sennin, foi um dos maiores ninjas de Konoha. Discípulo do Terceiro Hokage, mestre do Quarto,
+            pai espiritual do Sétimo. Sua vestimenta vermelha e branca, seu cabelo prateado e sua energia inconfundível
+            tornaram-se símbolos de força e sabedoria.
+          </p>
+          <p style="color:var(--text-muted); line-height:1.9; font-size:1rem; margin-top:1rem">
+            Nossa coleção captura a essência desse lendário personagem: as cores exatas do seu colete, o verde das
+            montanhas de Myoboku, o dourado do modo sábio.
+          </p>
+          <button class="btn btn-outline" style="margin-top:2rem" onclick="navigateTo('produtos')">
+            Ver Coleção Completa
+          </button>
+        </div>
+        <div class="reveal" style="text-align:center; padding:2rem">
+          <div
+            style="font-size:8rem; line-height:1; color:rgba(202, 39, 21, 0.637); font-family:'Cinzel Decorative',serif">
+            油</div>
+          <div
+            style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.4em; color:var(--text-dim); text-transform:uppercase; margin-top:1rem">
+            Kanji do Óleo — Símbolo de Jiraiya</div>
+          <div style="display:flex; gap:1rem; justify-content:center; margin-top:2rem; flex-wrap:wrap">
+            <div onclick="navigateTo('jiraiya')"
+              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(192,57,43,0.4); border-radius:4px; font-size:0.78rem; color:rgba(231,76,60,0.8); font-family:'Cinzel',serif; transition:all 0.2s"
+              onmouseover="this.style.borderColor='rgba(192,57,43,0.8)'"
+              onmouseout="this.style.borderColor='rgba(192,57,43,0.4)'">Jiraiya</div>
+            <div onclick="navigateTo('gamabunta')"
+              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(139,32,21,0.4); border-radius:4px; font-size:0.78rem; color:rgba(196,145,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s"
+              onmouseover="this.style.borderColor='rgba(139,32,21,0.8)'"
+              onmouseout="this.style.borderColor='rgba(139,32,21,0.4)'">Gamabunta</div>
+            <div onclick="navigateTo('fukasaku')"
+              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(74,98,37,0.4); border-radius:4px; font-size:0.78rem; color:rgba(212,188,122,0.8); font-family:'Cinzel',serif; transition:all 0.2s"
+              onmouseover="this.style.borderColor='rgba(74,98,37,0.8)'"
+              onmouseout="this.style.borderColor='rgba(74,98,37,0.4)'">Fukasaku</div>
+            <div onclick="navigateTo('shima')"
+              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(123,94,167,0.4); border-radius:4px; font-size:0.78rem; color:rgba(123,94,167,0.8); font-family:'Cinzel',serif; transition:all 0.2s"
+              onmouseover="this.style.borderColor='rgba(123,94,167,0.8)'"
+              onmouseout="this.style.borderColor='rgba(123,94,167,0.4)'">Shima</div>
+            <div onclick="navigateTo('gamaken')"
+              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(184,54,90,0.4); border-radius:4px; font-size:0.78rem; color:rgba(184,54,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s"
+              onmouseover="this.style.borderColor='rgba(184,54,90,0.8)'"
+              onmouseout="this.style.borderColor='rgba(184,54,90,0.4)'">Gamaken</div>
+            <div onclick="navigateTo('gamahiro')"
+              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(46,125,175,0.4); border-radius:4px; font-size:0.78rem; color:rgba(126,200,227,0.8); font-family:'Cinzel',serif; transition:all 0.2s"
+              onmouseover="this.style.borderColor='rgba(46,125,175,0.8)'"
+              onmouseout="this.style.borderColor='rgba(46,125,175,0.4)'">Gamahiro</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
+          <p class="footer-desc">A loja oficial do clã dos sapos sábios. Produtos inspirados no universo de Jiraiya
+            Sennin, o maior nômade de Konoha.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Loja</h4>
+          <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
+          <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+          <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+          <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+          <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+          <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+          <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <a href="#" onclick="openInfoModal('rastrear');return false;" style="cursor:pointer">Rastrear Pedido</a>
+          <a href="#" onclick="openInfoModal('trocas');return false;" style="cursor:pointer">Trocas e Devoluções</a>
+          <a href="#" onclick="openInfoModal('guia');return false;" style="cursor:pointer">Guia de Tamanhos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#">contato@montmyoboku.com</a>
+          <a href="#">(75) 9999-9999</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
+        <div class="footer-pay">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-pix" title="Pix"></i>
+          <i class="fas fa-barcode"></i>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page page-gamabunta" id="page-gamabunta">
+    <div class="toad-hero">
+      <div class="toad-hero-bg">
+        <img src="assets/Gamabunta.png" alt="Gamabunta"
+          style="position:absolute;right:1%;top:70%;transform:translateY(-46%);height:115%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;"
+          draggable="false" />
+      </div>
+      <div class="toad-hero-content">
+        <div class="toad-hero-label">Coleção Exclusiva</div>
+        <h1 class="toad-hero-title">Gamabunta<br>O Chefe dos Sapos</h1>
+        <p class="toad-hero-desc">Peças inspiradas no poderoso e orgulhoso Gamabunta. Tons escarlate profundo, cobre e
+          bronze como sua pele lendária.</p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--ink-black)">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Coleção Gamabunta</span>
+          <h2 class="section-title"><em>Escarlate</em> e Bronze</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="products-grid reveal" id="grid-gamabunta"></div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
+      <div class="section-inner" style="max-width:700px; text-align:center">
+        <div class="reveal">
+          <span class="section-label">Sobre Gamabunta</span>
+          <h2 class="section-title" style="margin-bottom:1.5rem">O Chefe dos <em>Sapos de Myoboku</em></h2>
+          <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
+            Gamabunta é o poderoso Chefe Sapo do Monte Myoboku. Orgulhoso e temperamental, ele só aceita ser invocado
+            por quem ele considera digno. Jiraiya foi o primeiro a conquistar esse respeito. Suas cores, o vermelho
+            profundo de sua pele e o dourado de seus olhos inspiram a coleção mais ousada de nossa loja.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
+          <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Coleções</h4>
+          <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
+          <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+          <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+          <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+          <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+          <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <a href="#" onclick="openInfoModal('rastrear');return false;" style="cursor:pointer">Rastrear Pedido</a>
+          <a href="#" onclick="openInfoModal('trocas');return false;" style="cursor:pointer">Trocas e Devoluções</a>
+          <a href="#" onclick="openInfoModal('guia');return false;" style="cursor:pointer">Guia de Tamanhos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#">contato@montmyoboku.com</a>
+          <a href="#">(75) 9999-9999</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
+        <div class="footer-pay">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fas fa-barcode"></i>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page page-fukasaku" id="page-fukasaku">
+    <div class="toad-hero">
+      <div class="toad-hero-bg">
+        <img src="assets/Fukasaku.png" alt="Fukasaku"
+          style="position:absolute;right:5%;top:70%;transform:translateY(-46%);height:135%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;"
+          draggable="false" />
+      </div>
+      <div class="toad-hero-content">
+        <div class="toad-hero-label">Coleção Exclusiva</div>
+        <h1 class="toad-hero-title">Fukasaku<br>O Grande Sábio</h1>
+        <p class="toad-hero-desc">Peças inspiradas no ancião Fukasaku. Verde profundo das florestas sagradas, dourado da
+          sabedoria milenar.</p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--ink-black)">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Coleção Fukasaku</span>
+          <h2 class="section-title"><em>Verde</em> e Sabedoria</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="products-grid reveal" id="grid-fukasaku"></div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
+      <div class="section-inner" style="max-width:700px; text-align:center">
+        <div class="reveal">
+          <span class="section-label">Sobre Fukasaku</span>
+          <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Sábio Ancião</em> de Myoboku</h2>
+          <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
+            Fukasaku é o Grande Sábio do Monte Myoboku e co-líder do clã dos sapos junto com sua esposa Shima. Apesar de
+            seu tamanho, sua sabedoria e poder de chakra natureza são imensuráveis. Foi ele quem treinou Jiraiya no Modo
+            Sábio, e quem tentou treinar Naruto em seu lugar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
+          <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Coleções</h4>
+          <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
+          <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+          <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+          <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+          <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+          <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <a href="#" onclick="openInfoModal('rastrear');return false;" style="cursor:pointer">Rastrear Pedido</a>
+          <a href="#" onclick="openInfoModal('trocas');return false;" style="cursor:pointer">Trocas e Devoluções</a>
+          <a href="#" onclick="openInfoModal('guia');return false;" style="cursor:pointer">Guia de Tamanhos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#">contato@montmyoboku.com.br</a>
+          <a href="#">(75) 9999-9999</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
+        <div class="footer-pay">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fas fa-barcode"></i>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page page-shima" id="page-shima">
+    <div class="toad-hero">
+      <div class="toad-hero-bg" style="background: linear-gradient(135deg, #0D0A14 0%, #2A1F3D 50%, #0D0A14 100%);">
+        <img src="assets/Shima.png" alt="Shima"
+          style="position:absolute;right:5%;top:70%;transform:translateY(-42%);height:135%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;"
+          draggable="false" />
+      </div>
+      <div class="toad-hero-content">
+        <div class="toad-hero-label" style="color:#C4B0E8">Coleção Exclusiva</div>
+        <h1 class="toad-hero-title" style="color:#C4B0E8">Shima<br><em style="color:#7B5EA7;font-style:normal">A Anciã
+            Sábia</em></h1>
+        <p class="toad-hero-desc">Peças inspiradas na Grande Sapo Shima. Roxo profundo de sua cabeleira ancestral, tons
+          suaves da sabedoria milenar do Monte Myoboku.</p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--ink-black)">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Coleção Shima</span>
+          <h2 class="section-title"><em>Roxo</em> e Ancestral</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="products-grid reveal" id="grid-shima"></div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
+      <div class="section-inner" style="max-width:700px; text-align:center">
+        <div class="reveal">
+          <span class="section-label">Sobre Shima</span>
+          <h2 class="section-title" style="margin-bottom:1.5rem">A <em>Grande Anciã</em> do Clã</h2>
+          <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
+            Shima é a co-líder do Monte Myoboku ao lado de seu marido Fukasaku. Juntos, eles são os guardiões da
+            sabedoria milenar do clã dos sapos. Sua aparência e sua serenidade inspiram os produtos mais refinados de
+            nossa coleção.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
+          <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Coleções</h4>
+          <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
+          <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+          <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+          <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+          <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+          <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <a href="#" onclick="openInfoModal('rastrear');return false;" style="cursor:pointer">Rastrear Pedido</a>
+          <a href="#" onclick="openInfoModal('trocas');return false;" style="cursor:pointer">Trocas e Devoluções</a>
+          <a href="#" onclick="openInfoModal('guia');return false;" style="cursor:pointer">Guia de Tamanhos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#">contato@montmyoboku.com.br</a>
+          <a href="#">(75) 9999-9999</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page page-gamaken" id="page-gamaken">
+    <div class="toad-hero">
+      <div class="toad-hero-bg" style="background: linear-gradient(135deg, #150508 0%, #4A0F1F 50%, #150508 100%);">
+        <img src="assets/Gamaken.png" alt="Gamaken"
+          style="position:absolute;right:3%;top:70%;transform:translateY(-50%);height:115%;width:auto;max-width:90%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;"
+          draggable="false" />
+      </div>
+      <div class="toad-hero-content">
+        <div class="toad-hero-label" style="color:#E8789A">Coleção Exclusiva</div>
+        <h1 class="toad-hero-title" style="color:#E8789A">Gamaken<br><em style="color:#B83055;font-style:normal">O
+            Guerreiro das Águas</em></h1>
+        <p class="toad-hero-desc">Peças inspiradas em Gamaken. Carmesim profundo de sua pele guerreira, força e
+          resiliência do mais habilidoso dos sapos de batalha.</p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--ink-black)">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Coleção Gamaken</span>
+          <h2 class="section-title"><em>Carmesim</em> e Força</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="products-grid reveal" id="grid-gamaken"></div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
+      <div class="section-inner" style="max-width:700px; text-align:center">
+        <div class="reveal">
+          <span class="section-label">Sobre Gamaken</span>
+          <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Sapo Guerreiro</em> de Myoboku</h2>
+          <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
+            Gamaken é um dos maiores sapos invocados por Jiraiya. Sua pele carmesim profunda e sua presença imponente o
+            tornam único entre os guerreiros do clã. Carregando um tridente e um escudo em batalha, é um dos guerreiros
+            mais poderosos de Myoboku. Sua coleção reflete a intensidade e a força bruta de um guerreiro lendário.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
+          <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Coleções</h4>
+          <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
+          <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+          <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+          <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+          <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+          <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <a href="#" onclick="openInfoModal('rastrear');return false;" style="cursor:pointer">Rastrear Pedido</a>
+          <a href="#" onclick="openInfoModal('trocas');return false;" style="cursor:pointer">Trocas e Devoluções</a>
+          <a href="#" onclick="openInfoModal('guia');return false;" style="cursor:pointer">Guia de Tamanhos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#">contato@montmyoboku.com.br</a>
+          <a href="#">(75) 9999-9999</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page page-jiraiya" id="page-jiraiya">
+    <div class="toad-hero">
+      <div class="toad-hero-bg" style="background: linear-gradient(135deg, #1A0505 0%, #4A0C0C 40%, #2A1500 100%);">
+        <img src="assets/jiraiya-hero.jpg" alt="Jiraiya Sennin"
+          style="width:100%;height:200%;object-fit:cover;object-position:left;opacity:0.35;position:relative;inset:0;"
+          draggable="false" />
+      </div>
+      <div class="toad-hero-content">
+        <div class="toad-hero-label" style="color:var(--gold)">Coleção Exclusiva</div>
+        <h1 class="toad-hero-title" style="color:var(--cream)">Jiraiya<br><em
+            style="color:var(--red);font-style:normal">O Sennin Shinobi</em></h1>
+        <p class="toad-hero-desc">Vestimentas e acessórios inspirados no lendário Jiraiya. Vermelho do colete, branco
+          das chamas, dourado do Modo Sábio.</p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--ink-black)">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Coleção Jiraiya</span>
+          <h2 class="section-title"><em>Vermelho</em> e Lenda</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="products-grid reveal" id="grid-jiraiya"></div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
+      <div class="section-inner" style="max-width:700px; text-align:center">
+        <div class="reveal">
+          <span class="section-label">Sobre Jiraiya</span>
+          <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Grande Sennin</em> de Konoha</h2>
+          <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
+            Jiraiya foi um dos maiores ninjas de Konoha. Discípulo do Terceiro Hokage, mestre do Quarto, pai espiritual
+            do Sétimo. Sua vestimenta vermelha e branca, seu cabelo prateado e sua energia inconfundível tornaram-se
+            símbolos de força e sabedoria. O kanji 油, gravado em sua testa, representa seu vínculo eterno com o Monte
+            Myoboku.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
+          <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Coleções</h4>
+          <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
+          <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+          <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+          <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+          <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+          <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <a href="#" onclick="openInfoModal('rastrear');return false;" style="cursor:pointer">Rastrear Pedido</a>
+          <a href="#" onclick="openInfoModal('trocas');return false;" style="cursor:pointer">Trocas e Devoluções</a>
+          <a href="#" onclick="openInfoModal('guia');return false;" style="cursor:pointer">Guia de Tamanhos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#">contato@montmyoboku.com.br</a>
+          <a href="#">(75) 9999-9999</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page page-gamahiro" id="page-gamahiro">
+    <div class="toad-hero">
+      <div class="toad-hero-bg">
+        <img src="assets/Gamahiro.png" alt="Gamahiro"
+          style="position:absolute;right:3%;top:70%;transform:translateY(-42%);height:210%;width:auto;max-width:120%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;"
+          draggable="false" />
+      </div>
+      <div class="toad-hero-content">
+        <div class="toad-hero-label" style="color:#7EC8E3">Coleção Exclusiva</div>
+        <h1 class="toad-hero-title" style="color:#7EC8E3">Gamahiro<br><em style="color:#2E7DAF;font-style:normal">O
+            Espadachim Celeste</em></h1>
+        <p class="toad-hero-desc">Peças inspiradas no ágil Gamahiro. Azul celeste vibrante de sua pele guerreira, a
+          precisão e elegância do mais veloz espadachim do Monte Myoboku.</p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--ink-black)">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Coleção Gamahiro</span>
+          <h2 class="section-title"><em>Celeste</em> e Precisão</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="products-grid reveal" id="grid-gamahiro"></div>
+      </div>
+    </section>
+
+    <section class="section" style="background:var(--surface); border-top:1px solid var(--border)">
+      <div class="section-inner" style="max-width:700px; text-align:center">
+        <div class="reveal">
+          <span class="section-label">Sobre Gamahiro</span>
+          <h2 class="section-title" style="margin-bottom:1.5rem">O <em>Espadachim</em> de Myoboku</h2>
+          <p style="color:var(--text-muted); line-height:1.9; font-size:1rem">
+            Gamahiro é um dos sapos de batalha do Monte Myoboku, temido por sua habilidade excepcional com duas katanas.
+            Sua pele azul celeste e seus movimentos ágeis o tornam um dos guerreiros mais formidáveis do clã. Invocado
+            por Jiraiya durante os momentos de maior perigo, Gamahiro jamais recua diante de um desafio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
+          <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Coleções</h4>
+          <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
+          <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+          <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+          <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+          <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+          <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <a href="#" onclick="openInfoModal('rastrear');return false;" style="cursor:pointer">Rastrear Pedido</a>
+          <a href="#" onclick="openInfoModal('trocas');return false;" style="cursor:pointer">Trocas e Devoluções</a>
+          <a href="#" onclick="openInfoModal('guia');return false;" style="cursor:pointer">Guia de Tamanhos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#">contato@montmyoboku.com.br</a>
+          <a href="#">(75) 9999-9999</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page page-produtos" id="page-produtos">
+    <div class="toad-hero" style="min-height:35vh">
+      <div class="toad-hero-bg" style="background: linear-gradient(135deg, #0C0C0C 0%, #1A1A1A 50%, #0C0C0C 100%);">
+        <img src="assets/jiraiya.png" alt="Jiraiya"
+          style="position:absolute;right:5%;top:70%;transform:translateY(-41%);height:130%;width:auto;max-width:120%;object-fit:contain;opacity:0.50;mix-blend-mode:screen;"
+          draggable="false" />
+      </div>
+      <div class="toad-hero-content">
+        <div class="toad-hero-label" style="color:var(--gold)">Loja Completa</div>
+        <h1 class="toad-hero-title" style="color:var(--cream)">Todos os <em
+            style="color:var(--red);font-style:normal">Produtos</em></h1>
+        <p class="toad-hero-desc">Explore toda a coleção Monte Myoboku, do kimono ao colecionável.</p>
+      </div>
+    </div>
+
+    <section class="section" style="background:var(--ink-black)">
+      <div class="section-inner">
+        <div class="produtos-filter reveal" id="produtos-filter">
+          <button class="filter-tab active" onclick="filterProdutos('all')">Todos</button>
+          <button class="filter-tab" onclick="filterProdutos('home')">Jiraiya</button>
+          <button class="filter-tab" onclick="filterProdutos('gamabunta')">Gamabunta</button>
+          <button class="filter-tab" onclick="filterProdutos('fukasaku')">Fukasaku</button>
+          <button class="filter-tab" onclick="filterProdutos('shima')">Shima</button>
+          <button class="filter-tab" onclick="filterProdutos('gamaken')">Gamaken</button>
+          <button class="filter-tab" onclick="filterProdutos('gamahiro')">Gamahiro</button>
+        </div>
+        <div class="products-grid reveal" id="grid-produtos" style="margin-top:2rem"></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
+          <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Coleções</h4>
+          <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
+          <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+          <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+          <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+          <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+          <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+          <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <a href="#" onclick="openInfoModal('rastrear');return false;" style="cursor:pointer">Rastrear Pedido</a>
+          <a href="#" onclick="openInfoModal('trocas');return false;" style="cursor:pointer">Trocas e Devoluções</a>
+          <a href="#" onclick="openInfoModal('guia');return false;" style="cursor:pointer">Guia de Tamanhos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#">contato@montmyoboku.com.br</a>
+          <a href="#">(75) 9999-9999</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </div>
+
+  <aside id="cart-panel">
+    <div class="cart-header">
+      <h2>Carrinho</h2>
+      <button class="cart-close-btn" onclick="closeCart()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <div class="cart-empty"><i class="fas fa-shopping-cart"></i>Seu carrinho está vazio</div>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total-row">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-amount" id="cart-total">R$ 0,00</span>
+      </div>
+      <button class="cart-checkout-btn" onclick="checkout()">Finalizar Compra</button>
+    </div>
+  </aside>
+
+  <div id="product-modal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      <div class="modal-img-side">
+        <div id="modal-img" style="width:80%;height:80%"></div>
+      </div>
+      <div class="modal-info-side">
+        <div class="modal-category" id="modal-category">Categoria</div>
+        <div class="modal-name" id="modal-name">Nome do Produto</div>
+        <div>
+          <span class="modal-price" id="modal-price">R$ 0,00</span>
+          <span class="modal-price-old" id="modal-price-old"></span>
+        </div>
+        <div class="modal-divider"></div>
+        <p class="modal-desc" id="modal-desc">Descrição do produto.</p>
+
+        <div class="modal-size-label">Tamanho</div>
+        <div class="size-pills" id="modal-sizes"></div>
+
+        <div class="qty-row">
+          <span class="qty-label">Quantidade</span>
+          <div class="qty-controls">
+            <button class="qty-btn" onclick="changeQty(-1)"><i class="fas fa-minus"></i></button>
+            <div class="qty-display" id="modal-qty-display">1</div>
+            <button class="qty-btn" onclick="changeQty(1)"><i class="fas fa-plus"></i></button>
+          </div>
+        </div>
+
+        <button class="modal-add-btn" onclick="addToCart()">
+          <i class="fas fa-shopping-bag" style="margin-right:0.5rem"></i>
+          Adicionar ao Carrinho
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="checkout-modal">
+    <div class="checkout-backdrop" onclick="closeCheckout()"></div>
+    <div class="checkout-box">
+      <button class="checkout-close" onclick="closeCheckout()"><i class="fas fa-times"></i></button>
+
+      <div class="checkout-steps">
+        <div class="checkout-step active" id="cstep-1"><span class="step-num">1</span> Dados</div>
+        <div class="checkout-step-sep"></div>
+        <div class="checkout-step" id="cstep-2"><span class="step-num">2</span> Entrega</div>
+        <div class="checkout-step-sep"></div>
+        <div class="checkout-step" id="cstep-3"><span class="step-num">3</span> Pagamento</div>
+      </div>
+
+      <div class="checkout-panel active" id="cpanel-1">
+        <h2 class="checkout-title">Seus Dados</h2>
+        <div class="checkout-form">
           <div class="cf-row">
-            <div class="cf-field" style="max-width:130px"><label>Validade</label><input type="text" placeholder="MM/AA" maxlength="5" /></div>
-            <div class="cf-field" style="max-width:100px"><label>CVV</label><input type="text" placeholder="000" maxlength="3" /></div>
-            <div class="cf-field"><label>Parcelas</label><select id="cf-parcelas"><option>1x sem juros</option><option>2x sem juros</option><option>3x sem juros</option><option>6x sem juros</option><option>12x com juros</option></select></div>
+            <div class="cf-field"><label>Nome completo</label><input type="text" id="cf-nome"
+                placeholder="Jiraiya Sennin" /></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field"><label>E-mail</label><input type="email" id="cf-email"
+                placeholder="jiraiya@myoboku.com" /></div>
+            <div class="cf-field"><label>CPF</label><input type="text" id="cf-cpf" placeholder="000.000.000-00"
+                maxlength="14" /></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field"><label>Telefone</label><input type="text" id="cf-tel" placeholder="(00) 00000-0000"
+                maxlength="15" /></div>
           </div>
         </div>
-        <div class="pay-panel" id="ppanel-boleto">
-          <div class="pix-info">
-            <div class="pix-icon"><i class="fas fa-barcode"></i></div>
-            <p>O boleto será gerado após confirmar o pedido. Vencimento em <strong>3 dias úteis</strong>.</p>
-            <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--text-muted)">Após o pagamento, aprovação em até 2 dias úteis.</p>
-          </div>
-        </div>
+        <button class="checkout-next-btn" onclick="checkoutNextStep(2)">Continuar <i
+            class="fas fa-arrow-right"></i></button>
       </div>
-      <div class="checkout-nav-row">
-        <button class="checkout-back-btn" onclick="checkoutNextStep(2)"><i class="fas fa-arrow-left"></i> Voltar</button>
-        <button class="checkout-confirm-btn" onclick="confirmCheckout()"><i class="fas fa-lock"></i> Confirmar Pedido</button>
-      </div>
-    </div>
 
-    <div class="checkout-panel" id="cpanel-success">
-      <div class="checkout-success">
-        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-        <h2>Pedido Confirmado!</h2>
-        <p>Obrigado pela sua compra, shinobi! Você receberá um e-mail com detalhes e instruções de pagamento.</p>
-        <div class="success-kanji">油</div>
-        <button class="checkout-next-btn" onclick="closeCheckout()" style="margin-top:1.5rem">Voltar à loja</button>
+      <div class="checkout-panel" id="cpanel-2">
+        <h2 class="checkout-title">Endereço de Entrega</h2>
+        <div class="checkout-form">
+          <div class="cf-row">
+            <div class="cf-field" style="max-width:160px"><label>CEP</label><input type="text" id="cf-cep"
+                placeholder="00000-000" maxlength="9" /></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field" style="flex:2"><label>Rua / Logradouro</label><input type="text" id="cf-rua"
+                placeholder="Rua dos Sapos Sábios" /></div>
+            <div class="cf-field" style="max-width:100px"><label>Número</label><input type="text" id="cf-num"
+                placeholder="42" /></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field"><label>Complemento (opcional)</label><input type="text" id="cf-comp"
+                placeholder="Apto, bloco..." /></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field"><label>Bairro</label><input type="text" id="cf-bairro" placeholder="Monte Myoboku" />
+            </div>
+            <div class="cf-field"><label>Cidade</label><input type="text" id="cf-cidade" placeholder="Konoha" /></div>
+            <div class="cf-field" style="max-width:80px"><label>UF</label><input type="text" id="cf-uf" placeholder="BA"
+                maxlength="2" /></div>
+          </div>
+          <div class="shipping-options">
+            <div class="shipping-title">Opções de Envio</div>
+            <label class="shipping-opt" id="ship-free" style="display:none">
+              <input type="radio" name="shipping" value="0" />
+              <div class="ship-info"><span class="ship-name"><i class="fas fa-gift"></i> Frete Grátis</span><span
+                  class="ship-desc">Compras acima de R$ 199,00 — Entrega em 5 a 10 dias úteis</span></div>
+              <span class="ship-price free">GRÁTIS</span>
+            </label>
+            <label class="shipping-opt">
+              <input type="radio" name="shipping" value="19.90" id="ship-standard" checked />
+              <div class="ship-info"><span class="ship-name"><i class="fas fa-truck"></i> PAC — Padrão</span><span
+                  class="ship-desc">Entrega em 7 a 12 dias úteis</span></div>
+              <span class="ship-price">R$ 19,90</span>
+            </label>
+            <label class="shipping-opt">
+              <input type="radio" name="shipping" value="34.90" />
+              <div class="ship-info"><span class="ship-name"><i class="fas fa-bolt"></i> SEDEX — Expresso</span><span
+                  class="ship-desc">Entrega em 2 a 4 dias úteis</span></div>
+              <span class="ship-price">R$ 34,90</span>
+            </label>
+          </div>
+        </div>
+        <div class="checkout-nav-row">
+          <button class="checkout-back-btn" onclick="checkoutNextStep(1)"><i class="fas fa-arrow-left"></i>
+            Voltar</button>
+          <button class="checkout-next-btn" onclick="checkoutNextStep(3)">Continuar <i
+              class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+
+      <div class="checkout-panel" id="cpanel-3">
+        <h2 class="checkout-title">Pagamento</h2>
+        <div class="checkout-order-summary" id="checkout-summary"></div>
+        <div class="checkout-form">
+          <div class="payment-tabs">
+            <button class="pay-tab active" onclick="selectPayTab(this,'pix')"><i class="fas fa-qrcode"></i> PIX</button>
+            <button class="pay-tab" onclick="selectPayTab(this,'cartao')"><i class="fas fa-credit-card"></i>
+              Cartão</button>
+            <button class="pay-tab" onclick="selectPayTab(this,'boleto')"><i class="fas fa-barcode"></i> Boleto</button>
+          </div>
+          <div class="pay-panel active" id="ppanel-pix">
+            <div class="pix-info">
+              <div class="pix-icon"><i class="fas fa-qrcode"></i></div>
+              <p>Você receberá uma chave PIX por e-mail após confirmar. Prazo de pagamento: <strong>30 minutos</strong>.
+              </p>
+              <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--gold)">✓ Aprovação instantânea</p>
+            </div>
+          </div>
+          <div class="pay-panel" id="ppanel-cartao">
+            <div class="cf-row">
+              <div class="cf-field"><label>Número do Cartão</label><input type="text" placeholder="0000 0000 0000 0000"
+                  maxlength="19" /></div>
+            </div>
+            <div class="cf-row">
+              <div class="cf-field"><label>Nome no Cartão</label><input type="text" placeholder="JIRAIYA SENNIN" />
+              </div>
+            </div>
+            <div class="cf-row">
+              <div class="cf-field" style="max-width:130px"><label>Validade</label><input type="text"
+                  placeholder="MM/AA" maxlength="5" /></div>
+              <div class="cf-field" style="max-width:100px"><label>CVV</label><input type="text" placeholder="000"
+                  maxlength="3" /></div>
+              <div class="cf-field"><label>Parcelas</label><select id="cf-parcelas">
+                  <option>1x sem juros</option>
+                  <option>2x sem juros</option>
+                  <option>3x sem juros</option>
+                  <option>6x sem juros</option>
+                  <option>12x com juros</option>
+                </select></div>
+            </div>
+          </div>
+          <div class="pay-panel" id="ppanel-boleto">
+            <div class="pix-info">
+              <div class="pix-icon"><i class="fas fa-barcode"></i></div>
+              <p>O boleto será gerado após confirmar o pedido. Vencimento em <strong>3 dias úteis</strong>.</p>
+              <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--text-muted)">Após o pagamento, aprovação em até 2
+                dias úteis.</p>
+            </div>
+          </div>
+        </div>
+        <div class="checkout-nav-row">
+          <button class="checkout-back-btn" onclick="checkoutNextStep(2)"><i class="fas fa-arrow-left"></i>
+            Voltar</button>
+          <button class="checkout-confirm-btn" onclick="confirmCheckout()"><i class="fas fa-lock"></i> Confirmar
+            Pedido</button>
+        </div>
+      </div>
+
+      <div class="checkout-panel" id="cpanel-success">
+        <div class="checkout-success">
+          <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+          <h2>Pedido Confirmado!</h2>
+          <p>Obrigado pela sua compra, shinobi! Você receberá um e-mail com detalhes e instruções de pagamento.</p>
+          <div class="success-kanji">油</div>
+          <button class="checkout-next-btn" onclick="closeCheckout()" style="margin-top:1.5rem">Voltar à loja</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<div id="toast-container"></div>
+  <div id="info-modal-overlay" onclick="closeInfoModal()"></div>
 
-<script src="js/svgs.js"></script>
-<script src="js/main.js"></script>
+  <div id="info-modal">
+    <div class="info-modal-box">
+      <button class="info-modal-close" onclick="closeInfoModal()"><i class="fas fa-times"></i></button>
+      <div id="info-modal-content"></div>
+    </div>
+  </div>
+
+  <div id="toast-container"></div>
+
+  <script src="js/svgs.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/info-pages.js"></script>
 </body>
+
 </html>
