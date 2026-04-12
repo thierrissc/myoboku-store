@@ -42,7 +42,8 @@
         <i class="fas fa-store"></i> Todos os Produtos
       </a>
 
-      <div class="sidebar-section-label sidebar-collapsible-trigger" id="collections-trigger" onclick="toggleSidebarCollections()">
+      <div class="sidebar-section-label sidebar-collapsible-trigger" id="collections-trigger"
+        onclick="toggleSidebarCollections()">
         Coleções Temáticas
         <i class="fas fa-chevron-down sidebar-chevron" id="collections-chevron"></i>
       </div>
@@ -67,6 +68,9 @@
         </a>
         <a class="sidebar-link" data-page="naruto" onclick="navigateTo('naruto')">
           <span class="sidebar-toad-dot" style="background:#E87020"></span> Naruto - A Criança da Profecia
+        </a>
+        <a class="sidebar-link" data-page="gamamaru" onclick="navigateTo('gamamaru')">
+          <span class="sidebar-toad-dot" style="background:#C4915A"></span> Gamamaru - O Grande Sábio
         </a>
       </div>
 
@@ -153,6 +157,14 @@
               <span class="nav-item-info">
                 <span class="nav-item-name">Naruto</span>
                 <span class="nav-item-sub">A Criança da Profecia</span>
+              </span>
+            </a>
+            <a class="nav-dropdown-item nav-dropdown-item--gamamaru" data-page="gamamaru"
+              onclick="navigateTo('gamamaru')">
+              <span class="nav-dot" style="background:#C4915A"></span>
+              <span class="nav-item-info">
+                <span class="nav-item-name">Gamamaru</span>
+                <span class="nav-item-sub">O Grande Sábio</span>
               </span>
             </a>
           </div>
@@ -249,7 +261,7 @@
       </div>
     </section>
 
-    <section class="section"
+    <section class="section section-kanji-home"
       style="background:var(--surface); border-top:1px solid var(--border); border-bottom:1px solid var(--border)">
       <div class="section-inner" style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center">
         <div class="reveal">
@@ -277,35 +289,39 @@
             style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:0.4em; color:var(--text-dim); text-transform:uppercase; margin-top:1rem">
             Kanji do Óleo — Símbolo de Jiraiya</div>
           <div
-            style="display:grid; grid-template-columns:repeat(3,auto); gap:0.8rem; justify-content:center; margin-top:2rem;">
+            style="display:flex; flex-wrap:wrap; gap:0.7rem; justify-content:center; margin-top:2rem; max-width:420px; margin-left:auto; margin-right:auto;">
             <div onclick="navigateTo('jiraiya')"
-              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(192,57,43,0.4); border-radius:4px; font-size:0.78rem; color:rgba(231,76,60,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
+              style="cursor:pointer; padding:0.6rem 1.2rem; border:1px solid rgba(192,57,43,0.4); border-radius:4px; font-size:0.78rem; color:rgba(231,76,60,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
               onmouseover="this.style.borderColor='rgba(192,57,43,0.8)'"
               onmouseout="this.style.borderColor='rgba(192,57,43,0.4)'">Jiraiya</div>
             <div onclick="navigateTo('gamabunta')"
-              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(139,32,21,0.4); border-radius:4px; font-size:0.78rem; color:rgba(196,145,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
+              style="cursor:pointer; padding:0.6rem 1.2rem; border:1px solid rgba(139,32,21,0.4); border-radius:4px; font-size:0.78rem; color:rgba(196,145,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
               onmouseover="this.style.borderColor='rgba(139,32,21,0.8)'"
               onmouseout="this.style.borderColor='rgba(139,32,21,0.4)'">Gamabunta</div>
             <div onclick="navigateTo('fukasaku')"
-              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(74,98,37,0.4); border-radius:4px; font-size:0.78rem; color:rgba(212,188,122,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
+              style="cursor:pointer; padding:0.6rem 1.2rem; border:1px solid rgba(74,98,37,0.4); border-radius:4px; font-size:0.78rem; color:rgba(212,188,122,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
               onmouseover="this.style.borderColor='rgba(74,98,37,0.8)'"
               onmouseout="this.style.borderColor='rgba(74,98,37,0.4)'">Fukasaku</div>
             <div onclick="navigateTo('shima')"
-              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(123,94,167,0.4); border-radius:4px; font-size:0.78rem; color:rgba(123,94,167,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
+              style="cursor:pointer; padding:0.6rem 1.2rem; border:1px solid rgba(123,94,167,0.4); border-radius:4px; font-size:0.78rem; color:rgba(123,94,167,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
               onmouseover="this.style.borderColor='rgba(123,94,167,0.8)'"
               onmouseout="this.style.borderColor='rgba(123,94,167,0.4)'">Shima</div>
             <div onclick="navigateTo('gamaken')"
-              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(184,54,90,0.4); border-radius:4px; font-size:0.78rem; color:rgba(184,54,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
+              style="cursor:pointer; padding:0.6rem 1.2rem; border:1px solid rgba(184,54,90,0.4); border-radius:4px; font-size:0.78rem; color:rgba(184,54,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
               onmouseover="this.style.borderColor='rgba(184,54,90,0.8)'"
               onmouseout="this.style.borderColor='rgba(184,54,90,0.4)'">Gamaken</div>
             <div onclick="navigateTo('gamahiro')"
-              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(46,125,175,0.4); border-radius:4px; font-size:0.78rem; color:rgba(126,200,227,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
+              style="cursor:pointer; padding:0.6rem 1.2rem; border:1px solid rgba(46,125,175,0.4); border-radius:4px; font-size:0.78rem; color:rgba(126,200,227,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center"
               onmouseover="this.style.borderColor='rgba(46,125,175,0.8)'"
               onmouseout="this.style.borderColor='rgba(46,125,175,0.4)'">Gamahiro</div>
             <div onclick="navigateTo('naruto')"
-              style="cursor:pointer; padding:0.6rem 1rem; border:1px solid rgba(232,112,32,0.4); border-radius:4px; font-size:0.78rem; color:rgba(232,112,32,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center; "
+              style="cursor:pointer; padding:0.6rem 1.2rem; border:1px solid rgba(232,112,32,0.4); border-radius:4px; font-size:0.78rem; color:rgba(232,112,32,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center;"
               onmouseover="this.style.borderColor='rgba(232,112,32,0.8)'"
               onmouseout="this.style.borderColor='rgba(232,112,32,0.4)'">Naruto</div>
+            <div onclick="navigateTo('gamamaru')"
+              style="cursor:pointer; padding:0.6rem 1.2rem; border:1px solid rgba(196,145,90,0.4); border-radius:4px; font-size:0.78rem; color:rgba(196,145,90,0.8); font-family:'Cinzel',serif; transition:all 0.2s; text-align:center;"
+              onmouseover="this.style.borderColor='rgba(196,145,90,0.8)'"
+              onmouseout="this.style.borderColor='rgba(196,145,90,0.4)'">Gamamaru</div>
           </div>
         </div>
       </div>
@@ -328,6 +344,7 @@
           <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
           <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
           <a onclick="navigateTo('naruto')" style="cursor:pointer">Naruto</a>
+          <a onclick="navigateTo('gamamaru')" style="cursor:pointer">Gamamaru</a>
         </div>
         <div class="footer-col">
           <h4>Ajuda</h4>
@@ -408,6 +425,7 @@
           <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
           <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
           <a onclick="navigateTo('naruto')" style="cursor:pointer">Naruto</a>
+          <a onclick="navigateTo('gamamaru')" style="cursor:pointer">Gamamaru</a>
         </div>
         <div class="footer-col">
           <h4>Ajuda</h4>
@@ -487,6 +505,7 @@
           <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
           <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
           <a onclick="navigateTo('naruto')" style="cursor:pointer">Naruto</a>
+          <a onclick="navigateTo('gamamaru')" style="cursor:pointer">Gamamaru</a>
         </div>
         <div class="footer-col">
           <h4>Ajuda</h4>
@@ -566,6 +585,7 @@
           <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
           <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
           <a onclick="navigateTo('naruto')" style="cursor:pointer">Naruto</a>
+          <a onclick="navigateTo('gamamaru')" style="cursor:pointer">Gamamaru</a>
         </div>
         <div class="footer-col">
           <h4>Ajuda</h4>
@@ -640,6 +660,7 @@
           <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
           <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
           <a onclick="navigateTo('naruto')" style="cursor:pointer">Naruto</a>
+          <a onclick="navigateTo('gamamaru')" style="cursor:pointer">Gamamaru</a>
         </div>
         <div class="footer-col">
           <h4>Ajuda</h4>
@@ -662,9 +683,7 @@
   <div class="page page-jiraiya" id="page-jiraiya">
     <div class="toad-hero">
       <div class="toad-hero-bg">
-        <img src="assets/jiraiya-hero.jpg" alt="Jiraiya Sennin"
-          style="width:100%;height:200%;object-fit:cover;object-position:left;opacity:0.35;position:relative;inset:0;"
-          draggable="false" />
+        <img src="assets/jiraiya-hero.jpg" alt="Jiraiya Sennin" class="jiraiya-hero-img" draggable="false" />
       </div>
       <div class="toad-hero-content">
         <div class="toad-hero-label">Coleção Exclusiva</div>
@@ -715,6 +734,7 @@
           <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
           <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
           <a onclick="navigateTo('naruto')" style="cursor:pointer">Naruto</a>
+          <a onclick="navigateTo('gamamaru')" style="cursor:pointer">Gamamaru</a>
         </div>
         <div class="footer-col">
           <h4>Ajuda</h4>
@@ -789,6 +809,7 @@
           <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
           <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
           <a onclick="navigateTo('naruto')" style="cursor:pointer">Naruto</a>
+          <a onclick="navigateTo('gamamaru')" style="cursor:pointer">Gamamaru</a>
         </div>
         <div class="footer-col">
           <h4>Ajuda</h4>
@@ -818,7 +839,8 @@
       <div class="toad-hero-content">
         <div class="toad-hero-label">Coleção Exclusiva</div>
         <h1 class="toad-hero-title">Naruto Uzumaki<br><em>O Aluno do Grande Sennin</em></h1>
-        <p class="toad-hero-desc">Peças inspiradas no lendário aluno de Jiraiya. O laranja vibrante do Hokage mais jovem de Konoha, o espírito inabalável do Shinobi dos Caminhos Ninja.</p>
+        <p class="toad-hero-desc">Peças inspiradas no lendário aluno de Jiraiya. O laranja vibrante do Hokage mais jovem
+          de Konoha, o espírito inabalável do Shinobi dos Caminhos Ninja.</p>
       </div>
     </div>
 
@@ -839,7 +861,10 @@
           <span class="section-label">Sobre Naruto</span>
           <h2 class="section-title section-title-spaced">O <em>Aluno</em> que Superou o Mestre</h2>
           <p class="about-text">
-            Naruto Uzumaki foi o aluno mais especial de Jiraiya, o menino que ele acreditou ser o filho da profecia. Com determinação inabalável e o coração de um verdadeiro shinobi, Naruto aprendeu com o Grande Sennin não apenas técnicas, mas os valores da coragem, amizade e perseverança. Esta coleção é uma homenagem ao laço entre mestre e discípulo que atravessou o tempo.
+            Naruto Uzumaki foi o aluno mais especial de Jiraiya, o menino que ele acreditou ser o filho da profecia. Com
+            determinação inabalável e o coração de um verdadeiro shinobi, Naruto aprendeu com o Grande Sennin não apenas
+            técnicas, mas os valores da coragem, amizade e perseverança. Esta coleção é uma homenagem ao laço entre
+            mestre e discípulo que atravessou o tempo.
           </p>
         </div>
       </div>
@@ -904,8 +929,87 @@
           <button class="filter-tab filter-tab--gamaken" onclick="filterProdutos('gamaken')">Gamaken</button>
           <button class="filter-tab filter-tab--gamahiro" onclick="filterProdutos('gamahiro')">Gamahiro</button>
           <button class="filter-tab filter-tab--naruto" onclick="filterProdutos('naruto')">Naruto</button>
+          <button class="filter-tab filter-tab--gamamaru" onclick="filterProdutos('gamamaru')">Gamamaru</button>
         </div>
         <div class="products-grid reveal" id="grid-produtos" style="margin-top:2rem"></div>
+        <div class="pagination" id="produtos-pagination"></div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="footer-brand-name">LOJA <span>MY</span>OBOKU</div>
+          <p class="footer-desc">A loja oficial do clã dos sapos sábios.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Coleções</h4>
+          <a onclick="navigateTo('home')" style="cursor:pointer">Início</a>
+          <a onclick="navigateTo('jiraiya')" style="cursor:pointer">Jiraiya</a>
+          <a onclick="navigateTo('gamabunta')" style="cursor:pointer">Gamabunta</a>
+          <a onclick="navigateTo('fukasaku')" style="cursor:pointer">Fukasaku</a>
+          <a onclick="navigateTo('shima')" style="cursor:pointer">Shima</a>
+          <a onclick="navigateTo('gamaken')" style="cursor:pointer">Gamaken</a>
+          <a onclick="navigateTo('gamahiro')" style="cursor:pointer">Gamahiro</a>
+          <a onclick="navigateTo('naruto')" style="cursor:pointer">Naruto</a>
+          <a onclick="navigateTo('gamamaru')" style="cursor:pointer">Gamamaru</a>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <a href="#" onclick="openInfoModal('rastrear');return false;" style="cursor:pointer">Rastrear Pedido</a>
+          <a href="#" onclick="openInfoModal('trocas');return false;" style="cursor:pointer">Trocas e Devoluções</a>
+          <a href="#" onclick="openInfoModal('guia');return false;" style="cursor:pointer">Guia de Tamanhos</a>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <a href="#">contato@montmyoboku.com.br</a>
+          <a href="#">(75) 9999-9999</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-copy">&copy; 2026 Loja Myoboku. Todos os direitos reservados.</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="page page-gamamaru" id="page-gamamaru">
+    <div class="toad-hero toad-hero--gamamaru">
+      <div class="toad-hero-bg">
+        <img src="assets/gamamaru.png" alt="Gamamaru"
+          style="position:absolute;right:2%;top:70%;transform:translateY(-42%);height:130%;width:auto;max-width:100%;object-fit:contain;opacity:0.60;mix-blend-mode:screen;"
+          draggable="false" />
+      </div>
+      <div class="toad-hero-content">
+        <div class="toad-hero-label">Coleção Exclusiva</div>
+        <h1 class="toad-hero-title">Gamamaru<br><em>O Grande Sábio</em></h1>
+        <p class="toad-hero-desc">Peças inspiradas no lendário ancião Gamamaru, o maior sapo do Monte Myoboku. Tons de
+          terra ancestral, dourado da sabedoria eterna e bronze do profeta imortal.</p>
+      </div>
+    </div>
+
+    <section class="section section-products">
+      <div class="section-inner">
+        <div class="section-header reveal">
+          <span class="section-label">Coleção Gamamaru</span>
+          <h2 class="section-title"><em>Dourado</em> e Ancestral</h2>
+          <div class="divider"></div>
+        </div>
+        <div class="products-grid reveal" id="grid-gamamaru"></div>
+      </div>
+    </section>
+
+    <section class="section section-about">
+      <div class="section-inner section-inner-centered">
+        <div class="reveal">
+          <span class="section-label">Sobre Gamamaru</span>
+          <h2 class="section-title section-title-spaced">O <em>Profeta Imortal</em> de Myoboku</h2>
+          <p class="about-text">
+            Gamamaru é o Grande Sábio do Monte Myoboku, o mais antigo e poderoso dos sapos. Dotado de uma sabedoria
+            milenar e do dom da profecia, foi ele quem previu o nascimento da Criança da Profecia, Naruto Uzumaki. Seu
+            poder de chakra natureza é o mais puro já visto no clã dos sapos, e sua existência é sinônimo de equilíbrio,
+            eternidade e destino.
+          </p>
+        </div>
       </div>
     </section>
 

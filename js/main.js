@@ -323,6 +323,73 @@ const PRODUCTS = {
       page: "gamaken",
     },
   ],
+  gamamaru: [
+    {
+      id: 31,
+      name: "Manto do Grande Profeta",
+      price: 479.9,
+      oldPrice: 610.0,
+      category: "Vestimentas",
+      tag: "DESTAQUE",
+      description:
+        "Manto longo em tecido envelhecido inspirado no ancião Gamamaru. Tons de terra e dourado ancestral com bordados de kanji proféticos nas bordas. Representa a sabedoria eterna do Monte Myoboku.",
+      svg: "cape_white",
+      sizes: ["P", "M", "G", "GG"],
+      page: "gamamaru",
+    },
+    {
+      id: 32,
+      name: "Estatueta Gamamaru Profeta",
+      price: 429.9,
+      oldPrice: 560.0,
+      category: "Colecionáveis",
+      tag: "RARO",
+      description:
+        "Estatueta de resina pintada à mão do Grande Sábio Gamamaru em postura de meditação profética. 20cm de altura, base em pedra sagrada. Detalhes em dourado e padrões ancestrais do clã dos sapos.",
+      svg: "toad_figurine_fukasaku",
+      sizes: ["U"],
+      page: "gamamaru",
+    },
+    {
+      id: 33,
+      name: "Colar da Profecia Ancestral",
+      price: 259.9,
+      oldPrice: null,
+      category: "Joias",
+      tag: "NOVO",
+      description:
+        "Colar artesanal inspirado no colar de contas de Gamamaru. Pingente em metal dourado com o símbolo da profecia do Monte Myoboku. Corrente de 65cm. Peça única e numerada.",
+      svg: "toad_necklace",
+      sizes: ["U"],
+      page: "gamamaru",
+    },
+    {
+      id: 34,
+      name: "Pergaminho das Profecias",
+      price: 149.9,
+      oldPrice: 190.0,
+      category: "Colecionáveis",
+      tag: "LIMITADO",
+      description:
+        "Réplica do pergaminho das profecias de Gamamaru. Papel de arroz envelhecido com caligrafia japonesa das predições sobre a Criança da Profecia. Caixinha de bambu inclusa.",
+      svg: "scroll_summoning",
+      sizes: ["U"],
+      page: "gamamaru",
+    },
+    {
+      id: 35,
+      name: "Chapéu do Sábio Milenar",
+      price: 199.9,
+      oldPrice: null,
+      category: "Acessórios",
+      tag: null,
+      description:
+        "Réplica do chapéu de quatro pontas do Grande Sábio Gamamaru. Material em palha tratada com acabamento dourado. Símbolo do Monte Myoboku bordado na copa. Tamanho único ajustável.",
+      svg: "sage_mode_mask",
+      sizes: ["U"],
+      page: "gamamaru",
+    },
+  ],
   naruto: [
     {
       id: 25,
@@ -693,18 +760,33 @@ function navigateTo(pageId) {
       "gamaken",
       "gamahiro",
       "naruto",
+      "gamamaru",
     ];
     if (collectionPages.includes(pageId)) {
-      const col = document.getElementById("sidebar-collections");
-      const trigger = document.getElementById("collections-trigger");
-      if (col) col.classList.add("open");
-      if (trigger) trigger.classList.add("open");
-    }
-    if (collectionPages.includes(pageId)) {
       renderToadPage(pageId);
+
+      setTimeout(() => {
+        const grid = document.getElementById(
+          "grid-" + (pageId === "jiraiya" ? "jiraiya" : pageId),
+        );
+        if (grid) {
+          grid.classList.add("visible");
+          grid.style.opacity = "";
+          grid.style.transform = "";
+        }
+        target.querySelectorAll(".reveal").forEach((el) => {
+          el.classList.add("visible");
+        });
+      }, 50);
     }
     if (pageId === "produtos") {
-      renderProdutosPage("all");
+      renderProdutosPage("all", 1);
+
+      setTimeout(() => {
+        target.querySelectorAll(".reveal").forEach((el) => {
+          el.classList.add("visible");
+        });
+      }, 50);
     }
   }
 }
@@ -718,6 +800,7 @@ function updateNavActive(pageId) {
     "gamaken",
     "gamahiro",
     "naruto",
+    "gamamaru",
   ];
   document.querySelectorAll("[data-page]").forEach((el) => {
     const isMatch = el.dataset.page === pageId;
@@ -960,27 +1043,103 @@ function renderToadPage(pageId) {
     const card = createProductCard(product);
     grid.appendChild(card);
   });
+
+  grid.classList.add("visible");
 }
 
 let currentProdutosFilter = "all";
+let currentProdutosPage = 1;
+const PRODUTOS_PER_PAGE = 16;
 
-function renderProdutosPage(filter) {
-  currentProdutosFilter = filter;
-  const grid = document.getElementById("grid-produtos");
-  if (!grid) return;
-
+function getAllFilteredProducts(filter) {
   let products = [];
   if (filter === "all") {
     Object.values(PRODUCTS).forEach((arr) => products.push(...arr));
   } else {
     products = PRODUCTS[filter] || [];
   }
+  return products;
+}
+
+function renderProdutosPage(filter, page) {
+  currentProdutosFilter = filter;
+  currentProdutosPage = page || 1;
+
+  const grid = document.getElementById("grid-produtos");
+  if (!grid) return;
+
+  const allProducts = getAllFilteredProducts(filter);
+  const totalPages = Math.ceil(allProducts.length / PRODUTOS_PER_PAGE);
+  const start = (currentProdutosPage - 1) * PRODUTOS_PER_PAGE;
+  const pageProducts = allProducts.slice(start, start + PRODUTOS_PER_PAGE);
 
   grid.innerHTML = "";
-  products.forEach((product) => {
+  pageProducts.forEach((product) => {
     const card = createProductCard(product);
     grid.appendChild(card);
   });
+  grid.classList.add("visible");
+
+  renderPagination(totalPages);
+
+  if (page && page > 1) {
+    const section = document.getElementById("page-produtos");
+    if (section) {
+      const filterEl = document.getElementById("produtos-filter");
+      if (filterEl) {
+        const top = filterEl.getBoundingClientRect().top + window.scrollY - 90;
+        window.scrollTo({ top, behavior: "smooth" });
+      }
+    }
+  }
+}
+
+function renderPagination(totalPages) {
+  const container = document.getElementById("produtos-pagination");
+  if (!container) return;
+
+  if (totalPages <= 1) {
+    container.innerHTML = "";
+    return;
+  }
+
+  const cur = currentProdutosPage;
+  let html = "";
+
+  html += `<button class="pag-btn pag-prev${cur === 1 ? " disabled" : ""}" onclick="changeProdutosPage(${cur - 1})" ${cur === 1 ? "disabled" : ""} aria-label="Página anterior">
+    <i class="fas fa-chevron-left"></i>
+  </button>`;
+
+  const range = [];
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === 1 || i === totalPages || (i >= cur - 2 && i <= cur + 2)) {
+      range.push(i);
+    }
+  }
+
+  let prev = null;
+  for (const p of range) {
+    if (prev !== null && p - prev > 1) {
+      html += `<span class="pag-ellipsis">…</span>`;
+    }
+    html += `<button class="pag-btn pag-num${p === cur ? " active" : ""}" onclick="changeProdutosPage(${p})">${p}</button>`;
+    prev = p;
+  }
+
+  html += `<button class="pag-btn pag-next${cur === totalPages ? " disabled" : ""}" onclick="changeProdutosPage(${cur + 1})" ${cur === totalPages ? "disabled" : ""} aria-label="Próxima página">
+    <i class="fas fa-chevron-right"></i>
+  </button>`;
+
+  html += `<span class="pag-info">${cur} / ${totalPages}</span>`;
+
+  container.innerHTML = html;
+}
+
+function changeProdutosPage(page) {
+  const allProducts = getAllFilteredProducts(currentProdutosFilter);
+  const totalPages = Math.ceil(allProducts.length / PRODUTOS_PER_PAGE);
+  if (page < 1 || page > totalPages) return;
+  renderProdutosPage(currentProdutosFilter, page);
 }
 
 function filterProdutos(filter) {
@@ -997,9 +1156,10 @@ function filterProdutos(filter) {
     gamaken: 5,
     gamahiro: 6,
     naruto: 7,
+    gamamaru: 8,
   };
   if (tabs[map[filter]]) tabs[map[filter]].classList.add("active");
-  renderProdutosPage(filter);
+  renderProdutosPage(filter, 1);
 }
 
 function initModal() {
