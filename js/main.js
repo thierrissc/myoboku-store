@@ -34,6 +34,14 @@ const PRODUCTS = {
     { id: 18, name: "Pergaminho de Invocação", price: 119.90, oldPrice: 150.00, category: "Colecionáveis", tag: "LIMITADO", description: "Réplica do pergaminho de invocação dos sapos de Myoboku. Papel de arroz envelhecido com caligrafia japonesa em nanquim. Enrolado em caixinha de bambu.", svg: "scroll_summoning", sizes: ["U"], page: "gamaken" },
     { id: 19, name: "Peruca Branca do Sennin", price: 149.90, oldPrice: null, category: "Cosplay", tag: null, description: "Peruca de cabelo longo branco de altíssima qualidade sintética, fiel ao estilo de Jiraiya. Inclui bandana vermelha e suporte para bandana de Konoha. Lavável.", svg: "white_hair_wig", sizes: ["U"], page: "gamaken" },
     { id: 20, name: "Conjunto Completo Sábio", price: 899.90, oldPrice: 1200.00, category: "Conjuntos", tag: "OFERTA", description: "Conjunto completo para cosplay de Jiraiya: kimono vermelho, calça verde oliva, sandálias de madeira, bandana de Konoha e peruca branca. Tamanho sob consulta.", svg: "kimono_red", sizes: ["P", "M", "G", "GG"], page: "gamaken" },
+  ],
+  naruto: [
+    { id: 25, name: "Agasalho Laranja de Konoha", price: 349.90, oldPrice: 429.90, category: "Vestimentas", tag: "DESTAQUE", description: "Agasalho laranja de alta qualidade inspirado no icônico traje de Naruto Uzumaki. Zíper frontal, gola alta e o símbolo de Konoha bordado nas costas. Tecido resistente ideal para treinos e cosplay.", svg: "vest_red", sizes: ["P", "M", "G", "GG"], page: "naruto" },
+    { id: 26, name: "Bandana de Konoha Dourada", price: 149.90, oldPrice: null, category: "Acessórios", tag: "NOVO", description: "Réplica premium da bandana de Konoha em metal dourado. Tecido laranja incluso, como o estilo de Naruto Uzumaki. Material: liga de zinco dourada. Peso: 200g. Edição especial do aluno do Sennin.", svg: "headband", sizes: ["U"], page: "naruto" },
+    { id: 27, name: "Estatueta Naruto Modo Sábio", price: 399.90, oldPrice: 510.00, category: "Colecionáveis", tag: "RARO", description: "Estatueta de resina pintada à mão de Naruto em Modo Sábio com olhos de sapo. 22cm de altura, base em pedra preta. Detalhes em dourado e pigmento laranja vibrante. Edição limitada e numerada.", svg: "sage_mode_mask", sizes: ["U"], page: "naruto" },
+    { id: 28, name: "Calça Ninja Laranja", price: 199.90, oldPrice: null, category: "Calças", tag: null, description: "Calça em tecido reforçado na cor laranja vibrante, fiel ao estilo de Naruto. Com faixas ninja nas coxas e bolsos laterais. Perfeita para treinos intensos ou eventos de cosplay.", svg: "pants_olive", sizes: ["36", "38", "40", "42", "44"], page: "naruto" },
+    { id: 29, name: "Caneca Ramen Ichiraku", price: 79.90, oldPrice: null, category: "Casa", tag: "MAIS VENDIDO", description: "Caneca de cerâmica temática do Ramen Ichiraku, o restaurante favorito de Naruto. Capacidade 400ml. Ilustração de Naruto comendo ramen na lateral. Perfeita para colecionadores e uso diário.", svg: "toad_figurine_gamabunta", sizes: ["U"], page: "naruto" },
+    { id: 30, name: "Conjunto Completo Naruto", price: 849.90, oldPrice: 1100.00, category: "Conjuntos", tag: "OFERTA", description: "Conjunto completo para cosplay de Naruto: agasalho laranja, calça laranja, bandana de Konoha dourada e peruca loira spike. O visual completo do Hokage mais jovem. Tamanho sob consulta.", svg: "kimono_red", sizes: ["P", "M", "G", "GG"], page: "naruto" },
   ]
 };
 
@@ -151,6 +159,19 @@ function initSidebar() {
   if (overlay) {
     overlay.addEventListener('click', closeSidebar);
   }
+  // Dropdown hover for touch/click on mobile
+  const dropdown = document.querySelector('.nav-dropdown');
+  if (dropdown) {
+    dropdown.addEventListener('click', (e) => {
+      if (e.target.closest('.nav-dropdown-item')) return;
+      dropdown.classList.toggle('open');
+    });
+    document.addEventListener('click', (e) => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('open');
+      }
+    });
+  }
 }
 
 function toggleSidebar() {
@@ -170,6 +191,15 @@ function closeSidebar() {
   document.getElementById('sidebar-overlay').classList.remove('active');
 }
 
+function toggleSidebarCollections() {
+  const col = document.getElementById('sidebar-collections');
+  const trigger = document.getElementById('collections-trigger');
+  if (!col || !trigger) return;
+  const isOpen = col.classList.contains('open');
+  col.classList.toggle('open', !isOpen);
+  trigger.classList.toggle('open', !isOpen);
+}
+
 function initPageNavigation() {
   navigateTo('home');
 }
@@ -182,11 +212,16 @@ function navigateTo(pageId) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     closeSidebar();
     updateNavActive(pageId);
-    if (['gamabunta', 'fukasaku', 'shima', 'gamaken', 'gamahiro'].includes(pageId)) {
-      renderToadPage(pageId);
+    // Auto-expand sidebar collections if navigating to one
+    const collectionPages = ['jiraiya', 'gamabunta', 'fukasaku', 'shima', 'gamaken', 'gamahiro', 'naruto'];
+    if (collectionPages.includes(pageId)) {
+      const col = document.getElementById('sidebar-collections');
+      const trigger = document.getElementById('collections-trigger');
+      if (col) col.classList.add('open');
+      if (trigger) trigger.classList.add('open');
     }
-    if (pageId === 'jiraiya') {
-      renderToadPage('jiraiya');
+    if (collectionPages.includes(pageId)) {
+      renderToadPage(pageId);
     }
     if (pageId === 'produtos') {
       renderProdutosPage('all');
@@ -195,16 +230,20 @@ function navigateTo(pageId) {
 }
 
 function updateNavActive(pageId) {
+  const collectionPages = ['jiraiya', 'gamabunta', 'fukasaku', 'shima', 'gamaken', 'gamahiro', 'naruto'];
   document.querySelectorAll('[data-page]').forEach(el => {
     const isMatch = el.dataset.page === pageId;
     el.classList.toggle('active', isMatch);
-    if (el.classList.contains('sidebar-link') && isMatch) {
-    }
   });
   const sidebarLinks = document.querySelectorAll('.sidebar-link[data-page]');
   sidebarLinks.forEach(el => el.classList.remove('active'));
-  const exactMatch = document.querySelector(`.sidebar-link[data-page="${pageId}"]:not([onclick*="scrollIntoView"])`);
+  const exactMatch = document.querySelector(`.sidebar-link[data-page="${pageId}"]`);
   if (exactMatch) exactMatch.classList.add('active');
+  // Highlight the dropdown trigger when a collection sub-page is active
+  const trigger = document.querySelector('.nav-dropdown-trigger');
+  if (trigger) {
+    trigger.classList.toggle('active', collectionPages.includes(pageId));
+  }
 }
 
 let carouselAutoTimer = null;
@@ -407,7 +446,7 @@ function filterProdutos(filter) {
   // Update active tab
   document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
   const tabs = document.querySelectorAll('.filter-tab');
-  const map = { all: 0, home: 1, gamabunta: 2, fukasaku: 3, shima: 4, gamaken: 5, gamahiro: 6 };
+  const map = { all: 0, home: 1, gamabunta: 2, fukasaku: 3, shima: 4, gamaken: 5, gamahiro: 6, naruto: 7 };
   if (tabs[map[filter]]) tabs[map[filter]].classList.add('active');
   renderProdutosPage(filter);
 }
