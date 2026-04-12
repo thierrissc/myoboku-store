@@ -267,7 +267,6 @@ body {
   transform: scale(1.2);
 }
 
-/* ── Collapsible sidebar section ── */
 .sidebar-collapsible-trigger {
   display: flex;
   align-items: center;
@@ -480,7 +479,6 @@ header {
   color: var(--text);
 }
 
-/* ── Dropdown ── */
 .nav-dropdown-trigger {
   cursor: pointer;
   user-select: none;
@@ -509,7 +507,6 @@ header {
     transform 0.22s ease;
   z-index: 8500;
   min-width: 260px;
-  /* invisible padding to bridge the gap so hover doesn't break */
   padding-top: 8px;
 }
 
@@ -520,7 +517,6 @@ header {
   transform: translateX(-50%) translateY(0);
 }
 
-/* Arrow tip */
 .nav-dropdown-menu::before {
   content: "";
   position: absolute;
@@ -600,7 +596,6 @@ header {
   font-style: italic;
 }
 
-/* ── Actions ── */
 .header-actions {
   display: flex;
   align-items: center;
@@ -644,14 +639,12 @@ header {
   font-weight: 700;
 }
 
-/* ── Mobile header ── */
 @media (max-width: 900px) {
   .header-nav {
     display: none;
   }
 }
 
-/* ── Menu btn mobile improvements ── */
 @media (max-width: 900px) {
   header {
     padding: 0 1rem;
@@ -1829,7 +1822,6 @@ footer {
   color: var(--text-dim);
 }
 
-/* ── Shared section layout utilities ── */
 .section-products {
   background: var(--ink-black);
 }
@@ -1854,7 +1846,6 @@ footer {
   font-size: 1rem;
 }
 
-/* ── Jiraiya theme ── */
 .page-jiraiya .toad-hero-bg {
   background: linear-gradient(135deg, #1a0505 0%, #4a0c0c 40%, #2a1500 100%);
 }
@@ -1872,7 +1863,6 @@ footer {
   font-style: normal;
 }
 
-/* ── Shima theme ── */
 .page-shima .toad-hero-bg {
   background: linear-gradient(135deg, #0d0a14 0%, #2a1f3d 50%, #0d0a14 100%);
 }
@@ -1887,7 +1877,6 @@ footer {
   font-style: normal;
 }
 
-/* ── Gamaken theme ── */
 .page-gamaken .toad-hero-bg {
   background: linear-gradient(135deg, #150508 0%, #4a0f1f 50%, #150508 100%);
 }
@@ -1902,7 +1891,6 @@ footer {
   font-style: normal;
 }
 
-/* ── Produtos page theme ── */
 .toad-hero--compact {
   min-height: 35vh;
 }
@@ -1924,7 +1912,6 @@ footer {
   font-style: normal;
 }
 
-/* ── Gamahiro theme ── */
 .page-gamahiro .toad-hero-bg {
   background: linear-gradient(135deg, #060e14 0%, #0d2a3d 50%, #060e14 100%);
 }
@@ -1939,7 +1926,6 @@ footer {
   font-style: normal;
 }
 
-/* ── Naruto theme ── */
 .page-naruto .toad-hero-bg {
   background: linear-gradient(135deg, #1a0e00 0%, #3d1f00 40%, #2a1500 100%);
 }
@@ -1982,17 +1968,69 @@ footer {
   border-color: rgba(232, 112, 32, 0.6);
 }
 
+.filter-tab--jiraiya.active {
+  background: #e71603 !important;
+  border-color: #e71603 !important;
+}
+.filter-tab--jiraiya:hover {
+  border-color: rgba(180, 30, 30, 0.6) !important;
+  color: var(--red) !important;
+}
+
+.filter-tab--gamabunta.active {
+  background: #832015 !important;
+  border-color: #832015 !important;
+}
+.filter-tab--gamabunta:hover {
+  border-color: rgba(139, 32, 21, 0.6) !important;
+  color: #c0392b !important;
+}
+
+.filter-tab--fukasaku.active {
+  background: #4a6225 !important;
+  border-color: #4a6225 !important;
+}
+.filter-tab--fukasaku:hover {
+  border-color: rgba(74, 98, 37, 0.6) !important;
+  color: #6a8f37 !important;
+}
+
+.filter-tab--shima.active {
+  background: #7b5ea7 !important;
+  border-color: #7b5ea7 !important;
+}
+.filter-tab--shima:hover {
+  border-color: rgba(123, 94, 167, 0.6) !important;
+  color: #a48bd0 !important;
+}
+
+.filter-tab--gamaken.active {
+  background: #b83055 !important;
+  border-color: #b83055 !important;
+}
+.filter-tab--gamaken:hover {
+  border-color: rgba(184, 48, 85, 0.6) !important;
+  color: #d9506e !important;
+}
+
+.filter-tab--gamahiro.active {
+  background: #2e7daf !important;
+  border-color: #2e7daf !important;
+}
+.filter-tab--gamahiro:hover {
+  border-color: rgba(46, 125, 175, 0.6) !important;
+  color: #5ba3d0 !important;
+}
+
 .filter-tab--naruto.active {
   background: #e87020 !important;
   border-color: #e87020 !important;
 }
-
 .filter-tab--naruto:hover {
   border-color: rgba(232, 112, 32, 0.6) !important;
   color: #f5a623 !important;
 }
 
-/* Filter tabs */
 .produtos-filter {
   display: flex;
   gap: 0.75rem;
@@ -2180,7 +2218,6 @@ footer {
   margin: 0 0.75rem;
 }
 
-/* Panels */
 .checkout-panel {
   display: none;
 }

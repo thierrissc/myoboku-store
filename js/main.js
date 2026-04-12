@@ -201,6 +201,10 @@ function toggleSidebarCollections() {
 }
 
 function initPageNavigation() {
+  const col = document.getElementById('sidebar-collections');
+  const trigger = document.getElementById('collections-trigger');
+  if (col) col.classList.add('open');
+  if (trigger) trigger.classList.add('open');
   navigateTo('home');
 }
 
