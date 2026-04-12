@@ -1,34 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap");
 
 :root {
-  --red: #C0392B;
-  --red-dark: #922B21;
-  --red-light: #E74C3C;
-  --cream: #F0E6D3;
-  --cream-dark: #D4C4A8;
-  --olive: #5D6B2E;
-  --olive-dark: #3D4A1E;
-  --sage: #7D8B4A;
-  --gold: #C9A84C;
-  --gold-light: #E8C870;
-  --ink-black: #0C0C0C;
+  --red: #c0392b;
+  --red-dark: #922b21;
+  --red-light: #e74c3c;
+  --cream: #f0e6d3;
+  --cream-dark: #d4c4a8;
+  --olive: #5d6b2e;
+  --olive-dark: #3d4a1e;
+  --sage: #7d8b4a;
+  --gold: #c9a84c;
+  --gold-light: #e8c870;
+  --ink-black: #0c0c0c;
   --near-black: #141414;
-  --surface: #1A1A1A;
+  --surface: #1a1a1a;
   --surface-2: #222222;
   --border: rgba(192, 57, 43, 0.25);
   --border-hover: rgba(192, 57, 43, 0.6);
-  --text: #F0E6D3;
+  --text: #f0e6d3;
   --text-muted: rgba(240, 230, 211, 0.55);
   --text-dim: rgba(240, 230, 211, 0.35);
 
-  --gamabunta-red: #8B2015;
-  --gamabunta-tan: #C4915A;
-  --shima-purple: #6B4F9A;
-  --shima-lavander: #C4B0E8;
-  --fukasaku-olive: #4A6225;
-  --fukasaku-cream: #D4BC7A;
-  --gama-pink: #8B1A35;
-  --gama-pink-light: #E8789A;
+  --gamabunta-red: #8b2015;
+  --gamabunta-tan: #c4915a;
+  --shima-purple: #6b4f9a;
+  --shima-lavander: #c4b0e8;
+  --fukasaku-olive: #4a6225;
+  --fukasaku-cream: #d4bc7a;
+  --gama-pink: #8b1a35;
+  --gama-pink-light: #e8789a;
 }
 
 *,
@@ -44,7 +44,7 @@ html {
 }
 
 body {
-  font-family: 'Crimson Pro', Georgia, serif;
+  font-family: "Crimson Pro", Georgia, serif;
   background: var(--ink-black);
   color: var(--text);
   overflow-x: hidden;
@@ -73,7 +73,9 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.8s ease, visibility 0.8s ease;
+  transition:
+    opacity 0.8s ease,
+    visibility 0.8s ease;
 }
 
 #loading.hidden {
@@ -83,7 +85,7 @@ body {
 }
 
 .loading-kanji {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 4rem;
   color: var(--red);
   letter-spacing: 0.3em;
@@ -93,7 +95,7 @@ body {
 
 .loading-sub {
   margin-top: 1.5rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.85rem;
   color: var(--text-muted);
   letter-spacing: 0.4em;
@@ -117,16 +119,15 @@ body {
 
 @keyframes load-fill {
   from {
-    width: 0
+    width: 0;
   }
 
   to {
-    width: 100%
+    width: 100%;
   }
 }
 
 @keyframes pulse-kanji {
-
   0%,
   100% {
     opacity: 1;
@@ -179,7 +180,7 @@ body {
 }
 
 .sidebar-logo-mark {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.1rem;
   color: var(--red);
   letter-spacing: 0.15em;
@@ -201,7 +202,7 @@ body {
 
 .sidebar-section-label {
   padding: 0 2rem 0.6rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.65rem;
   color: var(--text-dim);
   letter-spacing: 0.35em;
@@ -255,7 +256,9 @@ body {
   border-radius: 50%;
   flex-shrink: 0;
   opacity: 0.75;
-  transition: opacity 0.25s, transform 0.25s;
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
 }
 
 .sidebar-link:hover .sidebar-toad-dot,
@@ -305,7 +308,7 @@ body {
 }
 
 .sidebar-toad-label {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.65rem;
   color: var(--text-dim);
   letter-spacing: 0.35em;
@@ -350,7 +353,7 @@ body {
 }
 
 .toad-pill.gamabunta .dot {
-  background: #8B2015;
+  background: #8b2015;
 }
 
 .toad-pill.fukasaku:hover {
@@ -359,7 +362,7 @@ body {
 }
 
 .toad-pill.fukasaku .dot {
-  background: #4A6225;
+  background: #4a6225;
 }
 
 .toad-pill.shima:hover {
@@ -368,7 +371,7 @@ body {
 }
 
 .toad-pill.shima .dot {
-  background: #6B4F9A;
+  background: #6b4f9a;
 }
 
 .toad-pill.gamaken:hover {
@@ -377,7 +380,7 @@ body {
 }
 
 .toad-pill.gamaken .dot {
-  background: #8B1A35;
+  background: #8b1a35;
 }
 
 header {
@@ -423,11 +426,13 @@ header {
   height: 1.5px;
   background: currentColor;
   border-radius: 1px;
-  transition: transform 0.3s, opacity 0.3s;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
 }
 
 .header-logo {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.05rem;
   color: var(--cream);
   text-decoration: none;
@@ -456,7 +461,7 @@ header {
 }
 
 .header-nav a {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -499,7 +504,9 @@ header {
   transform: translateX(-50%) translateY(-4px);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.22s ease, transform 0.22s ease;
+  transition:
+    opacity 0.22s ease,
+    transform 0.22s ease;
   z-index: 8500;
   min-width: 260px;
   /* invisible padding to bridge the gap so hover doesn't break */
@@ -515,7 +522,7 @@ header {
 
 /* Arrow tip */
 .nav-dropdown-menu::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 2px;
   left: 50%;
@@ -530,13 +537,15 @@ header {
   border: 1px solid var(--border);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.65), 0 0 0 1px rgba(192,57,43,0.1);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(192, 57, 43, 0.1);
   padding: 0.5rem 0;
   margin-top: 6px;
 }
 
 .nav-dropdown-item {
-  font-family: 'Cinzel', serif !important;
+  font-family: "Cinzel", serif !important;
   font-size: 0.78rem !important;
   letter-spacing: 0.14em !important;
   padding: 0.8rem 1.3rem !important;
@@ -545,19 +554,21 @@ header {
   gap: 0.9rem;
   color: var(--text-muted) !important;
   text-decoration: none;
-  transition: background 0.15s, color 0.15s !important;
+  transition:
+    background 0.15s,
+    color 0.15s !important;
   cursor: pointer;
   border-radius: 0;
   text-transform: uppercase;
 }
 
 .nav-dropdown-item:hover {
-  background: rgba(192,57,43,0.12);
+  background: rgba(192, 57, 43, 0.12);
   color: var(--text) !important;
 }
 
 .nav-dropdown-item--naruto:hover {
-  background: rgba(232,112,32,0.12) !important;
+  background: rgba(232, 112, 32, 0.12) !important;
 }
 
 .nav-dot {
@@ -581,7 +592,7 @@ header {
 }
 
 .nav-item-sub {
-  font-family: 'Crimson Pro', serif !important;
+  font-family: "Crimson Pro", serif !important;
   font-size: 0.82rem;
   letter-spacing: 0.04em;
   text-transform: none !important;
@@ -703,10 +714,30 @@ header {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: radial-gradient(ellipse at 30% 50%, rgba(192, 57, 43, 0.08) 0%, transparent 60%),
-    radial-gradient(ellipse at 70% 80%, rgba(93, 107, 46, 0.06) 0%, transparent 50%),
-    linear-gradient(180deg, rgba(12, 12, 12, 0.35) 0%, rgba(12, 12, 12, 0.55) 50%, rgba(12, 12, 12, 0.85) 100%),
-    linear-gradient(90deg, rgba(12, 12, 12, 0.5) 0%, rgba(12, 12, 12, 0.1) 40%, rgba(12, 12, 12, 0.1) 60%, rgba(12, 12, 12, 0.5) 100%);
+  background:
+    radial-gradient(
+      ellipse at 30% 50%,
+      rgba(192, 57, 43, 0.08) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at 70% 80%,
+      rgba(93, 107, 46, 0.06) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(12, 12, 12, 0.35) 0%,
+      rgba(12, 12, 12, 0.55) 50%,
+      rgba(12, 12, 12, 0.85) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(12, 12, 12, 0.5) 0%,
+      rgba(12, 12, 12, 0.1) 40%,
+      rgba(12, 12, 12, 0.1) 60%,
+      rgba(12, 12, 12, 0.5) 100%
+    );
 }
 
 .hero-content {
@@ -718,7 +749,7 @@ header {
 }
 
 .hero-eyebrow {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.72rem;
   letter-spacing: 0.5em;
   text-transform: uppercase;
@@ -729,7 +760,7 @@ header {
 }
 
 .hero-title {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: clamp(2.4rem, 6vw, 4.8rem);
   line-height: 1.1;
   color: var(--cream);
@@ -780,7 +811,7 @@ header {
   gap: 0.6rem;
   padding: 0.85rem 2rem;
   border-radius: 4px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -833,7 +864,7 @@ header {
 }
 
 .section-label {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.65rem;
   letter-spacing: 0.45em;
   color: var(--red);
@@ -843,7 +874,7 @@ header {
 }
 
 .section-title {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: clamp(1.6rem, 3.5vw, 2.6rem);
   color: var(--cream);
   line-height: 1.2;
@@ -962,7 +993,7 @@ header {
 }
 
 .product-img-wrap::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.3) 100%);
@@ -974,7 +1005,7 @@ header {
   left: 12px;
   background: var(--red);
   color: #fff;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.58rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -988,7 +1019,7 @@ header {
 }
 
 .product-category {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.6rem;
   letter-spacing: 0.3em;
   color: var(--text-dim);
@@ -997,7 +1028,7 @@ header {
 }
 
 .product-name {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.92rem;
   color: var(--text);
   margin-bottom: 0.8rem;
@@ -1005,7 +1036,7 @@ header {
 }
 
 .product-price {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.15rem;
   color: var(--gold);
 }
@@ -1024,7 +1055,7 @@ header {
   background: transparent;
   border: 1px solid var(--border-hover);
   color: var(--text);
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1079,7 +1110,7 @@ header {
 }
 
 .benefit-title {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.8rem;
   color: var(--text);
   margin-bottom: 0.5rem;
@@ -1116,7 +1147,7 @@ header {
 }
 
 .toad-hero-label {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.65rem;
   letter-spacing: 0.5em;
   text-transform: uppercase;
@@ -1125,7 +1156,7 @@ header {
 }
 
 .toad-hero-title {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: clamp(2rem, 5vw, 4rem);
   line-height: 1.1;
   margin-bottom: 1rem;
@@ -1139,34 +1170,34 @@ header {
 }
 
 .page-gamabunta .toad-hero-bg {
-  background: linear-gradient(135deg, #1A0A08 0%, #3D1209 50%, #1A0A08 100%);
+  background: linear-gradient(135deg, #1a0a08 0%, #3d1209 50%, #1a0a08 100%);
 }
 
 .page-gamabunta .toad-hero-label,
 .page-gamabunta .toad-hero-title {
-  color: #C4915A;
+  color: #c4915a;
 }
 
 .page-gamabunta .toad-hero-title em {
-  color: #8B2015;
+  color: #8b2015;
   font-style: normal;
 }
 
 .page-gamabunta .product-tag {
-  background: #8B2015;
+  background: #8b2015;
 }
 
 .page-gamabunta .product-price {
-  color: #C4915A;
+  color: #c4915a;
 }
 
 .page-gamabunta .section-title em,
 .page-gamabunta .section-label {
-  color: #8B2015;
+  color: #8b2015;
 }
 
 .page-gamabunta .divider {
-  background: linear-gradient(90deg, #8B2015, transparent);
+  background: linear-gradient(90deg, #8b2015, transparent);
 }
 
 .page-gamabunta .product-card:hover {
@@ -1174,34 +1205,34 @@ header {
 }
 
 .page-fukasaku .toad-hero-bg {
-  background: linear-gradient(135deg, #0D1608 0%, #253314 50%, #0D1608 100%);
+  background: linear-gradient(135deg, #0d1608 0%, #253314 50%, #0d1608 100%);
 }
 
 .page-fukasaku .toad-hero-label,
 .page-fukasaku .toad-hero-title {
-  color: #D4BC7A;
+  color: #d4bc7a;
 }
 
 .page-fukasaku .toad-hero-title em {
-  color: #4A6225;
+  color: #4a6225;
   font-style: normal;
 }
 
 .page-fukasaku .product-tag {
-  background: #4A6225;
+  background: #4a6225;
 }
 
 .page-fukasaku .product-price {
-  color: #B0A060;
+  color: #b0a060;
 }
 
 .page-fukasaku .section-title em,
 .page-fukasaku .section-label {
-  color: #4A6225;
+  color: #4a6225;
 }
 
 .page-fukasaku .divider {
-  background: linear-gradient(90deg, #4A6225, transparent);
+  background: linear-gradient(90deg, #4a6225, transparent);
 }
 
 .page-fukasaku .product-card:hover {
@@ -1236,7 +1267,7 @@ header {
 }
 
 .cart-header h2 {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.9rem;
   letter-spacing: 0.2em;
   color: var(--text);
@@ -1296,7 +1327,7 @@ header {
 }
 
 .cart-item-name {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.78rem;
   color: var(--text);
   margin-bottom: 0.3rem;
@@ -1353,7 +1384,7 @@ header {
 }
 
 .cart-total-label {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.75rem;
   letter-spacing: 0.2em;
   color: var(--text-muted);
@@ -1361,7 +1392,7 @@ header {
 }
 
 .cart-total-amount {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.3rem;
   color: var(--gold);
 }
@@ -1372,7 +1403,7 @@ header {
   color: #fff;
   border: none;
   padding: 1rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.75rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -1494,7 +1525,7 @@ header {
 }
 
 .modal-category {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.6rem;
   letter-spacing: 0.4em;
   color: var(--text-dim);
@@ -1503,7 +1534,7 @@ header {
 }
 
 .modal-name {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.4rem;
   color: var(--cream);
   margin-bottom: 0.8rem;
@@ -1511,14 +1542,14 @@ header {
 }
 
 .modal-price {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.6rem;
   color: var(--gold);
   margin-bottom: 1.5rem;
 }
 
 .modal-price-old {
-  font-family: 'Crimson Pro', serif;
+  font-family: "Crimson Pro", serif;
   font-size: 1rem;
   color: var(--text-dim);
   text-decoration: line-through;
@@ -1540,7 +1571,7 @@ header {
 }
 
 .modal-size-label {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.62rem;
   letter-spacing: 0.3em;
   color: var(--text-dim);
@@ -1561,7 +1592,7 @@ header {
   border: 1px solid var(--border);
   background: none;
   color: var(--text-muted);
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.7rem;
   cursor: pointer;
   border-radius: 4px;
@@ -1583,7 +1614,7 @@ header {
 }
 
 .qty-label {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.62rem;
   letter-spacing: 0.3em;
   color: var(--text-dim);
@@ -1632,7 +1663,7 @@ header {
   background: var(--surface);
   color: var(--text);
   text-align: center;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.85rem;
   display: flex;
   align-items: center;
@@ -1645,7 +1676,7 @@ header {
   color: #fff;
   border: none;
   padding: 1rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.75rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
@@ -1676,9 +1707,11 @@ header {
   padding: 0.9rem 1.3rem;
   border-radius: 4px;
   font-size: 0.85rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   letter-spacing: 0.05em;
-  animation: toast-in 0.3s ease, toast-out 0.3s ease 2.5s forwards;
+  animation:
+    toast-in 0.3s ease,
+    toast-out 0.3s ease 2.5s forwards;
   max-width: 300px;
 }
 
@@ -1732,7 +1765,7 @@ footer {
 }
 
 .footer-brand-name {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.1rem;
   color: var(--cream);
   margin-bottom: 0.8rem;
@@ -1750,7 +1783,7 @@ footer {
 }
 
 .footer-col h4 {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.68rem;
   letter-spacing: 0.3em;
   color: var(--text-muted);
@@ -1823,7 +1856,7 @@ footer {
 
 /* ── Jiraiya theme ── */
 .page-jiraiya .toad-hero-bg {
-  background: linear-gradient(135deg, #1A0505 0%, #4A0C0C 40%, #2A1500 100%);
+  background: linear-gradient(135deg, #1a0505 0%, #4a0c0c 40%, #2a1500 100%);
 }
 
 .page-jiraiya .toad-hero-label {
@@ -1841,31 +1874,31 @@ footer {
 
 /* ── Shima theme ── */
 .page-shima .toad-hero-bg {
-  background: linear-gradient(135deg, #0D0A14 0%, #2A1F3D 50%, #0D0A14 100%);
+  background: linear-gradient(135deg, #0d0a14 0%, #2a1f3d 50%, #0d0a14 100%);
 }
 
 .page-shima .toad-hero-label,
 .page-shima .toad-hero-title {
-  color: #C4B0E8;
+  color: #c4b0e8;
 }
 
 .page-shima .toad-hero-title em {
-  color: #7B5EA7;
+  color: #7b5ea7;
   font-style: normal;
 }
 
 /* ── Gamaken theme ── */
 .page-gamaken .toad-hero-bg {
-  background: linear-gradient(135deg, #150508 0%, #4A0F1F 50%, #150508 100%);
+  background: linear-gradient(135deg, #150508 0%, #4a0f1f 50%, #150508 100%);
 }
 
 .page-gamaken .toad-hero-label,
 .page-gamaken .toad-hero-title {
-  color: #E8789A;
+  color: #e8789a;
 }
 
 .page-gamaken .toad-hero-title em {
-  color: #B83055;
+  color: #b83055;
   font-style: normal;
 }
 
@@ -1875,7 +1908,7 @@ footer {
 }
 
 .page-produtos .toad-hero-bg {
-  background: linear-gradient(135deg, #0C0C0C 0%, #1A1A1A 50%, #0C0C0C 100%);
+  background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #0c0c0c 100%);
 }
 
 .page-produtos .toad-hero-label {
@@ -1893,34 +1926,34 @@ footer {
 
 /* ── Gamahiro theme ── */
 .page-gamahiro .toad-hero-bg {
-  background: linear-gradient(135deg, #060E14 0%, #0D2A3D 50%, #060E14 100%);
+  background: linear-gradient(135deg, #060e14 0%, #0d2a3d 50%, #060e14 100%);
 }
 
 .page-gamahiro .toad-hero-label,
 .page-gamahiro .toad-hero-title {
-  color: #7EC8E3;
+  color: #7ec8e3;
 }
 
 .page-gamahiro .toad-hero-title em {
-  color: #2E7DAF;
+  color: #2e7daf;
   font-style: normal;
 }
 
 /* ── Naruto theme ── */
 .page-naruto .toad-hero-bg {
-  background: linear-gradient(135deg, #1A0E00 0%, #3D1F00 40%, #2A1500 100%);
+  background: linear-gradient(135deg, #1a0e00 0%, #3d1f00 40%, #2a1500 100%);
 }
 
 .page-naruto .toad-hero-label {
-  color: #F5A623;
+  color: #f5a623;
 }
 
 .page-naruto .toad-hero-title {
-  color: #F5D020;
+  color: #f5d020;
 }
 
 .page-naruto .toad-hero-title em {
-  color: #E87020;
+  color: #e87020;
   font-style: normal;
 }
 
@@ -1929,20 +1962,20 @@ footer {
 }
 
 .page-naruto .product-tag {
-  background: #C05A10;
+  background: #c05a10;
 }
 
 .page-naruto .product-price {
-  color: #F5A623;
+  color: #f5a623;
 }
 
 .page-naruto .section-title em,
 .page-naruto .section-label {
-  color: #E87020;
+  color: #e87020;
 }
 
 .page-naruto .divider {
-  background: linear-gradient(90deg, #E87020, transparent);
+  background: linear-gradient(90deg, #e87020, transparent);
 }
 
 .page-naruto .product-card:hover {
@@ -1950,13 +1983,13 @@ footer {
 }
 
 .filter-tab--naruto.active {
-  background: #E87020 !important;
-  border-color: #E87020 !important;
+  background: #e87020 !important;
+  border-color: #e87020 !important;
 }
 
 .filter-tab--naruto:hover {
   border-color: rgba(232, 112, 32, 0.6) !important;
-  color: #F5A623 !important;
+  color: #f5a623 !important;
 }
 
 /* Filter tabs */
@@ -1972,7 +2005,7 @@ footer {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--text-muted);
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -1992,7 +2025,6 @@ footer {
   color: #fff;
 }
 
-
 .text-center {
   text-align: center;
 }
@@ -2004,7 +2036,9 @@ footer {
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
 }
 
 .reveal.visible {
@@ -2021,7 +2055,9 @@ footer {
   justify-content: center;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.35s ease, visibility 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    visibility 0.35s ease;
 }
 
 #checkout-modal.active {
@@ -2095,7 +2131,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.7rem;
   letter-spacing: 0.1em;
   color: var(--text-dim);
@@ -2120,7 +2156,9 @@ footer {
   justify-content: center;
   font-size: 0.65rem;
   flex-shrink: 0;
-  transition: background 0.3s, border-color 0.3s;
+  transition:
+    background 0.3s,
+    border-color 0.3s;
 }
 
 .checkout-step.active .step-num {
@@ -2152,7 +2190,7 @@ footer {
 }
 
 .checkout-title {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.1rem;
   color: var(--text);
   margin-bottom: 1.5rem;
@@ -2177,7 +2215,7 @@ footer {
 }
 
 .cf-field label {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.65rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -2190,7 +2228,7 @@ footer {
   border: 1px solid var(--border);
   border-radius: 4px;
   color: var(--text);
-  font-family: 'Crimson Pro', serif;
+  font-family: "Crimson Pro", serif;
   font-size: 0.95rem;
   padding: 0.6rem 0.8rem;
   transition: border-color 0.2s;
@@ -2212,7 +2250,7 @@ footer {
 }
 
 .shipping-title {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2229,7 +2267,9 @@ footer {
   border-radius: 6px;
   cursor: pointer;
   margin-bottom: 0.6rem;
-  transition: border-color 0.2s, background 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
 }
 
 .shipping-opt:hover {
@@ -2250,7 +2290,7 @@ footer {
 }
 
 .ship-name {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.78rem;
   color: var(--text);
 }
@@ -2261,14 +2301,14 @@ footer {
 }
 
 .ship-price {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.82rem;
   color: var(--gold);
   white-space: nowrap;
 }
 
 .ship-price.free {
-  color: #7DB87A;
+  color: #7db87a;
 }
 
 .checkout-nav-row {
@@ -2283,7 +2323,7 @@ footer {
   color: #fff;
   border: none;
   padding: 0.85rem 2rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2305,12 +2345,14 @@ footer {
   border: 1px solid var(--border);
   color: var(--text-muted);
   padding: 0.85rem 1.4rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.72rem;
   letter-spacing: 0.15em;
   cursor: pointer;
   border-radius: 4px;
-  transition: border-color 0.2s, color 0.2s;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -2326,7 +2368,7 @@ footer {
   color: #000;
   border: none;
   padding: 0.85rem 2rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2354,7 +2396,7 @@ footer {
   border: 1px solid var(--border);
   color: var(--text-muted);
   padding: 0.7rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   cursor: pointer;
@@ -2412,7 +2454,7 @@ footer {
 }
 
 .summary-title {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.65rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -2437,7 +2479,7 @@ footer {
 
 .summary-row.total-row {
   color: var(--text);
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.9rem;
   border-bottom: none;
   margin-top: 0.3rem;
@@ -2456,12 +2498,12 @@ footer {
 
 .success-icon {
   font-size: 4rem;
-  color: #7DB87A;
+  color: #7db87a;
   margin-bottom: 1.5rem;
 }
 
 .checkout-success h2 {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 1.4rem;
   color: var(--text);
   margin-bottom: 1rem;
@@ -2476,7 +2518,7 @@ footer {
 }
 
 .success-kanji {
-  font-family: 'Cinzel Decorative', serif;
+  font-family: "Cinzel Decorative", serif;
   font-size: 4rem;
   color: var(--red);
   opacity: 0.15;
@@ -2523,7 +2565,7 @@ footer {
   position: relative;
   padding: 2.5rem 2.5rem 3rem;
   box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7);
-  animation: modalSlideIn 0.28s cubic-bezier(.4, 0, .2, 1);
+  animation: modalSlideIn 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes modalSlideIn {
@@ -2576,7 +2618,7 @@ footer {
 }
 
 .ipage-title {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 1.8rem;
   color: var(--cream);
   margin: 0 0 0.5rem;
@@ -2593,7 +2635,7 @@ footer {
 }
 
 .ipage-sec-title {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 1rem;
   color: var(--gold);
   letter-spacing: 0.05em;
@@ -2628,7 +2670,7 @@ footer {
   border: none;
   padding: 0.75rem 1.6rem;
   border-radius: 6px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.85rem;
   letter-spacing: 0.08em;
   cursor: pointer;
@@ -2678,7 +2720,7 @@ footer {
   border: none;
   padding: 0.75rem 1.3rem;
   border-radius: 6px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   cursor: pointer;
@@ -2725,7 +2767,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   letter-spacing: 0.04em;
 }
 
@@ -2752,7 +2794,7 @@ footer {
 }
 
 .fo-name {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.8rem;
   color: var(--text-muted);
   margin-bottom: 0.4rem;
@@ -2798,7 +2840,7 @@ footer {
 }
 
 .ship-card-name {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.82rem;
   color: var(--cream);
   letter-spacing: 0.04em;
@@ -2847,7 +2889,7 @@ footer {
 
 .region-row.header {
   background: var(--bg);
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.78rem;
   color: var(--text-dim);
   letter-spacing: 0.06em;
@@ -2890,7 +2932,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.85rem;
   font-weight: 700;
 }
@@ -2949,7 +2991,7 @@ footer {
 .cond-ok strong,
 .cond-no strong {
   display: block;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.85rem;
   color: var(--cream);
   margin-bottom: 0.8rem;
@@ -3033,7 +3075,7 @@ footer {
 }
 
 .order-num {
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.95rem;
   color: var(--cream);
   margin-right: 0.8rem;
@@ -3048,7 +3090,7 @@ footer {
   font-size: 0.75rem;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   letter-spacing: 0.04em;
 }
 
@@ -3190,7 +3232,7 @@ footer {
   background: var(--bg);
   padding: 0.75rem 1rem;
   text-align: left;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.75rem;
   color: var(--text-dim);
   letter-spacing: 0.06em;
@@ -3214,7 +3256,7 @@ footer {
   color: var(--red);
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
-  font-family: 'Cinzel', serif;
+  font-family: "Cinzel", serif;
   font-size: 0.78rem;
   letter-spacing: 0.04em;
 }
