@@ -1,50 +1,65 @@
-let trackedOrders = JSON.parse(localStorage.getItem('myoboku_orders') || '[]');
+let trackedOrders = JSON.parse(localStorage.getItem("myoboku_orders") || "[]");
 
 function openInfoModal(page) {
-  const overlay = document.getElementById('info-modal-overlay');
-  const modal = document.getElementById('info-modal');
-  const content = document.getElementById('info-modal-content');
-  if (page === 'sobre') {
+  const overlay = document.getElementById("info-modal-overlay");
+  const modal = document.getElementById("info-modal");
+  const content = document.getElementById("info-modal-content");
+  if (page === "sobre") {
     closeSidebar && closeSidebar();
-    navigateTo('jiraiya');
+    navigateTo("jiraiya");
     setTimeout(() => {
-      const jiraiyaPage = document.getElementById('page-jiraiya');
+      const jiraiyaPage = document.getElementById("page-jiraiya");
       if (!jiraiyaPage) return;
-      const sections = jiraiyaPage.querySelectorAll('section');
+      const sections = jiraiyaPage.querySelectorAll("section");
       let aboutSection = null;
-      sections.forEach(s => {
-        if (s.querySelector('.section-label') && s.querySelector('.section-label').textContent.includes('Sobre Jiraiya')) {
+      sections.forEach((s) => {
+        if (
+          s.querySelector(".section-label") &&
+          s
+            .querySelector(".section-label")
+            .textContent.includes("Sobre Jiraiya")
+        ) {
           aboutSection = s;
         }
       });
       if (!aboutSection) {
-        const footer = jiraiyaPage.querySelector('footer');
+        const footer = jiraiyaPage.querySelector("footer");
         if (footer) aboutSection = footer;
       }
-      if (aboutSection) aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (aboutSection)
+        aboutSection.scrollIntoView({ behavior: "smooth", block: "start" });
     }, 180);
     return;
   }
   content.innerHTML = getPageContent(page);
-  overlay.classList.add('active');
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  if (page === 'envio') initEnvioSimulator();
-  if (page === 'rastrear') renderOrders();
+  overlay.classList.add("active");
+  modal.classList.add("active");
+  if (typeof isMobile === "function" && isMobile()) {
+    lockScroll();
+    addSwipeToClose(modal, closeInfoModal);
+  } else {
+    document.body.style.overflow = "hidden";
+  }
+  if (page === "envio") initEnvioSimulator();
+  if (page === "rastrear") renderOrders();
 }
 
 function closeInfoModal() {
-  document.getElementById('info-modal-overlay').classList.remove('active');
-  document.getElementById('info-modal').classList.remove('active');
-  document.body.style.overflow = '';
+  document.getElementById("info-modal-overlay").classList.remove("active");
+  document.getElementById("info-modal").classList.remove("active");
+  if (typeof isMobile === "function" && isMobile()) {
+    unlockScroll();
+  } else {
+    document.body.style.overflow = "";
+  }
 }
 
 function getPageContent(page) {
-  if (page === 'envio') return envioContent();
-  if (page === 'trocas') return trocasContent();
-  if (page === 'rastrear') return rastrearContent();
-  if (page === 'guia') return guiaContent();
-  return '';
+  if (page === "envio") return envioContent();
+  if (page === "trocas") return trocasContent();
+  if (page === "rastrear") return rastrearContent();
+  if (page === "guia") return guiaContent();
+  return "";
 }
 
 function envioContent() {
@@ -397,43 +412,118 @@ function guiaContent() {
   </div>`;
 }
 function formatCEP(input) {
-  let v = input.value.replace(/\D/g, '');
-  if (v.length > 5) v = v.slice(0, 5) + '-' + v.slice(5, 8);
+  let v = input.value.replace(/\D/g, "");
+  if (v.length > 5) v = v.slice(0, 5) + "-" + v.slice(5, 8);
   input.value = v;
 }
 
 function simularFrete() {
-  const cepRaw = document.getElementById('cep-input').value.replace(/\D/g, '');
-  const result = document.getElementById('frete-resultado');
+  const cepRaw = document.getElementById("cep-input").value.replace(/\D/g, "");
+  const result = document.getElementById("frete-resultado");
   if (cepRaw.length !== 8) {
-    result.style.display = 'block';
-    result.innerHTML = '<div class="frete-error"><i class="fas fa-exclamation-circle"></i> CEP inválido. Digite 8 dígitos.</div>';
+    result.style.display = "block";
+    result.innerHTML =
+      '<div class="frete-error"><i class="fas fa-exclamation-circle"></i> CEP inválido. Digite 8 dígitos.</div>';
     return;
   }
-  result.style.display = 'block';
-  result.innerHTML = '<div class="frete-loading"><i class="fas fa-spinner fa-spin"></i> Calculando frete...</div>';
+  result.style.display = "block";
+  result.innerHTML =
+    '<div class="frete-loading"><i class="fas fa-spinner fa-spin"></i> Calculando frete...</div>';
 
   setTimeout(() => {
     const prefix = parseInt(cepRaw.slice(0, 2));
     let regiao, pacDias, sedexDias, freePrazo;
-    if (prefix >= 1 && prefix <= 19) { regiao = 'São Paulo (capital)'; pacDias = '5–7'; sedexDias = '1–2'; freePrazo = '4–6'; }
-    else if (prefix >= 20 && prefix <= 28) { regiao = 'Rio de Janeiro'; pacDias = '6–8'; sedexDias = '2'; freePrazo = '5–7'; }
-    else if (prefix >= 29 && prefix <= 39) { regiao = 'Minas Gerais / Espírito Santo'; pacDias = '6–9'; sedexDias = '2–3'; freePrazo = '5–8'; }
-    else if (prefix >= 40 && prefix <= 48) { regiao = 'Bahia'; pacDias = '8–12'; sedexDias = '3–4'; freePrazo = '7–10'; }
-    else if (prefix >= 49 && prefix <= 56) { regiao = 'Nordeste'; pacDias = '9–12'; sedexDias = '3–5'; freePrazo = '8–11'; }
-    else if (prefix >= 57 && prefix <= 63) { regiao = 'Norte / Centro-Oeste'; pacDias = '10–14'; sedexDias = '4–6'; freePrazo = '9–13'; }
-    else if (prefix >= 64 && prefix <= 65) { regiao = 'Piauí / Maranhão'; pacDias = '10–13'; sedexDias = '4–5'; freePrazo = '9–12'; }
-    else if (prefix >= 66 && prefix <= 68) { regiao = 'Pará / Amapá'; pacDias = '12–16'; sedexDias = '5–7'; freePrazo = '11–15'; }
-    else if (prefix >= 69 && prefix <= 69) { regiao = 'Roraima / Amazonas'; pacDias = '14–18'; sedexDias = '6–8'; freePrazo = '13–17'; }
-    else if (prefix >= 70 && prefix <= 73) { regiao = 'Distrito Federal'; pacDias = '7–9'; sedexDias = '2–3'; freePrazo = '6–8'; }
-    else if (prefix >= 74 && prefix <= 76) { regiao = 'Goiás / Tocantins'; pacDias = '8–11'; sedexDias = '3–4'; freePrazo = '7–10'; }
-    else if (prefix >= 77 && prefix <= 77) { regiao = 'Tocantins / Pará'; pacDias = '10–13'; sedexDias = '4–5'; freePrazo = '9–12'; }
-    else if (prefix >= 78 && prefix <= 78) { regiao = 'Mato Grosso'; pacDias = '9–12'; sedexDias = '3–5'; freePrazo = '8–11'; }
-    else if (prefix >= 79 && prefix <= 79) { regiao = 'Mato Grosso do Sul'; pacDias = '8–11'; sedexDias = '3–4'; freePrazo = '7–10'; }
-    else if (prefix >= 80 && prefix <= 87) { regiao = 'Paraná'; pacDias = '6–8'; sedexDias = '2–3'; freePrazo = '5–7'; }
-    else if (prefix >= 88 && prefix <= 89) { regiao = 'Santa Catarina'; pacDias = '7–9'; sedexDias = '2–3'; freePrazo = '6–8'; }
-    else if (prefix >= 90 && prefix <= 99) { regiao = 'Rio Grande do Sul'; pacDias = '7–10'; sedexDias = '2–4'; freePrazo = '6–9'; }
-    else { regiao = 'Região identificada'; pacDias = '8–12'; sedexDias = '3–5'; freePrazo = '7–11'; }
+    if (prefix >= 1 && prefix <= 19) {
+      regiao = "São Paulo (capital)";
+      pacDias = "5–7";
+      sedexDias = "1–2";
+      freePrazo = "4–6";
+    } else if (prefix >= 20 && prefix <= 28) {
+      regiao = "Rio de Janeiro";
+      pacDias = "6–8";
+      sedexDias = "2";
+      freePrazo = "5–7";
+    } else if (prefix >= 29 && prefix <= 39) {
+      regiao = "Minas Gerais / Espírito Santo";
+      pacDias = "6–9";
+      sedexDias = "2–3";
+      freePrazo = "5–8";
+    } else if (prefix >= 40 && prefix <= 48) {
+      regiao = "Bahia";
+      pacDias = "8–12";
+      sedexDias = "3–4";
+      freePrazo = "7–10";
+    } else if (prefix >= 49 && prefix <= 56) {
+      regiao = "Nordeste";
+      pacDias = "9–12";
+      sedexDias = "3–5";
+      freePrazo = "8–11";
+    } else if (prefix >= 57 && prefix <= 63) {
+      regiao = "Norte / Centro-Oeste";
+      pacDias = "10–14";
+      sedexDias = "4–6";
+      freePrazo = "9–13";
+    } else if (prefix >= 64 && prefix <= 65) {
+      regiao = "Piauí / Maranhão";
+      pacDias = "10–13";
+      sedexDias = "4–5";
+      freePrazo = "9–12";
+    } else if (prefix >= 66 && prefix <= 68) {
+      regiao = "Pará / Amapá";
+      pacDias = "12–16";
+      sedexDias = "5–7";
+      freePrazo = "11–15";
+    } else if (prefix >= 69 && prefix <= 69) {
+      regiao = "Roraima / Amazonas";
+      pacDias = "14–18";
+      sedexDias = "6–8";
+      freePrazo = "13–17";
+    } else if (prefix >= 70 && prefix <= 73) {
+      regiao = "Distrito Federal";
+      pacDias = "7–9";
+      sedexDias = "2–3";
+      freePrazo = "6–8";
+    } else if (prefix >= 74 && prefix <= 76) {
+      regiao = "Goiás / Tocantins";
+      pacDias = "8–11";
+      sedexDias = "3–4";
+      freePrazo = "7–10";
+    } else if (prefix >= 77 && prefix <= 77) {
+      regiao = "Tocantins / Pará";
+      pacDias = "10–13";
+      sedexDias = "4–5";
+      freePrazo = "9–12";
+    } else if (prefix >= 78 && prefix <= 78) {
+      regiao = "Mato Grosso";
+      pacDias = "9–12";
+      sedexDias = "3–5";
+      freePrazo = "8–11";
+    } else if (prefix >= 79 && prefix <= 79) {
+      regiao = "Mato Grosso do Sul";
+      pacDias = "8–11";
+      sedexDias = "3–4";
+      freePrazo = "7–10";
+    } else if (prefix >= 80 && prefix <= 87) {
+      regiao = "Paraná";
+      pacDias = "6–8";
+      sedexDias = "2–3";
+      freePrazo = "5–7";
+    } else if (prefix >= 88 && prefix <= 89) {
+      regiao = "Santa Catarina";
+      pacDias = "7–9";
+      sedexDias = "2–3";
+      freePrazo = "6–8";
+    } else if (prefix >= 90 && prefix <= 99) {
+      regiao = "Rio Grande do Sul";
+      pacDias = "7–10";
+      sedexDias = "2–4";
+      freePrazo = "6–9";
+    } else {
+      regiao = "Região identificada";
+      pacDias = "8–12";
+      sedexDias = "3–5";
+      freePrazo = "7–11";
+    }
 
     result.innerHTML = `
       <div class="frete-ok">
@@ -460,19 +550,21 @@ function simularFrete() {
 }
 
 function solicitarTroca() {
-  const pedido = document.getElementById('troca-pedido').value.trim();
-  const email = document.getElementById('troca-email').value.trim();
-  const motivo = document.getElementById('troca-motivo').value;
-  const res = document.getElementById('troca-resultado');
+  const pedido = document.getElementById("troca-pedido").value.trim();
+  const email = document.getElementById("troca-email").value.trim();
+  const motivo = document.getElementById("troca-motivo").value;
+  const res = document.getElementById("troca-resultado");
   if (!pedido || !email || !motivo) {
-    res.style.display = 'block';
-    res.innerHTML = '<div class="frete-error"><i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios.</div>';
+    res.style.display = "block";
+    res.innerHTML =
+      '<div class="frete-error"><i class="fas fa-exclamation-circle"></i> Preencha todos os campos obrigatórios.</div>';
     return;
   }
-  res.style.display = 'block';
-  res.innerHTML = '<div class="frete-loading"><i class="fas fa-spinner fa-spin"></i> Enviando solicitação...</div>';
+  res.style.display = "block";
+  res.innerHTML =
+    '<div class="frete-loading"><i class="fas fa-spinner fa-spin"></i> Enviando solicitação...</div>';
   setTimeout(() => {
-    const proto = 'TR' + Date.now().toString().slice(-6);
+    const proto = "TR" + Date.now().toString().slice(-6);
     res.innerHTML = `
       <div class="troca-success">
         <div class="success-icon-sm"><i class="fas fa-check-circle"></i></div>
@@ -484,16 +576,20 @@ function solicitarTroca() {
 }
 
 function renderOrders() {
-  const el = document.getElementById('orders-list');
+  const el = document.getElementById("orders-list");
   if (!el) return;
-  trackedOrders = JSON.parse(localStorage.getItem('myoboku_orders') || '[]');
+  trackedOrders = JSON.parse(localStorage.getItem("myoboku_orders") || "[]");
   if (trackedOrders.length === 0) {
-    el.innerHTML = '<div class="empty-orders"><i class="fas fa-box-open"></i><p>Nenhum pedido encontrado.<br>Após finalizar uma compra, ela aparecerá aqui.</p></div>';
+    el.innerHTML =
+      '<div class="empty-orders"><i class="fas fa-box-open"></i><p>Nenhum pedido encontrado.<br>Após finalizar uma compra, ela aparecerá aqui.</p></div>';
     return;
   }
-  el.innerHTML = trackedOrders.slice().reverse().map(order => {
-    const steps = getOrderSteps(order);
-    return `
+  el.innerHTML = trackedOrders
+    .slice()
+    .reverse()
+    .map((order) => {
+      const steps = getOrderSteps(order);
+      return `
     <div class="order-card">
       <div class="order-card-header">
         <div>
@@ -502,51 +598,91 @@ function renderOrders() {
         </div>
         <span class="order-status-badge status-${order.statusCode}">${order.statusLabel}</span>
       </div>
-      <div class="order-items-preview">${order.items.map(i => `<span>${i.name} (${i.size}) x${i.qty}</span>`).join('')}</div>
+      <div class="order-items-preview">${order.items.map((i) => `<span>${i.name} (${i.size}) x${i.qty}</span>`).join("")}</div>
       <div class="order-track-steps">
-        ${steps.map(s => `<div class="ots-step ${s.done ? 'done' : ''} ${s.current ? 'current' : ''}">
+        ${steps
+          .map(
+            (
+              s,
+            ) => `<div class="ots-step ${s.done ? "done" : ""} ${s.current ? "current" : ""}">
           <div class="ots-dot"><i class="fas ${s.icon}"></i></div>
           <div class="ots-label">${s.label}</div>
-          ${s.date ? `<div class="ots-date">${s.date}</div>` : ''}
-        </div>`).join('<div class="ots-line"></div>')}
+          ${s.date ? `<div class="ots-date">${s.date}</div>` : ""}
+        </div>`,
+          )
+          .join('<div class="ots-line"></div>')}
       </div>
-      ${order.trackCode ? `<div class="order-correios">Código Correios: <strong>${order.trackCode}</strong></div>` : ''}
+      ${order.trackCode ? `<div class="order-correios">Código Correios: <strong>${order.trackCode}</strong></div>` : ""}
     </div>`;
-  }).join('');
+    })
+    .join("");
 }
 
 function getOrderSteps(order) {
   const sc = order.statusCode;
   const now = order.date;
   const steps = [
-    { icon: 'fa-check', label: 'Pedido confirmado', done: sc >= 0, current: sc === 0, date: sc >= 0 ? now : null },
-    { icon: 'fa-box', label: 'Em preparação', done: sc >= 1, current: sc === 1, date: sc >= 1 ? addDays(order.dateRaw, 1) : null },
-    { icon: 'fa-shipping-fast', label: 'Enviado', done: sc >= 2, current: sc === 2, date: sc >= 2 ? addDays(order.dateRaw, 2) : null },
-    { icon: 'fa-map-marker-alt', label: 'Em trânsito', done: sc >= 3, current: sc === 3, date: sc >= 3 ? addDays(order.dateRaw, 3) : null },
-    { icon: 'fa-home', label: 'Entregue', done: sc >= 4, current: sc === 4, date: sc >= 4 ? addDays(order.dateRaw, 8) : null },
+    {
+      icon: "fa-check",
+      label: "Pedido confirmado",
+      done: sc >= 0,
+      current: sc === 0,
+      date: sc >= 0 ? now : null,
+    },
+    {
+      icon: "fa-box",
+      label: "Em preparação",
+      done: sc >= 1,
+      current: sc === 1,
+      date: sc >= 1 ? addDays(order.dateRaw, 1) : null,
+    },
+    {
+      icon: "fa-shipping-fast",
+      label: "Enviado",
+      done: sc >= 2,
+      current: sc === 2,
+      date: sc >= 2 ? addDays(order.dateRaw, 2) : null,
+    },
+    {
+      icon: "fa-map-marker-alt",
+      label: "Em trânsito",
+      done: sc >= 3,
+      current: sc === 3,
+      date: sc >= 3 ? addDays(order.dateRaw, 3) : null,
+    },
+    {
+      icon: "fa-home",
+      label: "Entregue",
+      done: sc >= 4,
+      current: sc === 4,
+      date: sc >= 4 ? addDays(order.dateRaw, 8) : null,
+    },
   ];
   return steps;
 }
 
 function addDays(dateStr, days) {
-  if (!dateStr) return '';
+  if (!dateStr) return "";
   const d = new Date(dateStr);
   d.setDate(d.getDate() + days);
-  return d.toLocaleDateString('pt-BR');
+  return d.toLocaleDateString("pt-BR");
 }
 
 function buscarRastreio() {
-  const val = document.getElementById('track-input').value.trim().toUpperCase();
-  const res = document.getElementById('track-resultado');
+  const val = document.getElementById("track-input").value.trim().toUpperCase();
+  const res = document.getElementById("track-resultado");
   if (!val) return;
-  trackedOrders = JSON.parse(localStorage.getItem('myoboku_orders') || '[]');
-  const order = trackedOrders.find(o => o.id === val || (o.trackCode && o.trackCode === val));
+  trackedOrders = JSON.parse(localStorage.getItem("myoboku_orders") || "[]");
+  const order = trackedOrders.find(
+    (o) => o.id === val || (o.trackCode && o.trackCode === val),
+  );
   if (!order) {
-    res.style.display = 'block';
-    res.innerHTML = '<div class="frete-error"><i class="fas fa-search"></i> Pedido não encontrado. Verifique o código e tente novamente.</div>';
+    res.style.display = "block";
+    res.innerHTML =
+      '<div class="frete-error"><i class="fas fa-search"></i> Pedido não encontrado. Verifique o código e tente novamente.</div>';
     return;
   }
-  res.style.display = 'block';
+  res.style.display = "block";
   const steps = getOrderSteps(order);
   res.innerHTML = `
     <div class="order-card">
@@ -555,17 +691,23 @@ function buscarRastreio() {
         <span class="order-status-badge status-${order.statusCode}">${order.statusLabel}</span>
       </div>
       <div class="order-track-steps">
-        ${steps.map(s => `<div class="ots-step ${s.done ? 'done' : ''} ${s.current ? 'current' : ''}">
+        ${steps
+          .map(
+            (
+              s,
+            ) => `<div class="ots-step ${s.done ? "done" : ""} ${s.current ? "current" : ""}">
           <div class="ots-dot"><i class="fas ${s.icon}"></i></div>
           <div class="ots-label">${s.label}</div>
-          ${s.date ? `<div class="ots-date">${s.date}</div>` : ''}
-        </div>`).join('<div class="ots-line"></div>')}
+          ${s.date ? `<div class="ots-date">${s.date}</div>` : ""}
+        </div>`,
+          )
+          .join('<div class="ots-line"></div>')}
       </div>
     </div>`;
 }
 
 function saveOrderToTracking(orderData) {
-  trackedOrders = JSON.parse(localStorage.getItem('myoboku_orders') || '[]');
+  trackedOrders = JSON.parse(localStorage.getItem("myoboku_orders") || "[]");
   trackedOrders.push(orderData);
-  localStorage.setItem('myoboku_orders', JSON.stringify(trackedOrders));
+  localStorage.setItem("myoboku_orders", JSON.stringify(trackedOrders));
 }

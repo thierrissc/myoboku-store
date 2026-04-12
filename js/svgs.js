@@ -352,5 +352,5 @@ const PRODUCT_SVGS = {
     <!-- forehead protector clip -->
     <rect x="80" y="68" width="40" height="12" rx="4" fill="#8A8A8A"/>
     <text x="100" y="78" text-anchor="middle" font-size="7" fill="#4A4A4A">&#x6728;&#x8449;</text>
-  </svg>`
+  </svg>`,
 };
