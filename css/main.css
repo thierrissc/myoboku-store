@@ -4509,41 +4509,65 @@ footer {
   border-color: rgba(196, 145, 90, 0.7);
 }
 
+.page-jiraiya .product-add-btn {
+  border-color: var(--red);
+}
 .page-jiraiya .product-add-btn:hover {
   background: var(--red);
   border-color: var(--red);
 }
 
+.page-gamabunta .product-add-btn {
+  border-color: #8b2015;
+}
 .page-gamabunta .product-add-btn:hover {
   background: #8b2015;
   border-color: #8b2015;
 }
 
+.page-fukasaku .product-add-btn {
+  border-color: #4a6225;
+}
 .page-fukasaku .product-add-btn:hover {
   background: #4a6225;
   border-color: #4a6225;
 }
 
+.page-shima .product-add-btn {
+  border-color: #7b5ea7;
+}
 .page-shima .product-add-btn:hover {
   background: #7b5ea7;
   border-color: #7b5ea7;
 }
 
+.page-gamaken .product-add-btn {
+  border-color: #b8365a;
+}
 .page-gamaken .product-add-btn:hover {
   background: #b8365a;
   border-color: #b8365a;
 }
 
+.page-gamahiro .product-add-btn {
+  border-color: #2e7daf;
+}
 .page-gamahiro .product-add-btn:hover {
   background: #2e7daf;
   border-color: #2e7daf;
 }
 
+.page-naruto .product-add-btn {
+  border-color: #e87020;
+}
 .page-naruto .product-add-btn:hover {
   background: #e87020;
   border-color: #e87020;
 }
 
+.page-gamamaru .product-add-btn {
+  border-color: #8a6020;
+}
 .page-gamamaru .product-add-btn:hover {
   background: #8a6020;
   border-color: #8a6020;
