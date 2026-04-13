@@ -563,10 +563,6 @@ header {
   color: var(--text) !important;
 }
 
-.nav-dropdown-item--naruto:hover {
-  background: rgba(232, 112, 32, 0.12) !important;
-}
-
 .nav-dot {
   width: 9px;
   height: 9px;
@@ -4388,5 +4384,395 @@ footer {
     text-align: center;
     margin-left: 0;
     margin-top: 0.25rem;
+  }
+}
+
+.nav-dropdown-item--jiraiya:hover {
+  background: rgba(192, 57, 43, 0.12) !important;
+}
+.nav-dropdown-item--gamabunta:hover {
+  background: rgba(139, 32, 21, 0.14) !important;
+}
+.nav-dropdown-item--fukasaku:hover {
+  background: rgba(74, 98, 37, 0.14) !important;
+}
+.nav-dropdown-item--shima:hover {
+  background: rgba(123, 94, 167, 0.14) !important;
+}
+.nav-dropdown-item--gamaken:hover {
+  background: rgba(184, 54, 90, 0.14) !important;
+}
+.nav-dropdown-item--gamahiro:hover {
+  background: rgba(46, 125, 175, 0.14) !important;
+}
+.nav-dropdown-item--naruto:hover {
+  background: rgba(232, 112, 32, 0.14) !important;
+}
+.nav-dropdown-item--gamamaru:hover {
+  background: rgba(196, 145, 90, 0.14) !important;
+}
+
+.sidebar-link[data-page="jiraiya"]:hover,
+.sidebar-link[data-page="jiraiya"].active {
+  border-left-color: var(--red);
+  background: rgba(192, 57, 43, 0.06);
+}
+.sidebar-link[data-page="gamabunta"]:hover,
+.sidebar-link[data-page="gamabunta"].active {
+  border-left-color: #8b2015;
+  background: rgba(139, 32, 21, 0.07);
+}
+.sidebar-link[data-page="fukasaku"]:hover,
+.sidebar-link[data-page="fukasaku"].active {
+  border-left-color: #4a6225;
+  background: rgba(74, 98, 37, 0.07);
+}
+.sidebar-link[data-page="shima"]:hover,
+.sidebar-link[data-page="shima"].active {
+  border-left-color: #7b5ea7;
+  background: rgba(123, 94, 167, 0.07);
+}
+.sidebar-link[data-page="gamaken"]:hover,
+.sidebar-link[data-page="gamaken"].active {
+  border-left-color: #b8365a;
+  background: rgba(184, 54, 90, 0.07);
+}
+.sidebar-link[data-page="gamahiro"]:hover,
+.sidebar-link[data-page="gamahiro"].active {
+  border-left-color: #2e7daf;
+  background: rgba(46, 125, 175, 0.07);
+}
+.sidebar-link[data-page="naruto"]:hover,
+.sidebar-link[data-page="naruto"].active {
+  border-left-color: #e87020;
+  background: rgba(232, 112, 32, 0.07);
+}
+.sidebar-link[data-page="gamamaru"]:hover,
+.sidebar-link[data-page="gamamaru"].active {
+  border-left-color: #c4915a;
+  background: rgba(196, 145, 90, 0.07);
+}
+
+.page-jiraiya .product-card {
+  border-color: rgba(192, 57, 43, 0.25);
+}
+.page-jiraiya .product-card:hover {
+  border-color: rgba(192, 57, 43, 0.65);
+}
+
+.page-gamabunta .product-card {
+  border-color: rgba(139, 32, 21, 0.3);
+}
+.page-gamabunta .product-card:hover {
+  border-color: rgba(139, 32, 21, 0.7);
+}
+
+.page-fukasaku .product-card {
+  border-color: rgba(74, 98, 37, 0.3);
+}
+.page-fukasaku .product-card:hover {
+  border-color: rgba(74, 98, 37, 0.7);
+}
+
+.page-shima .product-card {
+  border-color: rgba(123, 94, 167, 0.3);
+}
+.page-shima .product-card:hover {
+  border-color: rgba(123, 94, 167, 0.7);
+}
+
+.page-gamaken .product-card {
+  border-color: rgba(184, 54, 90, 0.3);
+}
+.page-gamaken .product-card:hover {
+  border-color: rgba(184, 54, 90, 0.7);
+}
+
+.page-gamahiro .product-card {
+  border-color: rgba(46, 125, 175, 0.3);
+}
+.page-gamahiro .product-card:hover {
+  border-color: rgba(46, 125, 175, 0.7);
+}
+
+.page-naruto .product-card {
+  border-color: rgba(232, 112, 32, 0.3);
+}
+.page-naruto .product-card:hover {
+  border-color: rgba(232, 112, 32, 0.7);
+}
+
+.page-gamamaru .product-card {
+  border-color: rgba(196, 145, 90, 0.3);
+}
+.page-gamamaru .product-card:hover {
+  border-color: rgba(196, 145, 90, 0.7);
+}
+
+.page-jiraiya .product-add-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.page-gamabunta .product-add-btn:hover {
+  background: #8b2015;
+  border-color: #8b2015;
+}
+
+.page-fukasaku .product-add-btn:hover {
+  background: #4a6225;
+  border-color: #4a6225;
+}
+
+.page-shima .product-add-btn:hover {
+  background: #7b5ea7;
+  border-color: #7b5ea7;
+}
+
+.page-gamaken .product-add-btn:hover {
+  background: #b8365a;
+  border-color: #b8365a;
+}
+
+.page-gamahiro .product-add-btn:hover {
+  background: #2e7daf;
+  border-color: #2e7daf;
+}
+
+.page-naruto .product-add-btn:hover {
+  background: #e87020;
+  border-color: #e87020;
+}
+
+.page-gamamaru .product-add-btn:hover {
+  background: #8a6020;
+  border-color: #8a6020;
+}
+
+.page-shima .section-title em,
+.page-shima .section-label {
+  color: #7b5ea7;
+}
+.page-shima .divider {
+  background: linear-gradient(90deg, #7b5ea7, transparent);
+}
+.page-shima .product-tag {
+  background: #7b5ea7;
+}
+.page-shima .product-price {
+  color: #c4b0e8;
+}
+
+.page-gamaken .section-title em,
+.page-gamaken .section-label {
+  color: #b8365a;
+}
+.page-gamaken .divider {
+  background: linear-gradient(90deg, #b8365a, transparent);
+}
+.page-gamaken .product-tag {
+  background: #b8365a;
+}
+.page-gamaken .product-price {
+  color: #e8789a;
+}
+
+.page-gamahiro .section-title em,
+.page-gamahiro .section-label {
+  color: #2e7daf;
+}
+.page-gamahiro .divider {
+  background: linear-gradient(90deg, #2e7daf, transparent);
+}
+.page-gamahiro .product-tag {
+  background: #2e7daf;
+}
+.page-gamahiro .product-price {
+  color: #7ec8e3;
+}
+
+footer {
+  background: #0e0e0e;
+  border-top: 1px solid rgba(192, 57, 43, 0.18);
+  padding: 5rem 2rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+footer::before {
+  content: "油";
+  position: absolute;
+  right: -1rem;
+  bottom: -2rem;
+  font-family: "Cinzel Decorative", serif;
+  font-size: 14rem;
+  color: var(--red);
+  opacity: 0.025;
+  pointer-events: none;
+  line-height: 1;
+}
+
+.footer-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2.2fr 1fr 1fr 1fr;
+  gap: 3.5rem;
+  margin-bottom: 4rem;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.footer-brand-name {
+  font-family: "Cinzel Decorative", serif;
+  font-size: 1.15rem;
+  color: var(--cream);
+  letter-spacing: 0.05em;
+}
+
+.footer-brand-name span {
+  color: var(--red);
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.9;
+  max-width: 300px;
+}
+
+.footer-pay {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-pay i {
+  font-size: 1.6rem;
+  color: rgba(240, 230, 211, 0.25);
+  transition: color 0.2s;
+}
+
+.footer-pay i:hover {
+  color: rgba(240, 230, 211, 0.55);
+}
+
+.footer-col h4 {
+  font-family: "Cinzel", serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.38em;
+  color: var(--red);
+  text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid rgba(192, 57, 43, 0.2);
+}
+
+.footer-col a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 0.88rem;
+  margin-bottom: 0.75rem;
+  transition:
+    color 0.2s,
+    gap 0.2s;
+}
+
+.footer-col a:hover {
+  color: var(--cream);
+  gap: 0.75rem;
+}
+
+.footer-col a::before {
+  content: "›";
+  color: var(--red);
+  opacity: 0;
+  font-size: 1rem;
+  line-height: 1;
+  transition: opacity 0.2s;
+}
+
+.footer-col a:hover::before {
+  opacity: 1;
+}
+
+.footer-toad-link {
+  display: flex !important;
+  align-items: center;
+  gap: 0.6rem !important;
+  margin-bottom: 0.65rem !important;
+}
+
+.footer-toad-link::before {
+  display: none !important;
+}
+
+.footer-toad-link .footer-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  opacity: 0.8;
+  transition:
+    opacity 0.2s,
+    transform 0.2s;
+}
+
+.footer-toad-link:hover .footer-dot {
+  opacity: 1;
+  transform: scale(1.3);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(240, 230, 211, 0.06);
+  padding: 1.5rem 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-copy {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+.footer-tagline {
+  font-family: "Cinzel", serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: rgba(192, 57, 43, 0.5);
+}
+
+@media (max-width: 900px) {
+  .footer-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .footer-brand {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 540px) {
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
   }
 }
